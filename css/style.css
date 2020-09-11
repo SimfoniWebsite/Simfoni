@@ -53,6 +53,10 @@ nav a {
     justify-content: space-between;
     align-items: center;
   }
+  /*adjusts active page text color to blue*/
+  .active-page{
+    color: #678b99;
+  }
   .menu li a {
     display: block;
     padding: 15px 5px;
@@ -221,6 +225,9 @@ img{
 }
 section li {
     text-align: left;
+}
+@media all and (max-width: 600px) {
+
 }
 
 /*disclaimer style*/
