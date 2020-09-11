@@ -5,6 +5,11 @@ body{
     font-family: 'Montserrat', sans-serif;
     
 }
+/*set fontawesome icon tags font-family*/
+i{
+  font-family: fontawesome;
+  font-style: normal;
+}
 ul{
     margin: 0;
 }
