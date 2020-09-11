@@ -24,7 +24,10 @@ nav a {
   .submenu {
     list-style-type: none;
 }
-
+.logo {
+    font-size: 20px;
+    padding: 7.5px 10px 7.5px 0;
+}
 .item.button {
     padding: 9px 5px;
   }
@@ -146,7 +149,8 @@ nav a {
       background: none;
     }
     .logo {
-      order: 0;
+        display: none;
+      /*order: 0;*/
     }
     .item {
       order: 1;
@@ -177,7 +181,7 @@ nav a {
 header{
     font-family: 'Raleway', sans-serif;
     font-size: 1.5em;
-    background-image: url("shapelined-K9QHL52rE2k-unsplash.jpg");
+    background-image: url("../img/shapelined-K9QHL52rE2k-unsplash.jpg");
     background-size: auto;
     background-position: center;
     color: #bbb;
@@ -198,6 +202,9 @@ section{
 section h2{
     font-size: 2em;
 }
+img{
+    border-radius: 10px;
+}
 .section-flex{
     display:flex;
     justify-content: space-evenly;
@@ -206,6 +213,9 @@ section h2{
 .development-flex{
     display: flex;
     justify-content: space-evenly;
+}
+section li {
+    text-align: left;
 }
 
 /*disclaimer style*/
