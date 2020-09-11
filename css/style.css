@@ -1,3 +1,10 @@
+/* General Style
+Color Palette:
+Logo Colors: #678b99 (darker blue), #46697d (lighter blue)
+Text colors: #0a090c(black), white
+*/
+
+
 /*reset browser defaults and main font style*/
 body{
     box-sizing: border-box;
@@ -30,16 +37,17 @@ nav a {
   .submenu {
     list-style-type: none;
 }
+/*
 .logo {
     font-size: 20px;
     padding: 7.5px 10px 7.5px 0;
-}
+}*/
 .item.button {
     padding: 9px 5px;
   }
   .item:not(.button) a:hover,
   .item a:hover::after {
-    color: #ccc;
+    color: rgb(156, 156, 156);
   }
 .sticky{
     position:fixed;
@@ -158,10 +166,11 @@ nav a {
       flex-wrap: nowrap;
       background: none;
     }
+    /*
     .logo {
         display: none;
-      /*order: 0;*/
-    }
+      order: 0;
+    }*/
     .item {
       order: 1;
       position: relative;
@@ -189,6 +198,7 @@ nav a {
 
 /*header styles*/
 header{
+    margin-top: 8vh;
     font-family: 'Raleway', sans-serif;
     background-image: url("../img/shapelined-K9QHL52rE2k-unsplash.jpg");
     background-size: auto;
@@ -199,15 +209,14 @@ header{
     justify-content: center;
     align-items: center;
     height: 40vh;
+    text-align: center;
 }
 header h1{
-  text-align: center;
   font-size: 2.5em;
 }
 header p{
   margin: 0 5%;
   font-size: 0.8em;
-  text-align: center;
 }
 /*page sections*/
 section{
@@ -242,7 +251,7 @@ section a {
   color: #678b99;
 }
 /*for tablet*/
-@media all and (max-width: 900px) {
+@media all and (max-width: 960px) {
   .section-flex{
     flex-direction: column;
     align-items: center;
