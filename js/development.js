@@ -1,6 +1,6 @@
 /*Development Page Javascript*/
 
-
+/*toggle organization form on radio button*/
 function toggleOrganization() {
     const org = document.querySelectorAll('input[name="indOrOrg"]');
     for (let item of org) {
