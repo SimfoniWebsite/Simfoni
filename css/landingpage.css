@@ -1,7 +1,13 @@
 /*Landing Page Main Sections*/
 
 /*page sections*/
+main{
+    scroll-snap-type: y proximity;
+    -webkit-scroll-snap-type: y proximity; 
+}
 section{
+    scroll-snap-align: center;
+    -webkit-scroll-snap-align: center;
     text-align: center;
     border-radius:5px;
     border:2px solid #bbb;
