@@ -1,4 +1,4 @@
-
+//Common script file for all pages//
 //Navigation Bar Functionality
 //Selecting DOM Elements
 const toggle = document.querySelector(".toggle");
