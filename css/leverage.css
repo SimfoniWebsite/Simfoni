@@ -1,0 +1,71 @@
+/* General Style
+Color Palette:
+Logo Colors: #678b99 (darker blue), #46697d (lighter blue)
+Text colors: #0a090c(black), white
+*/
+
+/*********************************************
+* Header styles
+*********************************************/
+
+
+.container-grid {
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: auto;
+    grid-gap: 10px;
+}
+.container-grid div:nth-child(even) {background-color: rgb(207, 127, 61);}
+.container-grid div:nth-child(odd) {background-color: rgb(191, 121, 219);}
+
+.free-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    
+    grid-gap: 2%;
+}
+.free-grid div:nth-child(even) {background-color: rgb(110, 204, 165);}
+.free-grid div:nth-child(odd) {background-color: rgb(228, 226, 112);}
+
+
+.grid__img {
+    width: 100%;
+   /* border: solid 3px blue;*/
+    align-content: right;
+}
+
+
+
+
+
+p {margin: 0 1%;
+font-size: 1.6em;
+
+text-align:center;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #678b99;
+    margin-left: 20px;
+    /*border-bottom: dashed 0.5vh #46697d;*/
+    margin-top: 20px;
+    height: auto;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #678b99;
+    margin-left: 20px;
+    /*border-bottom: dashed 0.5vh #46697d;*/
+    margin-top: 20px;
+    height: auto;
+}
+.space{
+    height: 250px;
+}
+
+/*
+@media screen and (min-width: 736px) {
+
+}
