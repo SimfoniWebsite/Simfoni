@@ -1,0 +1,36 @@
+/* General Style
+Color Palette:
+Logo Colors: #678b99 (darker blue), #46697d (lighter blue)
+Text colors: #0a090c(black), white
+*/
+.grid-container{
+    padding:16px;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(500px,1fr));
+    /*grid-template-columns: repeat(4, minmax(350px,1fr));*/
+}
+.grid-item{
+    margin:8px 8px 40px 8px;
+    padding: 8px;
+    /*background-color: #46697d;*/
+}
+.img1{
+    width: 100%;
+}
+
+      
+ 
+  
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 
+  
