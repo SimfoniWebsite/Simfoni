@@ -12,3 +12,13 @@ form{
 .input-box{
     padding: 0.5em;
 }
+/*reveal organization boxes if radio button activated*/
+.reveal-if-active {
+    display: block;
+  }
+.organization-form{
+    
+}
+.hidden{
+    display: none;
+}
