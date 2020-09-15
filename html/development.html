@@ -69,6 +69,22 @@
     </header>
     <!--Page Sections-->
     <div class="development-form"></div>
+    <section>
+        <h2>Check Status of Development Submission</h2>
+        <div class="input-box">
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name='fname' placeholder="John" required>
+        </div>
+        <div class="input-box">
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name='lname' placeholder="Doe" required>
+        </div>
+        <div class="input-box">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name='email' placeholder="john.doe@gmail.com" required>
+        </div>
+        <button class="btn">Check Status</button>
+    </section>
     <form>
         <h2>Submit Your Development Needs</h2>
         <div class="input-box">
@@ -294,6 +310,23 @@
             <label for="subCost">Estimated Cost (If Known):</label>
             <input type="number" id="subCost" name='subCost'>
         </div>
+        <div class="input-box">
+            <label for="levOfInv">Point of Contact Level of Involement:</label>
+            <select>
+                <option value="orgTeconDev">Partnership</option>
+                <option value="orgTschool">Independent</option>
+                <option value="orgTpriBus">Autonomous</option>
+            </select>
+        </div>
+        <div class="input-box">
+            <label for="resourcesAva">Available Resources:</label><br>
+            <textarea id="resourcesAva" name='resourcesAva' rows="4" cols="33"></textarea>
+        </div>
+        <div class="input-box">
+            <label for="potPartners">Potential Partners/Project Coalition:</label><br>
+            <textarea id="potPartners" name='potPartners' rows="4" cols="33"></textarea>
+        </div>
+        <button class="btn">Submit</button>
     </form>
 
     <footer>
