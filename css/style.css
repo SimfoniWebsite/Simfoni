@@ -208,21 +208,31 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 40vh;
+    height: 35vh;
     text-align: center;
 }
 header h1{
-  font-size: 2.5em;
+  font-size: 3em;
 }
-header p{
+
+hr{
+  height: 5px;
+  background-color: #678b99;
+  width: 7vh;
+  margin-top: -20px;
+  border: none;
+}
+/*header p{
   margin: 0 5%;
   font-size: 0.8em;
 }
-
+*/
 /*disclaimer style*/
 .disclaimer{
     display: flex;
     justify-content: center;
+
+
 }
 /*disclaimer style*/
 .footer{
@@ -231,7 +241,7 @@ header p{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 15vh;
+    height: 10vh;
 }
 .footer-nav{
     list-style:none;
