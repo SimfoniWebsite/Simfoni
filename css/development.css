@@ -1,22 +1,18 @@
 /*Main Form Section*/
-section{
+
+.sec-form{
     margin: 2em auto;
     display: flex;
     flex-direction: column;
     border-radius:5px;
     border:1px solid #bbb;
     padding: 1em;
-    width: fit-content;
+    width: 30%;
+    -moz-width: fit-content;
+    -webkit-width: fit-content;
+    
 }
-form{
-    margin: 2em auto;
-    display: flex;
-    flex-direction: column;
-    border-radius:5px;
-    border:1px solid #bbb;
-    padding: 1em;
-    width: fit-content;
-}
+
 h2{
     text-align: center;
 }
@@ -28,13 +24,17 @@ h2{
 .reveal-if-active {
     display: block;
   }
-.organization-form{
-    
-}
+
 .hidden{
     display: none;
 }
 .btn{
     margin: auto;
+}
+button{
     width: 15ch;
+}
+
+.confirm{
+    text-align: center;
 }

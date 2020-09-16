@@ -37,9 +37,24 @@ function submitDev() {
     let subNeeds = document.getElementsByName('subNeeds');
     let subNeedArr = [];
     for (let item of subNeeds) {
-        if (item.checked) {   
+        if (item.checked) {
             subNeedArr.push(item.id);
         }
     }
     devObj.subNeeds = subNeedArr;
+    
+    /*resets all form fields*/
+    devSubmission.reset();
+    /*hide form field and display thank you.*/
+    document.querySelector('.confirm').classList.remove('hidden');
+    document.querySelector('#devForm').classList.add('hidden');
+}
+
+/*to enter a new form submission*/
+document.querySelector(".anotherSub").addEventListener('click', openForm);
+
+/*hides response and unhides form*/
+function openForm() {
+    document.querySelector('.confirm').classList.add('hidden');
+    document.querySelector('#devForm').classList.remove('hidden');
 }
