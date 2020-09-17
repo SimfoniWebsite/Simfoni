@@ -3,36 +3,12 @@ Color Palette:
 Logo Colors: #678b99 (darker blue), #46697d (lighter blue)
 Text colors: #0a090c(black), white
 */
-<<<<<<< Updated upstream
-=======
-.section-flex{
-    display:flex;
-    justify-content: space-evenly;
-    /*align-items: center;*/
-}
-.section-flex img{
-  width: 350px;
-  height: 250px;
-}
->>>>>>> Stashed changes
 .grid-container{
-    padding:16px;
-    display: grid;
-    gap: 16px;
-<<<<<<< Updated upstream
-    grid-template-columns: repeat(auto-fill, minmax(500px,1fr));
-    /*grid-template-columns: repeat(4, minmax(350px,1fr));*/
-}
-.grid-item{
-    margin:8px 8px 40px 8px;
-    padding: 8px;
-    /*background-color: #46697d;*/
-}
-.img1{
-    width: 100%;
-=======
-    grid-template-columns: repeat(auto-fill, minmax(100px,1fr));
-
+    padding:8px;
+    display: inline-grid;
+    gap: 8px;
+    float: center;
+    grid-template-columns: repeat(auto-fill, minmax(350px,1fr));
     /*grid-template-columns: repeat(4, minmax(350px,1fr));*/
 }
 .grid-item{
@@ -40,12 +16,25 @@ Text colors: #0a090c(black), white
     padding: 8px;
     /*background-color: #46697d;*/
 }
-.grid-container img{
-    width: 20%;
+.img1{
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(50px,1fr));
+    /*grid-template-columns: repeat(4, minmax(350px,1fr));*/
 }
-section{
+.grid-container img{
+    width: 100%;
+}
+/*.section{
   text-align: stretch;
->>>>>>> Stashed changes
+}*/
+.section-flex1{
+    display:flex;
+    justify-content: center;
+    /*justify-content: space-evenly;*/
+    align-items: center;
+}
+.button1{
+  margin-right: 20px;
 }
 
       
