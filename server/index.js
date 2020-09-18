@@ -4,16 +4,44 @@ const app = express();
 const PORT = 3000;
 const sql = require('mssql');
 
+/*database configuration*/
+const dbConfig = {
+    server: 'localhost\\SQLEXPRESS',
+    database: 'chinook',
+    user: 'simfoni',
+    password: 'simfoni',
+    options: {
+        "encrypt": true,
+        "enableArithAbort": true
+    }
+};
+/*connect to chinook database*/
+sql.connect(dbConfig, function (err) {
+    if (err) console.log(err);
+    // create Request object
+    var request = new sql.Request();
+    // query to the database and get the records
+    request.query('select * from dbo.Customer where CustomerId=1', function (err, recordset) {
+        if (err) console.log(err)
+        // send records as a response
+        console.log(recordset);
+    });
+});
 
+
+/*allow access to file directory*/
 const dir = path.join(__dirname, '../img');
 
+/*middleware to allow static file use and parse json objects*/
 app.use(express.static(dir));
 app.use(express.json());
 
+/*landingpage route*/
 app.get('/', (req, res) => {
     res.send('this is working');
 })
 
+/*signin page route*/
 app.post('/signin', (req, res) => {
     if (req.body.email === database.users[0].email && req.body.password === database.users[0].password) {
         res.json('success');
