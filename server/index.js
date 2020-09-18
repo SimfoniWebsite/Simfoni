@@ -29,12 +29,9 @@ sql.connect(dbConfig, function (err) {
 });
 
 
-/*allow access to file directory*/
-const dir = path.join(__dirname, '../img');
-
 /*middleware to allow static file use and parse json objects*/
-app.use(express.static(dir));
-app.use(express.json());
+
+app.use('/', require('./routes'));
 
 /*landingpage route*/
 app.get('/', (req, res) => {
@@ -49,21 +46,6 @@ app.post('/signin', (req, res) => {
         res.status(400).json('error logging in');
 })
 
-app.post('/register', (req, res) => {
-    const { email, name, password } = req.body;
-    database.users.push({
-        id: '3',
-        name: name,
-        email: email,
-        password: password,
-        joined: new Date()
-    })
-    res.json(database.users[database.users.length - 1]);
-})
-
-app.get('/venture', (req, res) => {
-    res.sendFile(dir + '/future-glasses.jpg');
-})
 
 app.listen(PORT, () => {
     console.log(`app is running on port ${PORT}`);
