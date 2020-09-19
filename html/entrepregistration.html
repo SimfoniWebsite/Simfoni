@@ -63,15 +63,15 @@
         <h1>Entrepreneur</h1>
     </header>
     <!--Page Sections-->
-    <div class="development-form"></div>
+    <!--<div class="development-form"></div>-->            <!--question-->
     <!--Tracking Development Needs Section-->
     <!--<section class="sec-form">
         <button class="btn checkStatus">Check Status</button>
     </section>-->
     <!--Submit Development Needs Form-->
-    <section class="sec-form">
+    <section class="sec-form">                                       <!--question-->
         <h2>Registration</h2>
-        <div class="confirm hidden">
+        <div class="confirm hidden">                                 <!--question-->
             <p>Thank you, we have received your submission.</p>
             <!--<button class="anotherSub">Yes</button>-->
         </div>
@@ -302,9 +302,16 @@
                 <input type="text" id="subZipCode" name='subZipCode'>
             </div>
             <div class="input-box">
-                    <label for="NAICS">Date of Birth:</label>
-                    <input type="text" id="naics" name='naics'>
+                    <label for="birthdate">Date of Birth:</label>
+                    <input type="text" id="birthdate" placeholder="dd/MM/yyyy" name='birthdate'>
             </div>
+
+
+            <!--<div id="from-datepicker" class="input-append date">
+            <label for="birthdate">Date of Birth</label>
+            <input data-format="dd/MM/yyyy" type="text" placeholder="dd/MM/yyyy"></input><span class="add-on" />
+            </div>-->
+
     <div class="input-box">
                 <label for="subDescription">Education Details:</label><br>
                 <textarea id="subDescription" name='subDescription' rows="4" cols="33"></textarea>
@@ -333,6 +340,14 @@
                 <label for="subDescription">Goals Survey:</label><br>
                 <textarea id="subDescription" name='subDescription' rows="4" cols="33"></textarea>
             </div>
+    <div class="input-box">
+                <label for="levOfInv">Managed Profile Services:</label>
+                <select name="levofInv">
+                    <option value="payasyougo">Pay As You Go</option>
+                    <option value="subscription">Subscription</option>
+                    <option value="credit">Credit</option>
+                </select>
+            </div>
             <!--<div class="input-box">
                 <label for="subCost">Estimated Cost (If Known):</label>
                 <input type="number" id="subCost" name='subCost'>
@@ -354,9 +369,11 @@
                 <textarea id="potPartners" name='potPartners' rows="4" cols="33"></textarea>
             </div>-->
             <!--preventDefault() prevents page from automatic submission of formdata-->
+            <div>
             <button class="btn submitDev" onclick="event.preventDefault()">Submit</button>
-
+            </div>
         </form>
+        <br/>
     </section>
 
     <footer>
