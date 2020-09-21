@@ -3,12 +3,13 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const sql = require('mssql');
+
 /*database configuration*/
 const dbConfig = {
-    server: 'localhost\\SQLEXPRESS',
-    database: 'test1',
-    user: 'Andres',
-    password: 'test',
+    server:  'localhost\\SQLEXPRESS',
+    database:  'test1',
+    user: 'simfoni',
+    password:  'simfoni',
     options: {
         "encrypt": true,
         "enableArithAbort": true
@@ -33,6 +34,6 @@ router.get('/', (req, res) => {
             console.log(recordset);
             res.json(recordset);
         });
-    });  
+    });
 });
 module.exports = router;

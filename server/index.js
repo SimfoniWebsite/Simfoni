@@ -1,36 +1,13 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const PORT = 3000;
+const cors = require('cors');
 const sql = require('mssql');
-
-/*database configuration*/
-const dbConfig = {
-    server: 'localhost\\SQLEXPRESS',
-    database: 'test1',
-    user: 'Andres',
-    password: 'test',
-    options: {
-        "encrypt": true,
-        "enableArithAbort": true
-    }
-};
-/*connect to chinook database*/
-sql.connect(dbConfig, function (err) {
-    if (err) console.log(err);
-    // create Request object
-    var request = new sql.Request();
-    // query to the database and get the records
-    request.query('select * from dbo.ImageTable where Id=1', function (err, recordset) {
-        if (err) console.log(err)
-        // send records as a response
-        console.log(recordset);
-    });
-});
+require('dotenv').config();
+const PORT = 3000;
 
 
-/*middleware to allow static file use and parse json objects*/
-
+app.use(cors());
 app.use('/', require('./routes'));
 
 /*landingpage route*/
