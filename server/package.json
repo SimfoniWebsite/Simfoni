@@ -1,7 +1,10 @@
 {
   "name": "node",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "",
+=======
+>>>>>>> entrepreneur
   "main": "server.js",
   "dependencies": {
     "express": "^4.17.1",
@@ -10,8 +13,16 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
     "start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC"
+=======
+    "start": "server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+>>>>>>> entrepreneur
 }
