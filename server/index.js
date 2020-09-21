@@ -7,9 +7,9 @@ const sql = require('mssql');
 /*database configuration*/
 const dbConfig = {
     server: 'localhost\\SQLEXPRESS',
-    database: 'chinook',
-    user: 'simfoni',
-    password: 'simfoni',
+    database: 'test1',
+    user: 'Andres',
+    password: 'test',
     options: {
         "encrypt": true,
         "enableArithAbort": true
@@ -21,7 +21,7 @@ sql.connect(dbConfig, function (err) {
     // create Request object
     var request = new sql.Request();
     // query to the database and get the records
-    request.query('select * from dbo.Customer where CustomerId=1', function (err, recordset) {
+    request.query('select * from dbo.ImageTable where Id=1', function (err, recordset) {
         if (err) console.log(err)
         // send records as a response
         console.log(recordset);
