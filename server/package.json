@@ -10,10 +10,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "start": "nodemon index.js"
 =======
     "start": "server.js"
 >>>>>>> c48f0a633125983f1b9e366918a9a0bcd0861997
+=======
+
+    "start": "server.js"
+
+>>>>>>> bab3406ea3a72864a7dcce5efc5e6a2fe2e84bc4
   },
   "author": "",
   "license": "ISC",
