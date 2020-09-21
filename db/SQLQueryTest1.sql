@@ -1,6 +1,6 @@
 CREATE DATABASE Test1
 
-CREATE TABLE Endeavor(
+/*CREATE TABLE Endeavor(
 EndeavorID INT Identity(1,1) Primary Key,
 EName varchar (150) not null,
 EStatus varchar (40) not null,
@@ -42,7 +42,7 @@ Insert into Base64Images values((select * from Openrowset(Bulk N'C:\db\Building2
 Insert into Venture values(1,(select * from Openrowset(Bulk N'C:\img\max-bottinger-Gup8MCvSsf0-unsplash.jpg',SINGLE_BLOB)as site));
 
 Insert into Base64Images values((select * from Openrowset(Bulk N'C:\db\Building2.jpg',SINGLE_BLOB)as site),Building2.jpg);
-
+*/
 CREATE TABLE ImageTable(
     Id int,
     Name varchar(50),
