@@ -20,7 +20,7 @@ h2{
 
 .input-box{
     padding: 0.5em;
-    display: flex;
+    /*display: flex;*/
     flex-direction: column;
 }
 /*reveal organization boxes if radio button activated*/
