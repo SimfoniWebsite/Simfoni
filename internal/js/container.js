@@ -46,10 +46,12 @@ function jsUcfirst(string) {
 /*Container 2 function*/
 document.querySelector('.questiontype').addEventListener('change', container2type);
 
+/*container 2 creation*/
 function container2type() {
     let type = document.querySelector('.questiontype').value;
     let question = document.createTextNode(document.getElementById('question').value);
     let div = document.createElement('div');
+    div.setAttribute('class', 'newCont');
     let label = document.createElement('label');
     label.appendChild(question);
     label.appendChild(document.createElement('br'));
@@ -183,7 +185,7 @@ function addContainer() {
     });
     document.querySelector('input[name=step]:checked').checked = false;
     /*if container is first in queue for container type move to current page*/
-    if (document.querySelectorAll(`#curPage .${type} div`).length === 0) {
+    if (document.querySelectorAll(`#curPage .${type} .newCont`).length === 0) {
         let firstqueue = document.querySelectorAll(`#entrepreneur .${type} div`)[0];
         let curpage = document.querySelector(`#curPage .${type}`);
         curpage.insertAdjacentElement('beforeEnd', firstqueue);
@@ -194,16 +196,19 @@ function addContainer() {
         document.getElementById('link').value = '';
         document.querySelector('.questiontype').value = '';
     }
-    /*
-    let s = new XMLSerializer();
-    let doc = s.serializeToString(queue);
-    console.log(doc);
-    let domparser = new DOMParser();
-    let doc2 = domparser.parseFromString(doc, 'text/html');
-    console.log(doc2);*/
 }
+
+
+
+
 /*
 fetch(url + `/container/${type}`)
     .then(response => response.json())
     .then(container => {
-        */
+      let s = new XMLSerializer();
+    let doc = s.serializeToString(queue);
+    console.log(doc);
+    let domparser = new DOMParser();
+    let doc2 = domparser.parseFromString(doc, 'text/html');
+    console.log(doc2);
+*/

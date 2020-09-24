@@ -3,7 +3,7 @@ body{
     box-sizing: border-box;
 }
 .container{
-    margin: 1%;
+    margin: 0 2%;
 }
 #board{
     display: flex;
@@ -11,10 +11,14 @@ body{
 .ent_page{
     flex: 1;
 }
+#curPage{
+    margin: 0 1%;
+}
 .ent_dev{
     display: flex;
 }
 .containers{
+    margin: 0 2%;
     flex: 1;
 }
 #todo{
