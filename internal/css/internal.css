@@ -11,6 +11,9 @@ body{
 .ent_page{
     flex: 1;
 }
+.ent_dev{
+    display: flex;
+}
 .containers{
     flex: 1;
 }
@@ -44,6 +47,7 @@ h4{
 }
 .drop-zone{
     height: 70vh;
+    flex: 1;
 }
 
 .hidden{
@@ -52,4 +56,22 @@ h4{
 .preview{
     border: 1px solid black;
     padding: 2%;
+}
+
+.container2{
+    border: 1px solid black;
+    padding: 0.5%;
+    margin: 1% 0;
+}
+.governance{
+ color:#bf9000;   
+}
+.intelligence{
+    color: #000000;
+}
+.coordination{
+    color: #1155cc;
+}
+.capital{
+    color: #678b99;
 }

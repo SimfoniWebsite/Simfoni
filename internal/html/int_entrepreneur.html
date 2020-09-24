@@ -26,12 +26,26 @@
             <div id="board">
                 <div class="ent_page">
                     <h2>Entrepreneur</h2>
-                    <div class="drop-zone" id="entrepreneur">
+                    <div class="ent_dev">
+                        <div class="drop-zone" id="entrepreneur">
+                            <h3>Current Page</h3>
+                        </div>
+                        <div class="drop-zone" id="entrepreneur">
+                            <h3>Queue</h3>
+                            <div class="type1"></div>
+                            <div class="type2"></div>
+                            <div class="type3"></div>
+                            <div class="type4"></div>
+                            <div class="type5"></div>
+                            <div class="type6"></div>
+                            <div class="type7"></div>
+                        </div>
                     </div>
                     <button>Submit</button>
                 </div>
                 <div class="containers">
                     <h2>Containers</h2>
+                    <p>Select type of container, color code, and type of step</p>
                     <label for="containertype">Container Type</label>
                     <select class="containertype" name="containertype">
                         <option value="none"></option>
@@ -43,6 +57,39 @@
                         <option value="type6">Type 6: Meeting Preparation/call checklist</option>
                         <option value="type7">Type 7: Chat/notes submission</option>
                     </select>
+
+                    <div class="colorChoice">
+                        <label for="colorChoice">Color Choice: (check all that apply)</label><br>
+                        <div class="governance">
+                            <input type="checkbox" id="governance" name='governance'><label
+                                for="colorChoice">Governance</label><br>
+                        </div>
+                        <div class="intelligence">
+                            <input type="checkbox" id="intelligence" name='intelligence'><label
+                                for="colorChoice">Intelligence</label><br>
+                        </div>
+                        <div class="coordination">
+                            <input type="checkbox" id="coordination" name='coordination'><label
+                                for="colorChoice">Coordination</label><br>
+                        </div>
+                        <div class="capital">
+                            <input type="checkbox" id="capital" name='capital'><label
+                                for="colorChoice">Capital</label><br>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="step">Container Step:</label><br>
+                        <input type="radio" id="goal" name="step" value="goal">
+                        <label for="goal">Goal</label>
+                        <input type="radio" id="problem" name="step" value="problem">
+                        <label for="problem">Problem</label>
+                        <input type="radio" id="diagnose" name="step" value="diagnose">
+                        <label for="diagnose">Diagnose</label>
+                        <input type="radio" id="design" name="step" value="design">
+                        <label for="design">Design</label>
+                        <input type="radio" id="doing" name="step" value="doing">
+                        <label for="doing">Doing</label>
+                    </div>
                     <div id="todo">
                         <div class="todo-item hidden" id="type1" draggable="true">
                             <div>
@@ -88,7 +135,7 @@
                             </div>
 
 
-                            <button>Add Container</button>
+                            <button class="add">Add Container</button>
                         </div>
                         <div class="todo-item hidden" id="type3" draggable="true">
                         </div>

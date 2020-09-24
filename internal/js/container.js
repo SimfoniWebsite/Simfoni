@@ -17,11 +17,14 @@ document.querySelector('.questiontype').addEventListener('change', container2typ
 function container2type() {
     let type = document.querySelector('.questiontype').value;
     let question = document.createTextNode(document.getElementById('question').value);
+    let div = document.createElement('div');
+    div.setAttribute('class', 'move');
     let label = document.createElement('label');
     label.appendChild(question);
     label.appendChild(document.createElement('br'));
     let element = '';
     let link = document.getElementById('link').value;
+    /*if provide link attached to container*/
     if (link != '') {
         let a = document.createElement('a');
         a.appendChild(document.createTextNode(link));
@@ -29,16 +32,98 @@ function container2type() {
         a.appendChild(document.createElement('br'));
         label.appendChild(a);
     }
+    /*create element based on selected type*/
     if (type === 'input_text') {
         element = document.createElement('input');
         element.setAttribute('type', 'text');
     } else if (type === 'textarea') {
         element = document.createElement('textarea');
     } else if (type === 'radio') {
-
+        element = document.createElement('div');
+        let numOfChoices = prompt('How many answers do you require?');
+        for (let i = 0; i < numOfChoices; i++) {
+            let input = document.createElement('input')
+            input.setAttribute('type', 'radio');
+            input.setAttribute('name', 'question')
+            element.appendChild(input);
+            let text = prompt(`Enter ${i + 1} choice`);
+            let radlabel = document.createElement('label');
+            let text2 = document.createTextNode(text);
+            radlabel.appendChild(text2);
+            element.appendChild(radlabel);
+        }
+    } else if (type === 'checkbox') {
+        element = document.createElement('div');
+        let numOfChoices = prompt('How many answers do you require?');
+        for (let i = 0; i < numOfChoices; i++) {
+            let input = document.createElement('input')
+            input.setAttribute('type', 'checkbox');
+            element.appendChild(input);
+            let text = prompt(`Enter ${i + 1} choice`);
+            let radlabel = document.createElement('label');
+            let text2 = document.createTextNode(text);
+            radlabel.appendChild(text2);
+            element.appendChild(radlabel);
+        }
+    } else if (type === 'dropdown') {
+        element = document.createElement('select');
+        let numOfChoices = prompt('How many answers do you require?');
+        for (let i = 0; i < numOfChoices; i++) {
+            let option = document.createElement('option')
+            let text = prompt(`Enter ${i + 1} choice`);
+            let text2 = document.createTextNode(text);
+            option.appendChild(text2);
+            element.appendChild(option);
+        }
+    } else if (type === 'linearScale') {
+        element = document.createElement('div');
+        let numOfChoices = prompt('What is end scale amount?');
+        for (let i = 0; i < numOfChoices; i++) {
+            let input = document.createElement('input')
+            input.setAttribute('type', 'radio');
+            input.setAttribute('name', 'question')
+            element.appendChild(input);
+            let text = i + 1;
+            let radlabel = document.createElement('label');
+            let text2 = document.createTextNode(text);
+            radlabel.appendChild(text2);
+            element.appendChild(radlabel);
+        }
     }
     label.appendChild(element);
-    document.querySelector('.preview').appendChild(label);
+    div.appendChild(label);
+    document.querySelector('.preview').appendChild(div);
+}
+
+
+
+
+
+
+
+/*add container to entrepreneur*/
+document.querySelectorAll('.add').forEach(item => {
+    item.addEventListener('click', addContainer);
+});
+
+function addContainer() {
+    let container = document.querySelector('.move');
+    let type = document.querySelector('.containertype').value;
+    let queue = document.querySelector(`.${type}`);
+    queue.insertAdjacentElement('beforeEnd',container);
+    queue.querySelector('.move').classList.add('container2')
+    queue.querySelector('.move').classList.remove('move');
+    console.log(queue);
+    if (type === 'type2') {
+        document.getElementById('question').value = '';
+        document.getElementById('link').value = '';
+    }
+    let s = new XMLSerializer();
+    let doc = s.serializeToString(queue);
+    console.log(doc);
+    let domparser = new DOMParser();
+    let doc2 = domparser.parseFromString(doc, 'text/html');
+    console.log(doc2);
 }
 /*
 fetch(url + `/container/${type}`)
