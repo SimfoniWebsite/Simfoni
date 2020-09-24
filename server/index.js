@@ -1,9 +1,7 @@
 const express = require('express');
-const path = require('path');
 const app = express();
 const cors = require('cors');
 const sql = require('mssql');
-require('dotenv').config();
 const PORT = 3000;
 
 

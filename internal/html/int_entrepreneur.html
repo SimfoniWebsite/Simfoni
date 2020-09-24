@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simfoni Community Development Corporation</title>
+    <link rel="stylesheet" type="text/css" href="../css/internal.css">
+    <link rel="stylesheet" type="text/css" href="../../css/container.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <!--Page Header-->
+        <header>
+            <h1>Simfoni Internal</h1>
+        </header>
+        <!--Page Sections-->
+        <main>
+            <div>
+                <p>Please select the entrepreneur</p>
+                <select class="entrepreneur" name="entrepreneur">
+                    <option value="none"></option>
+                </select>
+            </div>
+            <div id="board">
+                <div class="ent_page">
+                    <h2>Entrepreneur</h2>
+                    <div class="ent_dev">
+                        <div class="drop-zone" id='curPage'>
+                            <h3>Current Page</h3>
+                            <div class="type1"></div>
+                            <div class="type2"></div>
+                            <div class="type3"></div>
+                            <div class="type4"></div>
+                            <div class="type5"></div>
+                            <div class="type6"></div>
+                            <div class="type7"></div>
+                        </div>
+                        <div class="drop-zone" id="entrepreneur">
+                            <h3>Queue</h3>
+                            <div class="type1"></div>
+                            <div class="type2"></div>
+                            <div class="type3"></div>
+                            <div class="type4"></div>
+                            <div class="type5"></div>
+                            <div class="type6"></div>
+                            <div class="type7"></div>
+                        </div>
+                    </div>
+                    <button>Submit</button>
+                </div>
+                <div class="containers">
+                    <h2>Containers</h2>
+                    <p>Select type of color code, type of step and type of container</p>
+                    <div class="colorChoice">
+                        <label for="colorChoice">Color Choice: (check all that apply)</label><br>
+                        <div>
+                            <input type="checkbox" id="governance" name='colorChoice'><label style="color:#bf9000"
+                                for="colorChoice">Governance</label><br>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="intelligence" name='colorChoice'><label style="color:#000000"
+                                for="colorChoice">Intelligence</label><br>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="coordination" name='colorChoice'><label style="color: #1155cc"
+                                for="colorChoice">Coordination</label><br>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="capital" name='colorChoice'><label style="color:#678b99"
+                                for="colorChoice">Capital</label><br>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <label for="step">Container Step:</label><br>
+                        <input type="radio" id="goal" name="step" value="goal">
+                        <label for="goal">Goal</label>
+                        <input type="radio" id="problem" name="step" value="problem">
+                        <label for="problem">Problem</label>
+                        <input type="radio" id="diagnose" name="step" value="diagnose">
+                        <label for="diagnose">Diagnose</label>
+                        <input type="radio" id="design" name="step" value="design">
+                        <label for="design">Design</label>
+                        <input type="radio" id="doing" name="step" value="doing">
+                        <label for="doing">Doing</label>
+                    </div>
+                    <label for="containertype">Container Type</label>
+                    <select class="containertype" name="containertype">
+                        <option value="none"></option>
+                        <option value="type1">Type 1: Summary</option>
+                        <option value="type2">Type 2: Information Gathering</option>
+                        <option value="type3">Type 3: Information Sharing</option>
+                        <option value="type4">Type 4: Connection Request</option>
+                        <option value="type5">Type 5: Media Presentation</option>
+                        <option value="type6">Type 6: Meeting Preparation/call checklist</option>
+                        <option value="type7">Type 7: Chat/notes submission</option>
+                    </select>
+                    <div id="todo">
+                        <div class="todo-item hidden" id="type1" draggable="true">
+                            <div>
+                                <ul>
+                                    <li>Points: </li>
+                                    <li>Balance: </li>
+                                    <li>Limit: </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p><b>Primary Goal: </b>Accomplish Goals</p>
+                            </div>
+                            <div>
+                                <ul>
+                                    <li>Target Competencies</li>
+                                    <li>Acquired Competencies</li>
+                                    <li>Accomplished Goals</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="todo-item hidden" id="type2" draggable="true">
+                            <div>
+                                <label for="question">Add your question/prompt:</label>
+                                <input type="text" id="question" name="question">
+                            </div>
+                            <div>
+                                <label for="link">Add link: (if applicable)</label>
+                                <input type="text" id="link" name="link">
+                            </div>
+                            <div>
+                                <label for="questiontype">Question Type</label>
+                                <select class="questiontype" name="questiontype">
+                                    <option value="none"></option>
+                                    <option value="input_text">Short Answer</option>
+                                    <option value="textarea">Long Answer</option>
+                                    <option value="radio">Multiple Choice</option>
+                                    <option value="checkbox">Checkbox</option>
+                                    <option value="dropdown">Dropdown</option>
+                                    <option value="linearScale">Linear Scale</option>
+                                    <option value="fileUpload">File Upload</option>
+                                    <option value="rankOrder">Rank Order</option>
+                                </select>
+                            </div>
+                            <button class="add">Add Container</button>
+                        </div>
+                        <div class="todo-item hidden" id="type3" draggable="true">
+                        </div>
+                        <div class="todo-item hidden" id="type4" draggable="true">
+                        </div>
+                        <div class="todo-item hidden" id="type5" draggable="true">
+                        </div>
+                        <div class="todo-item hidden" id="type6" draggable="true">
+                        </div>
+                        <div class="todo-item hidden" id="type7" draggable="true">
+                        </div>
+                        <h3>Preview Container</h3>
+                        <div class="preview">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+    <footer>
+        <div class="footer">
+         
+        </div>
+    </footer>
+    <script src="../js/internal.js"></script>
+    <script src="../js/container.js"></script>
+</body>
+
+</html>

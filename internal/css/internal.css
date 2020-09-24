@@ -1,0 +1,76 @@
+body{
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.container{
+    margin: 0 2%;
+}
+#board{
+    display: flex;
+}
+.ent_page{
+    flex: 1;
+}
+#curPage{
+    margin: 0 1%;
+}
+.ent_dev{
+    display: flex;
+}
+.containers{
+    margin: 0 2%;
+    flex: 1;
+}
+#todo{
+    display: flex;
+    flex-direction: column;
+}
+.todo-item{
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 2%;
+    padding: 0 1%;
+}
+.todo-item div{
+    padding: 0.5%;
+}
+/* Type 1 container styles*/
+#type1{
+    text-align: center;
+}
+#type1 ul{
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+}
+#type1 li{
+    border: 1px solid black;
+}
+h4{
+    margin: 0.5%;
+}
+.drop-zone{
+    height: 70vh;
+    flex: 1;
+}
+
+.hidden{
+    display: none;
+}
+.preview{
+    padding: 2%;
+}
+
+.container2{
+    border: 1px solid black;
+    padding: 0.5%;
+    margin: 1% 0;
+}
+
+.colorChoice{
+    margin: 2% 0;
+}
+
+.step{
+    margin: 2% 0;
+}

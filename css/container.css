@@ -1,0 +1,38 @@
+.stepH6{
+    color:#678b99;
+    align-self: flex-end;
+    margin: 0;
+}
+.governance{ 
+ display: flex;
+ flex-direction: column;
+ justify-content: space-evenly;
+ border: 1px solid #bf9000;
+ border-radius: 5px;
+ padding: 1%;
+}
+.intelligence{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 1px solid  #000000;
+    border-radius: 5px;
+}
+.coordination{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 1px solid #1155cc;
+    border-radius: 5px;
+}
+.capital{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 1px solid  #678b99;
+    border-radius: 5px;
+}
+.multiAnswer{
+    display: flex;
+    flex-direction: column;
+}
