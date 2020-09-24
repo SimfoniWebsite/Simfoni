@@ -40,8 +40,7 @@ function addStepType() {
     document.querySelector('.preview div').appendChild(h6);
 }
 /*create capital first letter*/
-function jsUcfirst(string) 
-{
+function jsUcfirst(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 /*Container 2 function*/
@@ -126,6 +125,30 @@ function container2type() {
             let text2 = document.createTextNode(text);
             radlabel.appendChild(text2);
             element.appendChild(radlabel);
+        }
+    } else if (type === 'fileUpload') {
+        element = document.createElement('input');
+        element.setAttribute('type', 'file');
+    } else if (type === 'rankOrder') {
+        element = document.createElement('div');
+        element.setAttribute('class', 'multiAnswer');
+        let numOfChoices = prompt('How many answers do you require?');
+        for (let i = 0; i < numOfChoices; i++) {
+            let div = document.createElement('div');
+            div.setAttribute('class', 'rank')
+            let text = prompt(`Enter ${i + 1} choice`);
+            let text2 = document.createTextNode(text);
+            let label = document.createElement('label');
+            label.appendChild(text2);
+            div.appendChild(label);
+            let select = document.createElement('select')
+            for (let j = 0; j < numOfChoices; j++) {
+                let option = document.createElement('option')
+                option.appendChild(document.createTextNode(`${j + 1}`));
+                select.appendChild(option);
+            }
+            div.appendChild(select);
+            element.appendChild(div);
         }
     }
     label.appendChild(element);
