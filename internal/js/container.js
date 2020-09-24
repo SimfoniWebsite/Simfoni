@@ -49,10 +49,11 @@ document.querySelector('.questiontype').addEventListener('change', container2typ
 function container2type() {
     let type = document.querySelector('.questiontype').value;
     let question = document.createTextNode(document.getElementById('question').value);
-
+    let div = document.createElement('div');
     let label = document.createElement('label');
     label.appendChild(question);
     label.appendChild(document.createElement('br'));
+    div.appendChild(label);
     let element = '';
     let link = document.getElementById('link').value;
     /*if provide link attached to container*/
@@ -151,9 +152,9 @@ function container2type() {
             element.appendChild(div);
         }
     }
-    label.appendChild(element);
+    div.appendChild(element);
     document.querySelector('.preview div').classList.add('move');
-    document.querySelector('.preview div').appendChild(label);
+    document.querySelector('.preview div').appendChild(div);
 }
 
 
@@ -170,21 +171,36 @@ document.querySelectorAll('.add').forEach(item => {
 function addContainer() {
     let container = document.querySelector('.move');
     let type = document.querySelector('.containertype').value;
-    let queue = document.querySelector(`.${type}`);
+    let queue = document.querySelector(`#entrepreneur .${type}`);
+    /*move container to queue*/
     queue.insertAdjacentElement('beforeEnd', container);
     queue.querySelector('.move').classList.add('container2')
     queue.querySelector('.move').classList.remove('move');
-    console.log(queue);
+    /*reset container values*/
+    document.querySelector('.containertype').value = '';
+    document.querySelectorAll('input[name=colorChoice]:checked').forEach(item => {
+        item.checked = false;
+    });
+    document.querySelector('input[name=step]:checked').checked = false;
+    /*if container is first in queue for container type move to current page*/
+    if (document.querySelectorAll(`#curPage .${type} div`).length === 0) {
+        let firstqueue = document.querySelectorAll(`#entrepreneur .${type} div`)[0];
+        let curpage = document.querySelector(`#curPage .${type}`);
+        curpage.insertAdjacentElement('beforeEnd', firstqueue);
+    }
+    /*reset form values*/
     if (type === 'type2') {
         document.getElementById('question').value = '';
         document.getElementById('link').value = '';
+        document.querySelector('.questiontype').value = '';
     }
+    /*
     let s = new XMLSerializer();
     let doc = s.serializeToString(queue);
     console.log(doc);
     let domparser = new DOMParser();
     let doc2 = domparser.parseFromString(doc, 'text/html');
-    console.log(doc2);
+    console.log(doc2);*/
 }
 /*
 fetch(url + `/container/${type}`)
