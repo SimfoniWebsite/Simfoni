@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simfoni Community Development Corporation</title>
     <link rel="stylesheet" type="text/css" href="../css/internal.css">
+    <link rel="stylesheet" type="text/css" href="../../css/container.css">
 
 </head>
 
@@ -45,39 +46,27 @@
                 </div>
                 <div class="containers">
                     <h2>Containers</h2>
-                    <p>Select type of container, color code, and type of step</p>
-                    <label for="containertype">Container Type</label>
-                    <select class="containertype" name="containertype">
-                        <option value="none"></option>
-                        <option value="type1">Type 1: Summary</option>
-                        <option value="type2">Type 2: Information Gathering</option>
-                        <option value="type3">Type 3: Information Sharing</option>
-                        <option value="type4">Type 4: Connection Request</option>
-                        <option value="type5">Type 5: Media Presentation</option>
-                        <option value="type6">Type 6: Meeting Preparation/call checklist</option>
-                        <option value="type7">Type 7: Chat/notes submission</option>
-                    </select>
-
+                    <p>Select type of color code, type of step and type of container</p>
                     <div class="colorChoice">
                         <label for="colorChoice">Color Choice: (check all that apply)</label><br>
-                        <div class="governance">
-                            <input type="checkbox" id="governance" name='governance'><label
+                        <div>
+                            <input type="checkbox" id="governance" name='colorChoice'><label style="color:#bf9000"
                                 for="colorChoice">Governance</label><br>
                         </div>
-                        <div class="intelligence">
-                            <input type="checkbox" id="intelligence" name='intelligence'><label
+                        <div>
+                            <input type="checkbox" id="intelligence" name='colorChoice'><label style="color:#000000"
                                 for="colorChoice">Intelligence</label><br>
                         </div>
-                        <div class="coordination">
-                            <input type="checkbox" id="coordination" name='coordination'><label
+                        <div>
+                            <input type="checkbox" id="coordination" name='colorChoice'><label style="color: #1155cc"
                                 for="colorChoice">Coordination</label><br>
                         </div>
-                        <div class="capital">
-                            <input type="checkbox" id="capital" name='capital'><label
+                        <div>
+                            <input type="checkbox" id="capital" name='colorChoice'><label style="color:#678b99"
                                 for="colorChoice">Capital</label><br>
                         </div>
                     </div>
-                    <div>
+                    <div class="step">
                         <label for="step">Container Step:</label><br>
                         <input type="radio" id="goal" name="step" value="goal">
                         <label for="goal">Goal</label>
@@ -90,6 +79,17 @@
                         <input type="radio" id="doing" name="step" value="doing">
                         <label for="doing">Doing</label>
                     </div>
+                    <label for="containertype">Container Type</label>
+                    <select class="containertype" name="containertype">
+                        <option value="none"></option>
+                        <option value="type1">Type 1: Summary</option>
+                        <option value="type2">Type 2: Information Gathering</option>
+                        <option value="type3">Type 3: Information Sharing</option>
+                        <option value="type4">Type 4: Connection Request</option>
+                        <option value="type5">Type 5: Media Presentation</option>
+                        <option value="type6">Type 6: Meeting Preparation/call checklist</option>
+                        <option value="type7">Type 7: Chat/notes submission</option>
+                    </select>
                     <div id="todo">
                         <div class="todo-item hidden" id="type1" draggable="true">
                             <div>
@@ -160,14 +160,7 @@
     </div>
     <footer>
         <div class="footer">
-            <ul class="footer-nav">
-                <li><a href="#">Contact Info</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-            </ul>
-            <ul class="footer-logo">
-                <li><img width="30px" ; src="../../img/FINAL_SLOGO.png"></li>
-            </ul>
+         
         </div>
     </footer>
     <script src="../js/internal.js"></script>

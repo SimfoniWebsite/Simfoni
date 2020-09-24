@@ -54,7 +54,6 @@ h4{
     display: none;
 }
 .preview{
-    border: 1px solid black;
     padding: 2%;
 }
 
@@ -63,15 +62,11 @@ h4{
     padding: 0.5%;
     margin: 1% 0;
 }
-.governance{
- color:#bf9000;   
+
+.colorChoice{
+    margin: 2% 0;
 }
-.intelligence{
-    color: #000000;
-}
-.coordination{
-    color: #1155cc;
-}
-.capital{
-    color: #678b99;
+
+.step{
+    margin: 2% 0;
 }

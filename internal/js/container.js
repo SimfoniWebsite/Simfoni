@@ -10,15 +10,47 @@ function addcontainer() {
     }
     document.getElementById(`${type}`).classList.remove('hidden');
 }
+/*adding color choices to container*/
+document.querySelector('.colorChoice').addEventListener('change', addColorChoice);
 
+function addColorChoice() {
+    let colors = document.getElementsByName('colorChoice');
+    let colorChoice = [];
+    for (let item of colors) {
+        if (item.checked) {
+            colorChoice.push(item.id);
+        }
+    }
+    if (colorChoice.length === 1) {
+        let div = document.createElement('div');
+        div.setAttribute('class', colorChoice[0]);
+        document.querySelector('.preview').appendChild(div);
+    }
+}
+/*adding step type to container*/
+document.querySelectorAll('input[name=step]').forEach((item) => {
+    item.addEventListener('change', addStepType)
+});
+
+function addStepType() {
+    let step = document.querySelector('input[name=step]:checked').value;
+    let h6 = document.createElement('h6');
+    h6.setAttribute('class', 'stepH6');
+    h6.appendChild(document.createTextNode(jsUcfirst(step)));
+    document.querySelector('.preview div').appendChild(h6);
+}
+/*create capital first letter*/
+function jsUcfirst(string) 
+{
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 /*Container 2 function*/
 document.querySelector('.questiontype').addEventListener('change', container2type);
 
 function container2type() {
     let type = document.querySelector('.questiontype').value;
     let question = document.createTextNode(document.getElementById('question').value);
-    let div = document.createElement('div');
-    div.setAttribute('class', 'move');
+
     let label = document.createElement('label');
     label.appendChild(question);
     label.appendChild(document.createElement('br'));
@@ -40,30 +72,36 @@ function container2type() {
         element = document.createElement('textarea');
     } else if (type === 'radio') {
         element = document.createElement('div');
+        element.setAttribute('class', 'multiAnswer');
         let numOfChoices = prompt('How many answers do you require?');
         for (let i = 0; i < numOfChoices; i++) {
+            let div = document.createElement('div');
             let input = document.createElement('input')
             input.setAttribute('type', 'radio');
             input.setAttribute('name', 'question')
-            element.appendChild(input);
             let text = prompt(`Enter ${i + 1} choice`);
             let radlabel = document.createElement('label');
             let text2 = document.createTextNode(text);
             radlabel.appendChild(text2);
-            element.appendChild(radlabel);
+            div.appendChild(input);
+            div.insertBefore(radlabel, null);
+            element.appendChild(div);
         }
     } else if (type === 'checkbox') {
         element = document.createElement('div');
+        element.setAttribute('class', 'multiAnswer');
         let numOfChoices = prompt('How many answers do you require?');
         for (let i = 0; i < numOfChoices; i++) {
+            let div = document.createElement('div');
             let input = document.createElement('input')
             input.setAttribute('type', 'checkbox');
-            element.appendChild(input);
             let text = prompt(`Enter ${i + 1} choice`);
             let radlabel = document.createElement('label');
             let text2 = document.createTextNode(text);
             radlabel.appendChild(text2);
-            element.appendChild(radlabel);
+            div.appendChild(input);
+            div.insertBefore(radlabel, null);
+            element.appendChild(div);
         }
     } else if (type === 'dropdown') {
         element = document.createElement('select');
@@ -91,8 +129,8 @@ function container2type() {
         }
     }
     label.appendChild(element);
-    div.appendChild(label);
-    document.querySelector('.preview').appendChild(div);
+    document.querySelector('.preview div').classList.add('move');
+    document.querySelector('.preview div').appendChild(label);
 }
 
 
@@ -110,7 +148,7 @@ function addContainer() {
     let container = document.querySelector('.move');
     let type = document.querySelector('.containertype').value;
     let queue = document.querySelector(`.${type}`);
-    queue.insertAdjacentElement('beforeEnd',container);
+    queue.insertAdjacentElement('beforeEnd', container);
     queue.querySelector('.move').classList.add('container2')
     queue.querySelector('.move').classList.remove('move');
     console.log(queue);
