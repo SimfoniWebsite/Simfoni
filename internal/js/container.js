@@ -202,29 +202,46 @@ function addContainer() {
 document.querySelector('.submit').addEventListener('click', submitData);
 
 function submitData() {
-    /*retrieve currentpage and queue values*/
-    let currentPage = document.querySelectorAll('#curPage >div');
-    let queue = document.querySelectorAll('#entrepreneur>div');
+
     /*convert dom elements to text*/
     let s = new XMLSerializer();
-    let currentPageText = [];
-    currentPage.forEach(item => {
-        currentPageText.push(s.serializeToString(item));
-    });
-    let queuePageText = [];
-    queue.forEach(item => {
-        queuePageText.push(s.serializeToString(item));
-    });
     /*retrieve entrepreneur id*/
     let entrepreneur = document.querySelector('.entrepreneur').value;
     let containers = {
         id: '',
-        currentPage: '',
-        queue: ''
+        type1: [],
+        type2: [],
+        type3: [],
+        type4: [],
+        type5: [],
+        type6: [],
+        type7: []
     };
+    /*convert each container to string and add to object*/
+    for (let i = 1; i <= 7; i++) {
+        let currentPagetype = document.querySelectorAll(`#curPage .type${i} .container${i}`);
+        let queue = document.querySelectorAll(`#entrepreneur .type${i} .container${i}`);
+
+        let type = 'type' + i;
+        if (currentPagetype.length === 0) {
+            continue;
+        }
+        if (queue.length === 0) {
+            continue;
+        }
+        currentPagetype.forEach(item => {
+            let string;
+            string = s.serializeToString(item);
+            containers[type].push(string);
+        });
+        queue.forEach(item => {
+            let string;
+            string = s.serializeToString(item);
+            containers[type].push(string);
+        });
+    }
     containers.id = entrepreneur;
-    containers.currentPage = currentPageText;
-    containers.queue = queuePageText;
+
     fetch(url + `/internal/${containers.id}`, {
         method: 'POST',
         headers: {
