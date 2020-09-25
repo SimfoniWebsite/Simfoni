@@ -7,7 +7,7 @@ GoalImageLink varchar (150),
 GoalCategory varchar (50) not null,
 GoalStatus varchar (50) not null,
 Career varchar(50),
-Trade varchar(50),
+Trade varchar(50),  
 Venture varchar(50),
 /*BusOppID int not null foreign key references BusinessOpportunities(BusOppID)*/
 );
@@ -58,13 +58,10 @@ FileID INT Identity(1,1) Primary Key,
 Base64Content varchar(max) not null,
 FileName varchar(255) not null,
 );*/
-
 /*create table VentureEnd(
 VentureID int not null foreign key references Venture(VentureID),
 EndeavorID int not null foreign key references Endeavor(EndeavorID),
 );*/
-
-
 /*
 Insert into Base64Images values((select * from Openrowset(Bulk N'C:\db\Building2.jpg',SINGLE_BLOB)as SRC),Building2.jpg);
 
