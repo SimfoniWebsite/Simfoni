@@ -14,6 +14,10 @@ function addcontainer() {
 document.querySelector('.colorChoice').addEventListener('change', addColorChoice);
 
 function addColorChoice() {
+    
+    if(document.querySelector('.preview').hasChildNodes()){
+        document.querySelector('.preview').removeChild(document.querySelector('.preview').childNodes[0]);
+    }
     let colors = document.getElementsByName('colorChoice');
     let colorChoice = [];
     for (let item of colors) {
@@ -44,7 +48,9 @@ function jsUcfirst(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 /*Container 2 function*/
-document.querySelector('.questiontype').addEventListener('change', container2type);
+
+document.querySelector('#type2 .previewContainer').addEventListener('click', container2type);
+
 
 /*container 2 creation*/
 function container2type() {
@@ -159,18 +165,40 @@ function container2type() {
     document.querySelector('.preview div').appendChild(div);
 }
 
+/*container 3 listener*/
+document.querySelector('#type3 .previewContainer').addEventListener('click', container3type);
 
-
-
-
-
+function container3type() {
+    /*get message from input*/
+    let message = document.createTextNode(document.getElementById('type3message').value);
+    let div = document.createElement('div');
+    div.setAttribute('class', 'newCont');
+    let label = document.createElement('label');
+    label.appendChild(message);
+    label.appendChild(document.createElement('br'));
+    div.appendChild(label);
+    let element = '';
+    let link = document.getElementById('type3link').value;
+    /*if provide link attached to container*/
+    if (link != '') {
+        let a = document.createElement('a');
+        a.appendChild(document.createTextNode(link));
+        a.setAttribute('href', link);
+        a.appendChild(document.createElement('br'));
+        label.appendChild(a);
+    }
+    element = document.createElement('textarea');
+    div.appendChild(element);
+    document.querySelector('.preview div').classList.add('move');
+    document.querySelector('.preview div').appendChild(div);
+}
 
 /*add container to entrepreneur*/
 document.querySelectorAll('.add').forEach(item => {
-    item.addEventListener('click', addContainer);
+    item.addEventListener('click', addContainertoQueue);
 });
 
-function addContainer() {
+function addContainertoQueue() {
     let container = document.querySelector('.move');
     let type = document.querySelector('.containertype').value;
     let queue = document.querySelector(`#entrepreneur .${type}`);
