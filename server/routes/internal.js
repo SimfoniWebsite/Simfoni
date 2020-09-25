@@ -3,10 +3,10 @@ const sql = require('mssql');
 
 /*database configuration*/
 const dbConfig = {
-    server:  'localhost\\SQLEXPRESS',
-    database:  'test1',
+    server: 'localhost\\SQLEXPRESS',
+    database: 'test1',
     user: 'simfoni',
-    password:  'simfoni',
+    password: 'simfoni',
     options: {
         "encrypt": true,
         "enableArithAbort": true
@@ -32,6 +32,12 @@ router.get('/ent', (req, res) => {
     */
     res.json(database.users);
 });
+
+/*test internal ent page*/
+router.post('/3', (req, res) => {
+    console.log(req.body);
+});
+
 module.exports = router;
 
 const database = {

@@ -198,9 +198,43 @@ function addContainer() {
     }
 }
 
+/*submit data to database*/
+document.querySelector('.submit').addEventListener('click', submitData);
 
+function submitData() {
+    /*retrieve currentpage and queue values*/
+    let currentPage = document.querySelectorAll('#curPage >div');
+    let queue = document.querySelectorAll('#entrepreneur>div');
+    /*convert dom elements to text*/
+    let s = new XMLSerializer();
+    let currentPageText = [];
+    currentPage.forEach(item => {
+        currentPageText.push(s.serializeToString(item));
+    });
+    let queuePageText = [];
+    queue.forEach(item => {
+        queuePageText.push(s.serializeToString(item));
+    });
+    /*retrieve entrepreneur id*/
+    let entrepreneur = document.querySelector('.entrepreneur').value;
+    let containers = {
+        id: '',
+        currentPage: '',
+        queue: ''
+    };
+    containers.id = entrepreneur;
+    containers.currentPage = currentPageText;
+    containers.queue = queuePageText;
+    fetch(url + `/internal/${containers.id}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(containers),
+    })
+        .then(response => response.json());
 
-
+}
 /*
 fetch(url + `/container/${type}`)
     .then(response => response.json())
