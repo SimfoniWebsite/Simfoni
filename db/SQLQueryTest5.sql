@@ -11,11 +11,22 @@ BusStatus varchar (50) not null,
 Career varchar(50),
 Trade varchar(50),
 Venture varchar(50),
-/*ManagedID int not null foreign key references  ManagedProfile(ManagedID) */
+ManagedID int not null foreign key references  ManagedProfile(ManagedID)
 );
+
+
+INSERT Into GoalsCatalog /*(BusOppID, BusName, BusImageLink, BusVideoLink, BusCategory, BusStatus, Career, Trade, Venture, ManagedID)*/
+Values (1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+
+insert into InvoiceCopy
+values (32, 'AX-014-027', '6/21/2016', 434.58, 0.00, 0.00, 2, '07/8/2016', null);
 
 alter table GoalsCatalog
 add ManagedID int not null foreign key references  ManagedProfile(ManagedID);
+
+alter table GoalsCatalog
+drop column ManagedID;
+
 
 drop table GoalsCatalog
 drop table BusinessOpportunities
@@ -42,8 +53,10 @@ add BusOppID int not null foreign key references  GoalsCatalog(BusOppID);
 
 select * from Venture
 
-INSERT INTO Venture (VentureID, VentureName, BusOppID) 
-Values (1, 'Building2.jpg', 1)
+SET IDENTITY_INSERT Venture ON;
+INSERT INTO Venture /*(VentureID, VentureName, BusOppID)*/
+Values (default, 'Building2.jpg', 1);
+SET IDENTITY_INSERT Venture Off;
 
 CREATE TABLE Trade (
 TradeID INT Identity(1,1) Primary Key,
