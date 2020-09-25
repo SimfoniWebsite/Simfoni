@@ -14,7 +14,6 @@ function addcontainer() {
 document.querySelector('.colorChoice').addEventListener('change', addColorChoice);
 
 function addColorChoice() {
-    
     if(document.querySelector('.preview').hasChildNodes()){
         document.querySelector('.preview').removeChild(document.querySelector('.preview').childNodes[0]);
     }
@@ -173,10 +172,10 @@ function container3type() {
     let message = document.createTextNode(document.getElementById('type3message').value);
     let div = document.createElement('div');
     div.setAttribute('class', 'newCont');
-    let label = document.createElement('label');
-    label.appendChild(message);
-    label.appendChild(document.createElement('br'));
-    div.appendChild(label);
+    let h4 = document.createElement('h4');
+    h4.appendChild(message);
+    h4.appendChild(document.createElement('br'));
+    div.appendChild(h4);
     let element = '';
     let link = document.getElementById('type3link').value;
     /*if provide link attached to container*/
@@ -185,7 +184,7 @@ function container3type() {
         a.appendChild(document.createTextNode(link));
         a.setAttribute('href', link);
         a.appendChild(document.createElement('br'));
-        label.appendChild(a);
+        h4.appendChild(a);
     }
     element = document.createElement('textarea');
     div.appendChild(element);
@@ -204,7 +203,7 @@ function addContainertoQueue() {
     let queue = document.querySelector(`#entrepreneur .${type}`);
     /*move container to queue*/
     queue.insertAdjacentElement('beforeEnd', container);
-    queue.querySelector('.move').classList.add('container2')
+    queue.querySelector('.move').classList.add(`container${type}`)
     queue.querySelector('.move').classList.remove('move');
     /*reset container values*/
     document.querySelector('.containertype').value = '';
@@ -223,6 +222,14 @@ function addContainertoQueue() {
         document.getElementById('question').value = '';
         document.getElementById('link').value = '';
         document.querySelector('.questiontype').value = '';
+    }
+    if (type === 'type3') {
+        document.getElementById('type3message').value = '';
+        document.getElementById('type3link').value='';
+    }
+    let containers = document.querySelectorAll('.todo-item');
+    for (let item of containers) {
+        item.classList.add('hidden');
     }
 }
 
@@ -247,8 +254,8 @@ function submitData() {
     };
     /*convert each container to string and add to object*/
     for (let i = 1; i <= 7; i++) {
-        let currentPagetype = document.querySelectorAll(`#curPage .type${i} .container${i}`);
-        let queue = document.querySelectorAll(`#entrepreneur .type${i} .container${i}`);
+        let currentPagetype = document.querySelectorAll(`#curPage .type${i} .containertype${i}`);
+        let queue = document.querySelectorAll(`#entrepreneur .type${i} .containertype${i}`);
 
         let type = 'type' + i;
         if (currentPagetype.length === 0) {
@@ -269,7 +276,8 @@ function submitData() {
         });
     }
     containers.id = entrepreneur;
-
+    console.log(containers);
+    /*
     fetch(url + `/internal/${containers.id}`, {
         method: 'POST',
         headers: {
@@ -278,7 +286,7 @@ function submitData() {
         body: JSON.stringify(containers),
     })
         .then(response => response.json());
-
+*/
 }
 /*
 fetch(url + `/container/${type}`)
