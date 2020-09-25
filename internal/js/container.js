@@ -14,6 +14,9 @@ function addcontainer() {
 document.querySelector('.colorChoice').addEventListener('change', addColorChoice);
 
 function addColorChoice() {
+    if(document.querySelector('.preview').hasChildNodes()){
+        document.querySelector('.preview').removeChild(document.querySelector('.preview').childNodes[0]);
+    }
     let colors = document.getElementsByName('colorChoice');
     let colorChoice = [];
     for (let item of colors) {
@@ -44,7 +47,9 @@ function jsUcfirst(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 /*Container 2 function*/
-document.querySelector('.questiontype').addEventListener('change', container2type);
+
+document.querySelector('#type2 .previewContainer').addEventListener('click', container2type);
+
 
 /*container 2 creation*/
 function container2type() {
@@ -159,24 +164,46 @@ function container2type() {
     document.querySelector('.preview div').appendChild(div);
 }
 
+/*container 3 listener*/
+document.querySelector('#type3 .previewContainer').addEventListener('click', container3type);
 
-
-
-
-
+function container3type() {
+    /*get message from input*/
+    let message = document.createTextNode(document.getElementById('type3message').value);
+    let div = document.createElement('div');
+    div.setAttribute('class', 'newCont');
+    let h4 = document.createElement('h4');
+    h4.appendChild(message);
+    h4.appendChild(document.createElement('br'));
+    div.appendChild(h4);
+    let element = '';
+    let link = document.getElementById('type3link').value;
+    /*if provide link attached to container*/
+    if (link != '') {
+        let a = document.createElement('a');
+        a.appendChild(document.createTextNode(link));
+        a.setAttribute('href', link);
+        a.appendChild(document.createElement('br'));
+        h4.appendChild(a);
+    }
+    element = document.createElement('textarea');
+    div.appendChild(element);
+    document.querySelector('.preview div').classList.add('move');
+    document.querySelector('.preview div').appendChild(div);
+}
 
 /*add container to entrepreneur*/
 document.querySelectorAll('.add').forEach(item => {
-    item.addEventListener('click', addContainer);
+    item.addEventListener('click', addContainertoQueue);
 });
 
-function addContainer() {
+function addContainertoQueue() {
     let container = document.querySelector('.move');
     let type = document.querySelector('.containertype').value;
     let queue = document.querySelector(`#entrepreneur .${type}`);
     /*move container to queue*/
     queue.insertAdjacentElement('beforeEnd', container);
-    queue.querySelector('.move').classList.add('container2')
+    queue.querySelector('.move').classList.add(`container${type}`)
     queue.querySelector('.move').classList.remove('move');
     /*reset container values*/
     document.querySelector('.containertype').value = '';
@@ -196,11 +223,71 @@ function addContainer() {
         document.getElementById('link').value = '';
         document.querySelector('.questiontype').value = '';
     }
+    if (type === 'type3') {
+        document.getElementById('type3message').value = '';
+        document.getElementById('type3link').value='';
+    }
+    let containers = document.querySelectorAll('.todo-item');
+    for (let item of containers) {
+        item.classList.add('hidden');
+    }
 }
 
+/*submit data to database*/
+document.querySelector('.submit').addEventListener('click', submitData);
 
+function submitData() {
 
+    /*convert dom elements to text*/
+    let s = new XMLSerializer();
+    /*retrieve entrepreneur id*/
+    let entrepreneur = document.querySelector('.entrepreneur').value;
+    let containers = {
+        id: '',
+        type1: [],
+        type2: [],
+        type3: [],
+        type4: [],
+        type5: [],
+        type6: [],
+        type7: []
+    };
+    /*convert each container to string and add to object*/
+    for (let i = 1; i <= 7; i++) {
+        let currentPagetype = document.querySelectorAll(`#curPage .type${i} .containertype${i}`);
+        let queue = document.querySelectorAll(`#entrepreneur .type${i} .containertype${i}`);
 
+        let type = 'type' + i;
+        if (currentPagetype.length === 0) {
+            continue;
+        }
+        if (queue.length === 0) {
+            continue;
+        }
+        currentPagetype.forEach(item => {
+            let string;
+            string = s.serializeToString(item);
+            containers[type].push(string);
+        });
+        queue.forEach(item => {
+            let string;
+            string = s.serializeToString(item);
+            containers[type].push(string);
+        });
+    }
+    containers.id = entrepreneur;
+    console.log(containers);
+    /*
+    fetch(url + `/internal/${containers.id}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(containers),
+    })
+        .then(response => response.json());
+*/
+}
 /*
 fetch(url + `/container/${type}`)
     .then(response => response.json())
