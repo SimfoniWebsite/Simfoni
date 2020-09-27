@@ -1,4 +1,4 @@
-/*url address*/
+/*url address*/ /*same as entrepreneur.js*/
 const url = 'http://localhost:3000';
 
 /*fetching venture catalog info from database*/
