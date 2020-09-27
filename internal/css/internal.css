@@ -9,7 +9,7 @@ body{
     display: flex;
 }
 .ent_page{
-    flex: 1;
+    flex: 1.5;
 }
 #curPage{
     margin: 0 1%;

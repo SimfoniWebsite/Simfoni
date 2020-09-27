@@ -276,8 +276,9 @@ function submitData() {
         });
     }
     containers.id = entrepreneur;
+    constiners.name = 
     console.log(containers);
-    /*
+    
     fetch(url + `/internal/${containers.id}`, {
         method: 'POST',
         headers: {
@@ -286,7 +287,6 @@ function submitData() {
         body: JSON.stringify(containers),
     })
         .then(response => response.json());
-*/
 }
 /*
 fetch(url + `/container/${type}`)
