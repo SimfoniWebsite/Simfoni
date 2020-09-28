@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const sql = require('mssql');
+const database = require('./test-database');
 
 /*database configuration*/
 const dbConfig = {
@@ -33,22 +34,13 @@ router.get('/ent', (req, res) => {
     res.json(database.users);
 });
 
+
+
+
 /*test internal ent page*/
 router.post('/3', (req, res) => {
-    console.log(req.body);
+    database.users.push(req.body);
+    console.log(database.users);
 });
 
 module.exports = router;
-
-const database = {
-    users: [
-        {
-            id: '1',
-            name: 'John',
-        },
-        {
-            id: '2',
-            name: 'Sally',
-        }
-    ]
-}

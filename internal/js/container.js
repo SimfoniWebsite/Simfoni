@@ -14,7 +14,7 @@ function addcontainer() {
 document.querySelector('.colorChoice').addEventListener('change', addColorChoice);
 
 function addColorChoice() {
-    if(document.querySelector('.preview').hasChildNodes()){
+    if (document.querySelector('.preview').hasChildNodes()) {
         document.querySelector('.preview').removeChild(document.querySelector('.preview').childNodes[0]);
     }
     let colors = document.getElementsByName('colorChoice');
@@ -36,6 +36,10 @@ document.querySelectorAll('input[name=step]').forEach((item) => {
 });
 
 function addStepType() {
+    //if already step type added remove
+    if (document.querySelector('.preview div h6') != null) {
+        document.querySelector('.preview div').removeChild(document.querySelector('.preview div').childNodes[0]);
+    }
     let step = document.querySelector('input[name=step]:checked').value;
     let h6 = document.createElement('h6');
     h6.setAttribute('class', 'stepH6');
@@ -49,8 +53,34 @@ function jsUcfirst(string) {
 /*Container 2 function*/
 
 document.querySelector('#type2 .previewContainer').addEventListener('click', container2type);
+/*on container 2 type question add input fields*/
+document.querySelector('.questiontype').addEventListener('change', cont2InputData);
 
+function cont2InputData() {
+    let choice = document.querySelector('.questiontype').value;
+    if (choice === "radio" || choice === 'checkbox' || choice === 'dropdown' || choice === 'rankOrder') {
+        let numOfChoices = '<label>How many answers do you require?</label><input type="text" class="numOfChoices">';
+        document.getElementById('additionalInfo').insertAdjacentHTML('beforeend', numOfChoices);
+        document.querySelector('.numOfChoices').addEventListener('keypress', addInputAfterKeypress);
+    }
+    if (choice === 'linearScale') {
+        let numOfChoices = '<label>What is end scale amount?</label><input type="text" class="numOfChoices">';
+        document.getElementById('additionalInfo').insertAdjacentHTML('beforeend', numOfChoices);
+    }
+}
+function addInputAfterKeypress(event) {
+    if (document.querySelector('.numOfChoices').value.length > 0 && event.keyCode === 13)
+        addInputs();
+}
 
+function addInputs() {
+    let numInputs = document.querySelector('.numOfChoices').value;
+    let inputs = '';
+    for (let i = 0; i < numInputs; i++) {
+        inputs += `<br><label>Choice ${i + 1}</label><input type="text" class="choice${i + 1}"><br>`;
+    }
+    document.getElementById('additionalInfo').insertAdjacentHTML('beforeend', inputs);
+}
 /*container 2 creation*/
 function container2type() {
     let type = document.querySelector('.questiontype').value;
@@ -80,13 +110,14 @@ function container2type() {
     } else if (type === 'radio') {
         element = document.createElement('div');
         element.setAttribute('class', 'multiAnswer');
-        let numOfChoices = prompt('How many answers do you require?');
+        let numOfChoices = document.querySelector('.numOfChoices').value;
         for (let i = 0; i < numOfChoices; i++) {
             let div = document.createElement('div');
             let input = document.createElement('input')
             input.setAttribute('type', 'radio');
             input.setAttribute('name', 'question')
-            let text = prompt(`Enter ${i + 1} choice`);
+            let text = document.querySelector(`.choice${i + 1}`).value;
+            input.setAttribute('value', text);
             let radlabel = document.createElement('label');
             let text2 = document.createTextNode(text);
             radlabel.appendChild(text2);
@@ -97,12 +128,13 @@ function container2type() {
     } else if (type === 'checkbox') {
         element = document.createElement('div');
         element.setAttribute('class', 'multiAnswer');
-        let numOfChoices = prompt('How many answers do you require?');
+        let numOfChoices = document.querySelector('.numOfChoices').value;
         for (let i = 0; i < numOfChoices; i++) {
             let div = document.createElement('div');
             let input = document.createElement('input')
             input.setAttribute('type', 'checkbox');
-            let text = prompt(`Enter ${i + 1} choice`);
+            let text = document.querySelector(`.choice${i + 1}`).value;
+            input.setAttribute('value', text);
             let radlabel = document.createElement('label');
             let text2 = document.createTextNode(text);
             radlabel.appendChild(text2);
@@ -112,21 +144,23 @@ function container2type() {
         }
     } else if (type === 'dropdown') {
         element = document.createElement('select');
-        let numOfChoices = prompt('How many answers do you require?');
+        let numOfChoices = document.querySelector('.numOfChoices').value;
         for (let i = 0; i < numOfChoices; i++) {
             let option = document.createElement('option')
-            let text = prompt(`Enter ${i + 1} choice`);
+            let text = document.querySelector(`.choice${i + 1}`).value;
+            option.setAttribute('value', text);
             let text2 = document.createTextNode(text);
             option.appendChild(text2);
             element.appendChild(option);
         }
     } else if (type === 'linearScale') {
         element = document.createElement('div');
-        let numOfChoices = prompt('What is end scale amount?');
+        let numOfChoices = document.querySelector('.numOfChoices').value;
         for (let i = 0; i < numOfChoices; i++) {
             let input = document.createElement('input')
             input.setAttribute('type', 'radio');
             input.setAttribute('name', 'question')
+            input.setAttribute('value', (i + 1));
             element.appendChild(input);
             let text = i + 1;
             let radlabel = document.createElement('label');
@@ -140,19 +174,21 @@ function container2type() {
     } else if (type === 'rankOrder') {
         element = document.createElement('div');
         element.setAttribute('class', 'multiAnswer');
-        let numOfChoices = prompt('How many answers do you require?');
+        let numOfChoices = document.querySelector('.numOfChoices').value;
         for (let i = 0; i < numOfChoices; i++) {
             let div = document.createElement('div');
             div.setAttribute('class', 'rank')
-            let text = prompt(`Enter ${i + 1} choice`);
+            let text = document.querySelector(`.choice${i + 1}`).value;
             let text2 = document.createTextNode(text);
             let label = document.createElement('label');
             label.appendChild(text2);
+            input.setAttribute('value', text);
             div.appendChild(label);
             let select = document.createElement('select')
             for (let j = 0; j < numOfChoices; j++) {
                 let option = document.createElement('option')
                 option.appendChild(document.createTextNode(`${j + 1}`));
+                option.setAttribute('value', (j + 1));
                 select.appendChild(option);
             }
             div.appendChild(select);
@@ -201,8 +237,14 @@ function addContainertoQueue() {
     let container = document.querySelector('.move');
     let type = document.querySelector('.containertype').value;
     let queue = document.querySelector(`#entrepreneur .${type}`);
-    /*move container to queue*/
-    queue.insertAdjacentElement('beforeEnd', container);
+
+    let div = document.createElement('div');
+    div.setAttribute('class', 'queueFlex');
+    div.appendChild(container);
+    /*need to add id for queue container items to track*/
+    let p = '<input type="checkbox" name="status" class="queueFlex-check"><label>queue</label>';
+    div.insertAdjacentHTML('beforeend', p);
+    queue.insertAdjacentElement('beforeEnd', div);
     queue.querySelector('.move').classList.add(`container${type}`)
     queue.querySelector('.move').classList.remove('move');
     /*reset container values*/
@@ -211,21 +253,16 @@ function addContainertoQueue() {
         item.checked = false;
     });
     document.querySelector('input[name=step]:checked').checked = false;
-    /*if container is first in queue for container type move to current page*/
-    if (document.querySelectorAll(`#curPage .${type} .newCont`).length === 0) {
-        let firstqueue = document.querySelectorAll(`#entrepreneur .${type} div`)[0];
-        let curpage = document.querySelector(`#curPage .${type}`);
-        curpage.insertAdjacentElement('beforeEnd', firstqueue);
-    }
     /*reset form values*/
     if (type === 'type2') {
         document.getElementById('question').value = '';
         document.getElementById('link').value = '';
         document.querySelector('.questiontype').value = '';
+        document.getElementById('additionalInfo').innerHTML = '';
     }
     if (type === 'type3') {
         document.getElementById('type3message').value = '';
-        document.getElementById('type3link').value='';
+        document.getElementById('type3link').value = '';
     }
     let containers = document.querySelectorAll('.todo-item');
     for (let item of containers) {
@@ -233,61 +270,73 @@ function addContainertoQueue() {
     }
 }
 
+
+/*Add containers to current page*/
+document.querySelector('.addCurrent').addEventListener('click', addtoCurrentPage);
+
+function addtoCurrentPage() {
+  
+}
+
+
+
+
 /*submit data to database*/
 document.querySelector('.submit').addEventListener('click', submitData);
 
-function submitData() {
+    function submitData() {
 
-    /*convert dom elements to text*/
-    let s = new XMLSerializer();
-    /*retrieve entrepreneur id*/
-    let entrepreneur = document.querySelector('.entrepreneur').value;
-    let containers = {
-        id: '',
-        type1: [],
-        type2: [],
-        type3: [],
-        type4: [],
-        type5: [],
-        type6: [],
-        type7: []
-    };
-    /*convert each container to string and add to object*/
-    for (let i = 1; i <= 7; i++) {
-        let currentPagetype = document.querySelectorAll(`#curPage .type${i} .containertype${i}`);
-        let queue = document.querySelectorAll(`#entrepreneur .type${i} .containertype${i}`);
-
-        let type = 'type' + i;
-        if (currentPagetype.length === 0) {
-            continue;
+        /*convert dom elements to text*/
+        let s = new XMLSerializer();
+        /*retrieve entrepreneur id*/
+        let entrepreneur = document.querySelector('.entrepreneur').value;
+        let containers = {
+            id: '',
+            type1: [],
+            type2: [],
+            type3: [],
+            type4: [],
+            type5: [],
+            type6: [],
+            type7: []
+        };
+        /*convert each container to string and add to object*/
+        for (let i = 1; i <= 7; i++) {
+            let currentPagetype = document.querySelectorAll(`#curPage .type${i} .containertype${i}`);
+            let queue = document.querySelectorAll(`#entrepreneur .type${i} .containertype${i}`);
+            console.log(currentPagetype);
+            console.log(queue);
+            let type = 'type' + i;
+            console.log(type);
+            if (currentPagetype.length === 0) {
+                continue;
+            }
+            if (queue.length === 0) {
+                continue;
+            }
+            currentPagetype.forEach(item => {
+                let string;
+                string = s.serializeToString(item);
+                containers[type].push(string);
+            });
+            queue.forEach(item => {
+                let string;
+                string = s.serializeToString(item);
+                containers[type].push(string);
+            });
         }
-        if (queue.length === 0) {
-            continue;
-        }
-        currentPagetype.forEach(item => {
-            let string;
-            string = s.serializeToString(item);
-            containers[type].push(string);
-        });
-        queue.forEach(item => {
-            let string;
-            string = s.serializeToString(item);
-            containers[type].push(string);
-        });
+        containers.id = entrepreneur;
+        console.log(containers);
+        /*
+        fetch(url + `/internal/${containers.id}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(containers),
+        })
+            .then(response => response.json());*/
     }
-    containers.id = entrepreneur;
-    console.log(containers);
-    /*
-    fetch(url + `/internal/${containers.id}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(containers),
-    })
-        .then(response => response.json());
-*/
-}
 /*
 fetch(url + `/container/${type}`)
     .then(response => response.json())

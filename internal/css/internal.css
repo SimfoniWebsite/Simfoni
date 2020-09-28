@@ -9,10 +9,12 @@ body{
     display: flex;
 }
 .ent_page{
-    flex: 1;
+    flex: 1.5;
+   
 }
 #curPage{
     margin: 0 1%;
+    flex: 1;
 }
 .ent_dev{
     display: flex;
@@ -34,29 +36,17 @@ body{
 .todo-item div{
     padding: 0.5%;
 }
-/* Type 1 container styles*/
-#type1{
-    text-align: center;
-}
-#type1 ul{
-    display: flex;
-    justify-content: space-evenly;
-    list-style: none;
-}
-#type1 li{
-    border: 1px solid black;
-}
-h4{
-    margin: 0.5%;
-}
-.drop-zone{
-    height: 70vh;
-    flex: 1;
+
+h5, h4, h3{
+    margin: 0;
 }
 
+
+/*hide whatever contains hidden*/
 .hidden{
     display: none;
 }
+/*preview container box*/
 .preview{
     padding: 2%;
 }
@@ -74,3 +64,26 @@ h4{
 .step{
     margin: 2% 0;
 }
+/*laying out queue and status boxes*/
+.queueFlex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    text-align: center;
+}
+.queueFlex h3{
+    flex: 1.5;   
+}
+.queueFlex-check{
+    flex: 0.2;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+#entrepreneur{
+    padding: 0 1%;
+    flex: 1;
+}
+
