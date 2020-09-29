@@ -34,13 +34,41 @@ router.get('/ent', (req, res) => {
     res.json(database.users);
 });
 
+/*request next container id number*/
+router.get('/queueid', (req, res) => {
+    let nextid = Number(database.containers[database.containers.length - 1].contid) + 1;
+    res.json(nextid);
+});
+
+/*add container to database*/
+router.post('/addContainer', (req, res) => {
+    database.containers.push(req.body);
+    console.log(database.containers);
+    res.json('container added');
+});
+/*change status to active for all current Page containers*/
+router.post('/statusCurrentPage', (req, res) => {
+
+    for (let i = 0; i < req.body.length; i++) {
+        database.containers.forEach(cont => {
+            if (cont.contid === Number(req.body[i])) {
+                cont.status = 'active';
+            }
+        })
+    }
+    let active = database.containers.filter(cont => {
+        return cont.status === 'active'
+    })
+    res.json(active);
+});
 
 
 
 /*test internal ent page*/
-router.post('/3', (req, res) => {
-    database.users.push(req.body);
-    console.log(database.users);
+router.post('/:id', (req, res) => {
+    database.containers.push(req.body);
+    // console.log(database.containers);
 });
+
 
 module.exports = router;
