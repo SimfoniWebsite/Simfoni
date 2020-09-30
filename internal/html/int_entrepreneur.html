@@ -43,7 +43,7 @@
                             <div class="queueFlex">
                                 <h3>Queue</h3>
                                 <h5 class="queueFlex-check">Add to Current Page</h4>
-                                <h5 class="queueFlex-check">Current Status</h4>
+                                    <h5 class="queueFlex-check">Current Status</h4>
                             </div>
                             <!--Queue Item Containers by Type-->
                             <div class="type1"></div>
@@ -99,6 +99,13 @@
                         <label for="design">Design</label>
                         <input type="radio" id="doing" name="step" value="doing">
                         <label for="doing">Doing</label>
+                    </div>
+                    <div class="needRadio">
+                        <label for="needRadio">Do you need a complete checkbox?:</label><br>
+                        <input type="radio" id="yes" name="needRadio" value="yes">
+                        <label for="yes">Yes</label>
+                        <input type="radio" id="no" name="needRadio" value="no">
+                        <label for="no">No</label>
                     </div>
                     <label for="containertype">Container Type</label>
                     <select class="containertype" name="containertype">
@@ -173,6 +180,31 @@
                             <button class="add">Add Container</button>
                         </div>
                         <div class="todo-item hidden" id="type4" draggable="true">
+                            <div>
+                                <label for="type4name">Name of Contact:</label><br>
+                                <input type="text" id="type4name"></input>
+                            </div>
+                            <div>
+                                <label for="type4position">Position:</label><br>
+                                <input type="text" id="type4position"></input>
+                            </div>
+                            <div>
+                                <label for="type4employer">Employer/Role:</label><br>
+                                <input type="text" id="type4employer"></input>
+                            </div>
+                            <div>
+                                <label for="type4attributes">Attributes:</label><br>
+                                <input type="text" id="type4attributes"></input>
+                            </div>
+                            <div>
+                                <label for="type4summary">Summary:</label><br>
+                                <textarea id="type3summary" name="type3summary" rows="4" cols="50"></textarea>
+                            </div>
+                            <div>
+                                <label for="type4photo">Upload Photo:</label><br>
+                                <input type="file" id="type4photo"></input>
+                            </div>
+
                         </div>
                         <div class="todo-item hidden" id="type5" draggable="true">
                         </div>

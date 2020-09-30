@@ -30,6 +30,14 @@ function addColorChoice() {
         document.querySelector('.preview').appendChild(div);
     }
 }
+
+function addCheckbox(){
+    if(document.querySelector('input[name=needRadio]').value === 'yes'){
+        let checkbox = '<div class="completed"><Label>Complete</label><br><input type="checkbox" name="completeTask" value="completed"></div>';
+        let container = document.querySelector('.preview div h6');
+        container.insertAdjacentHTML('afterend', checkbox);
+    }
+}
 /*adding step type to container*/
 document.querySelectorAll('input[name=step]').forEach((item) => {
     item.addEventListener('change', addStepType)
@@ -195,7 +203,10 @@ function container2type() {
             element.appendChild(div);
         }
     }
+    let button = '</br><button class="type2Submit">Submit</button>';
     div.appendChild(element);
+    div.insertAdjacentHTML('beforeend', button);
+    addCheckbox();
     document.querySelector('.preview div').classList.add('move');
     document.querySelector('.preview div').appendChild(div);
 }
@@ -224,8 +235,18 @@ function container3type() {
     }
     element = document.createElement('textarea');
     div.appendChild(element);
+    addCheckbox();
     document.querySelector('.preview div').classList.add('move');
     document.querySelector('.preview div').appendChild(div);
+}
+
+
+/*container 4 listener*/
+document.querySelector('#type4 .previewContainer').addEventListener('click', container4type);
+
+/*build container 4 type*/
+function container4type(){
+    
 }
 
 /*add container to entrepreneur*/
@@ -261,7 +282,7 @@ function addContainertoQueue() {
                 status: 'queue',
                 content: contstring
             };
-
+            /*add container to database queue*/
             fetch(url + '/internal/addContainer', {
                 method: 'POST',
                 headers: {
@@ -318,18 +339,32 @@ function addtoCurrentPage() {
         body: JSON.stringify(contID)
     })
         .then(response => response.json())
-        .then(activeCont => {
-            console.log(activeCont);
+        .then(containers => {
+            let activeCont = containers.filter(cont => {
+                return cont.status === 'active'
+            });
             activeCont.forEach(cont => {
                 let type = document.querySelector(`#curPage .${cont.type}`);
                 type.insertAdjacentHTML('beforeend', cont.content);
             })
-            contID.forEach(id => {
-                let p = document.querySelectorAll(`#entrepreneur .queueflex`);
-                console.log(p);
-
-
+            let queueCont = containers.filter(cont => {
+                return cont.status === 'queue'
+            });
+            queueCont.forEach(cont => {
+                /*reset queue*/
+                for (let i = 0; i < 7; i++) {
+                    let queue = document.querySelector(`#entrepreneur .type${i+1}`);
+                    queue.innerHTML ='';  
+                }
+                let queue = document.querySelector(`#entrepreneur .${cont.type}`);
+                let div = document.createElement('div');
+                div.setAttribute('class', 'queueFlex');
+                div.insertAdjacentHTML('beforeend', cont.content);
+                let p = `<input type="checkbox" name="status" class="queueFlex-check" value="${cont.id}"><label>queue</label>`;
+                div.insertAdjacentHTML('beforeend', p);
+                queue.insertAdjacentElement('beforeEnd', div);
             })
+
         })
 
 }

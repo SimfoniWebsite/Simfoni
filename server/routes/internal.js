@@ -30,7 +30,7 @@ router.get('/ent', (req, res) => {
             res.json(recordset);
         });
     });
-    */
+    */   
     res.json(database.users);
 });
 
@@ -56,10 +56,8 @@ router.post('/statusCurrentPage', (req, res) => {
             }
         })
     }
-    let active = database.containers.filter(cont => {
-        return cont.status === 'active'
-    })
-    res.json(active);
+    let containers = database.containers;
+    res.json(containers);
 });
 
 

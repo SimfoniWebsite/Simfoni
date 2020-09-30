@@ -44,3 +44,8 @@
     display: flex;
     justify-content: space-evenly;
 }
+.completed{
+    align-self: flex-end; 
+    font-size: .25rem;
+    padding-top: 1%;
+}
