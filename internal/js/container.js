@@ -246,7 +246,23 @@ document.querySelector('#type4 .previewContainer').addEventListener('click', con
 
 /*build container 4 type*/
 function container4type(){
-    
+    let name = document.querySelector('#type4name').value;
+    let position = document.querySelector('#type4position').value;
+    let employer = document.querySelector('#type4employer').value;
+    let attributes = document.querySelector('#type4attributes').value;
+    let summary = document.querySelector('#type4summary').value;
+    let div = document.createElement('div');
+    div.setAttribute('class', 'newCont');
+    /*create main content*/
+    let element = `<div class="type4"><div class="type4photo"><img><a href=# >Zoom Link</a></div><div class="type4details"><h4>${name}, <b>${position} - ${employer}</b></h4><p><b>${attributes}</b></p><p>${summary}</p><textarea class="type4text" rows="4" cols="50"></textarea></div>`;
+    div.insertAdjacentHTML('beforeend', element);    
+    addCheckbox();
+    document.querySelector('.preview div').classList.add('move');
+    document.querySelector('.preview div').appendChild(div);
+    let image = document.querySelector('.preview .type4photo img');
+    console.log(image);
+    let file = document.querySelector('#type4photo').files[0];
+	image.src = URL.createObjectURL(file);
 }
 
 /*add container to entrepreneur*/
