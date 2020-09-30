@@ -53,7 +53,7 @@ select * from ImageTable;
 
 INSERT INTO ImageTable (Id, Name, Photo) 
 SELECT 1, 'Building2.jpg', BulkColumn 
-FROM Openrowset( Bulk 'C:\db\Building2.jpg', Single_Blob) as image;
+FROM Openrowset( Bulk 'C:\Users\joell\OneDrive\Documents\BVC\Simfoni\website\Simfoni\img\Building2.jpg', Single_Blob) as image;
 
 
 select *

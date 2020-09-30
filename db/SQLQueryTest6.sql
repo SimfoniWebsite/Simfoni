@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 Create database Test3
+=======
+>>>>>>> master
 
 --This are the tables for Goal Catalog
 
@@ -22,6 +25,10 @@ ADD VENTUREID int   foreign key references Trade(TradeID);
 
 Foreign Key(
 drop table GoalsCatalog
+<<<<<<< HEAD
+=======
+drop table BusinessOpportunities
+>>>>>>> master
 drop table Venture
 drop table Trade
 drop table Career
@@ -34,9 +41,16 @@ drop table ManagedProfile
 select * from GoalsCatalog
 
 CREATE TABLE Venture (
+<<<<<<< HEAD
 VentureID INT,
 VentureName varchar(50) not null, 
 Primary Key(VentureID),
+=======
+VentureID INT ,
+VentureName varchar(50) not null,
+Primary Key(VentureID),
+
+>>>>>>> master
 );
 drop table Venture
 
@@ -160,6 +174,7 @@ delete from venture
 Insert into GoalsCatalog ( CareerID,TradeID,VentureID)
 Values(1,1,1);
 
+<<<<<<< HEAD
 Insert into Venture ( VentureID, VentureName)
 Values( 1,'Example');
 select * from Venture;
@@ -178,6 +193,14 @@ drop table trade
 select * from trade;
 Insert into Trade ( TradeID, BusOppID, TradeName)
 Values( 1, 1,'Example_stocks');
+=======
+Insert into Venture ( VentureID, VentureName,BusOppID)
+Values( 3,'Example_shopping',3);
+
+select * from trade;
+Insert into Trade ( TradeID, TradeName,BusOppID)
+Values( 1,'Example_stocks',1);
+>>>>>>> master
 Insert into Trade ( TradeID, TradeName,BusOppID)
 Values( 2,'Example_Rentas',2);
 Insert into Trade ( TradeID, TradeName,BusOppID)
