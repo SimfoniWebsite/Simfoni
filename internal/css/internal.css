@@ -9,19 +9,19 @@ body{
     display: flex;
 }
 .ent_page{
-    flex: 1.5;
+    width: 60vw;
    
 }
 #curPage{
-    margin: 0 1%;
-    flex: 1;
+    margin: 0 5%;
+   
 }
 .ent_dev{
     display: flex;
 }
 .containers{
     margin: 0 2%;
-    flex: 1;
+   
 }
 #todo{
     display: flex;
@@ -69,21 +69,46 @@ h5, h4, h3{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex: 1;
     border-left: 1px solid black;
     border-right: 1px solid black;
     text-align: center;
+    padding: 0 6%;
+    
 }
 .queueFlex h3{
-    flex: 1.5;   
+     
+}
+.addCurrent{
+   display: flex;
+   justify-content: flex-end; 
 }
 .queueFlex-check{
     flex: 0.2;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
 }
 #entrepreneur{
-    padding: 0 1%;
-    flex: 1;
+   
+}
+/*for internal page view*/
+.governance{ 
+    width: 20vw;
+}
+.intelligence{
+    width: 20vw;
+}
+.coordination{
+    width: 20vw;
+}
+.capital{
+    width: 20vw;
 }
 
+/*type of boxes*/
+textarea{
+    width: 15vw;
+}
+input[type=text]{
+    width: 15vw;
+}
+button{
+    margin: 1% 1%;
+}

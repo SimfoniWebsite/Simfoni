@@ -1,0 +1,14 @@
+main{
+    margin: 5%;
+}
+
+/*type of boxes*/
+textarea{
+    width: 50vw;
+}
+input[type=text]{
+    width: 50vw;
+}
+button{
+    margin: 1% 1%;
+}

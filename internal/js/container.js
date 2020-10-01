@@ -31,8 +31,8 @@ function addColorChoice() {
     }
 }
 
-function addCheckbox(){
-    if(document.querySelector('input[name=needRadio]').value === 'yes'){
+function addCheckbox() {
+    if (document.querySelector('input[name=needRadio]').value === 'yes') {
         let checkbox = '<div class="completed"><Label>Complete</label><br><input type="checkbox" name="completeTask" value="completed"></div>';
         let container = document.querySelector('.preview div h6');
         container.insertAdjacentHTML('afterend', checkbox);
@@ -245,7 +245,7 @@ function container3type() {
 document.querySelector('#type4 .previewContainer').addEventListener('click', container4type);
 
 /*build container 4 type*/
-function container4type(){
+function container4type() {
     let name = document.querySelector('#type4name').value;
     let position = document.querySelector('#type4position').value;
     let employer = document.querySelector('#type4employer').value;
@@ -254,15 +254,20 @@ function container4type(){
     let div = document.createElement('div');
     div.setAttribute('class', 'newCont');
     /*create main content*/
-    let element = `<div class="type4"><div class="type4photo"><img><a href=# >Zoom Link</a></div><div class="type4details"><h4>${name}, <b>${position} - ${employer}</b></h4><p><b>${attributes}</b></p><p>${summary}</p><textarea class="type4text" rows="4" cols="50"></textarea></div>`;
-    div.insertAdjacentHTML('beforeend', element);    
+    let element = `<div class="type4cont"><div class="type4photo"><img><a href=# >Zoom Link</a></div><div class="type4details"><h4>${name}, <b>${position} - ${employer}</b></h4><p><b>${attributes}</b></p><p>${summary}</p><textarea class="type4text"></textarea></div>`;
+    div.insertAdjacentHTML('beforeend', element);
     addCheckbox();
     document.querySelector('.preview div').classList.add('move');
     document.querySelector('.preview div').appendChild(div);
     let image = document.querySelector('.preview .type4photo img');
     console.log(image);
-    let file = document.querySelector('#type4photo').files[0];
-	image.src = URL.createObjectURL(file);
+    /*img needs to be saved?*/
+    if (document.document.querySelector('#type4photo').value != "") {
+        let file = document.querySelector('#type4photo').files[0];
+        image.src = URL.createObjectURL(file);
+    }else{
+        image.src = "../img/Black _ White Avatars Illustrations-01.png";
+    }
 }
 
 /*add container to entrepreneur*/
@@ -338,7 +343,7 @@ function addContainertoQueue() {
 
 
 /*Add containers to current page*/
-document.querySelector('.addCurrent').addEventListener('click', addtoCurrentPage);
+document.querySelector('.addCurrent button').addEventListener('click', addtoCurrentPage);
 
 function addtoCurrentPage() {
     let checked = document.querySelectorAll('input[name=status]:checked');
@@ -369,8 +374,8 @@ function addtoCurrentPage() {
             queueCont.forEach(cont => {
                 /*reset queue*/
                 for (let i = 0; i < 7; i++) {
-                    let queue = document.querySelector(`#entrepreneur .type${i+1}`);
-                    queue.innerHTML ='';  
+                    let queue = document.querySelector(`#entrepreneur .type${i + 1}`);
+                    queue.innerHTML = '';
                 }
                 let queue = document.querySelector(`#entrepreneur .${cont.type}`);
                 let div = document.createElement('div');
