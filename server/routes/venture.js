@@ -1,39 +1,80 @@
-const router = require('express').Router();
-const express = require('express');
-const path = require('path');
+const router = require("express").Router();
+const express = require("express");
+const path = require("path");
 const app = express();
-const sql = require('mssql');
-
+const sql = require("mssql");
 /*database configuration*/
 const dbConfig = {
-    server:  'localhost\\SQLEXPRESS',
-    database:  'test1',
-    user: 'simfoni',
-    password:  'simfoni',
-    options: {
-        "encrypt": true,
-        "enableArithAbort": true
-    }
+  server: "localhost\\SQLEXPRESS",
+  database: "test1",
+  user: "Andres",
+  password: "test",
+  options: {
+    encrypt: true,
+    enableArithAbort: true,
+  },
 };
 /*connect to test1 database*/
 //const dir = path.join(__dirname, '');
 //app.use(express.static(dir));
-router.get('/', (req, res) => {
-    //res.sendFile(dir + '/future-glasses.jpg');
-    //db connection
-        //"test";
-        sql.connect(dbConfig, function (err) {
-        if (err) console.log(err);
-        // create Request object
-        var request = new sql.Request();
-        // query to the database and get the records
-        request.query('select * from dbo.ImageTable where Id=1', 
-        function (err, recordset) {
-            if (err) console.log(err)
-            // send records as a response
-            console.log(recordset);
-            res.json(recordset);
-        });
+router.get("/career", (req, res) => {
+  //res.sendFile(dir + '/future-glasses.jpg');
+  //db connection
+  //"test";
+  sql.connect(dbConfig, function (err) {
+    if (err) console.log(err);
+    // create Request object
+    var request = new sql.Request();
+    // query to the database and get the records
+    request.query("select * from dbo.Career where CareerID=1", function (
+      err,
+      recordset
+    ) {
+      if (err) console.log(err);
+      // send records as a response
+      console.log(recordset);
+      res.json(recordset);
     });
+  });
+});
+router.get("/trade", (req, res) => {
+  //res.sendFile(dir + '/future-glasses.jpg');
+  //db connection
+  //"test";
+  sql.connect(dbConfig, function (err) {
+    if (err) console.log(err);
+    // create Request object
+    var request = new sql.Request();
+    // query to the database and get the records
+    request.query(
+      "select * from dbo.Venture where   xxxxxxxxxxxxxCareerID=1",
+      function (err, recordset) {
+        if (err) console.log(err);
+        // send records as a response
+        console.log(recordset);
+        res.json(recordset);
+      }
+    );
+  });
+});
+router.get("/", (req, res) => {
+  //res.sendFile(dir + '/future-glasses.jpg');
+  //db connection
+  //"test";
+  sql.connect(dbConfig, function (err) {
+    if (err) console.log(err);
+    // create Request object
+    var request = new sql.Request();
+    // query to the database and get the records
+    request.query(
+      "select * from dbo.Venture where   xxxxxxxxxxxxxCareerID=1",
+      function (err, recordset) {
+        if (err) console.log(err);
+        // send records as a response
+        console.log(recordset);
+        res.json(recordset);
+      }
+    );
+  });
 });
 module.exports = router;
