@@ -248,7 +248,7 @@ const database = {
             step: 'Problem',
             status: 'active',
             content: `<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype2 cont2"><h6 class="stepH6">Problem</h6><div class="completed"><label>Complete</label><br /><input 
-type="checkbox" name="completeTask" value="completed" /></div> <div class="newCont" title="checkbox"><label>sgfgsgf<br /></label><div class="multiAnswer"><div><input type="checkbox" value="fdasf" /><label>fdasf</label></div><div><input type="checkbox" value="daf" /><label>daf</label></div><div><input type="checkbox" value="fasdfa" /><label>fasdfa</label></div><div><input type="checkbox"
+type="checkbox" name="completeTask" value="2" /></div> <div class="newCont" title="checkbox"><label>sgfgsgf<br /></label><div class="multiAnswer"><div><input type="checkbox" value="fdasf" /><label>fdasf</label></div><div><input type="checkbox" value="daf" /><label>daf</label></div><div><input type="checkbox" value="fasdfa" /><label>fasdfa</label></div><div><input type="checkbox"
             value="fdsafdaf" /><label>fdsafdaf</label></div></div><br /><button class="type2Submit" value="2">Submit</button></div></div > `
         },
         {
@@ -256,21 +256,21 @@ type="checkbox" name="completeTask" value="completed" /></div> <div class="newCo
             type: 'type2',
             step: 'Problem',
             status: 'active',
-            content: `<div xmlns="http://www.w3.org/1999/xhtml" class="coordination containertype2 cont3"><h6 class="stepH6">Problem</h6><div class="completed"><label>Complete</label><br /><input type="checkbox" name="completeTask" value="completed" /></div><div class="newCont" title="input_text"><label>dafdfadsf<br /></label><input type="text" /><br /><button class="type2Submit" value="3">Submit</button></div></div>`
+            content: `<div xmlns="http://www.w3.org/1999/xhtml" class="coordination containertype2 cont3"><h6 class="stepH6">Problem</h6><div class="completed"><label>Complete</label><br /><input type="checkbox" name="completeTask" value="3" /></div><div class="newCont" title="input_text"><label>dafdfadsf<br /></label><input type="text" /><br /><button class="type2Submit" value="3">Submit</button></div></div>`
         },
         {
             contid: 4,
             type: 'type3',
             step: 'Goal',
             status: 'active',
-            content: `<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype3 cont4"><h6 class="stepH6">Goal</h6><div class="completed"><label>Complete</label><br /><input type="checkbox" name="completeTask" value="completed" /></div><div class="newCont"><h4>fdafdfadfdafdafdfadf<br /><a href="dasfdfdsfafdf">dasfdfdsfafdf<br /></a></h4><textarea></textarea></div></div>`
+            content: `<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype3 cont4"><h6 class="stepH6">Goal</h6><div class="completed"><label>Complete</label><br /><input type="checkbox" name="completeTask" value="4" /></div><div class="newCont"><h4>fdafdfadfdafdafdfadf<br /><a href="dasfdfdsfafdf">dasfdfdsfafdf<br /></a></h4><textarea></textarea></div></div>`
         },
         {
             contid: 5,
             type: 'type4',
             step: 'Problem',
             status: 'active',
-            content: `<div xmlns="http://www.w3.org/1999/xhtml" class="capital containertype4 cont5"><h6 class="stepH6">Problem</h6><div class="completed"><label>Complete</label><br /><input type="checkbox" name="completeTask" value="completed" /></div><div class="newCont"><div class="type4cont"><div class="type4photo"><img /><a href="#">Zoom Link</a></div><div class="type4details"><h4>fdsafdasf, <b>fdasfdaf - fdsafsdf</b></h4><p><b>dsafdaf</b></p><p>dafdfadfdafsdfdaf</p><textarea class="type4text"></textarea></div></div></div></div>`
+            content: `<div xmlns="http://www.w3.org/1999/xhtml" class="capital containertype4 cont5"><h6 class="stepH6">Problem</h6><div class="completed"><label>Complete</label><br /><input type="checkbox" name="completeTask" value="5" /></div><div class="newCont"><div class="type4cont"><div class="type4photo"><img /><a href="#">Zoom Link</a></div><div class="type4details"><h4>fdsafdasf, <b>fdasfdaf - fdsafsdf</b></h4><p><b>dsafdaf</b></p><p>dafdfadfdafsdfdaf</p><textarea class="type4text"></textarea></div></div></div></div>`
         }, {
             contid: 6,
             type: 'type2',
@@ -298,7 +298,7 @@ name="question" value="5" /><label>5</label><input type="radio" name="question" 
             type: 'type2',
             step: 'Problem',
             status: 'active',
-            content: '<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype2 cont9"><h6 class="stepH6">Problem</h6><div class="completed"><label>Complete</label><br /><input type="checkbox" name="completeTask" value="completed" /></div><div class="newCont" title="textarea"><label>dffdfda<br /></label><textarea></textarea><br /><button class="type2Submit" value="9">Submit</button></div></div>'
+            content: '<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype2 cont9"><h6 class="stepH6">Problem</h6><div class="completed"><label>Complete</label><br /><input type="checkbox" name="completeTask" value="9" /></div><div class="newCont" title="textarea"><label>dffdfda<br /></label><textarea></textarea><br /><button class="type2Submit" value="9">Submit</button></div></div>'
         },
         {
             contid: 10,

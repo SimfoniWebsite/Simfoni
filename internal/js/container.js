@@ -33,7 +33,7 @@ function addColorChoice() {
 
 function addCheckbox() {
     if (document.querySelector('input[name=needRadio]:checked').value === 'yes') {
-        let checkbox = '<div class="completed"><Label>Complete</label><br><input type="checkbox" name="completeTask" value="completed"></div>';
+        let checkbox = '<div class="completed"><Label>Complete</label><br><input type="checkbox" name="completeTask"></div>';
         let container = document.querySelector('.preview div h6');
         container.insertAdjacentHTML('afterend', checkbox);
     }
@@ -294,6 +294,10 @@ function addContainertoQueue() {
             let p = `<input type="checkbox" name="status" class="queueFlex-check" value="${queueid}"><label>queue</label>`;
             div.insertAdjacentHTML('beforeend', p);
             queue.insertAdjacentElement('beforeEnd', div);
+            let complete = queue.querySelector('.completed input[name=completeTask]');
+            if(complete != null){
+                complete.setAttribute('value', queueid);
+            }
             queue.querySelector('.move').classList.add(`container${type}`);
             queue.querySelector('.move').classList.add(`cont${queueid}`);
             queue.querySelector('.move').classList.remove('move');

@@ -2,8 +2,8 @@ const router = require('express').Router();
 const database = require('./test-database');
 
 router.get('/3', (req, res) => {
-    
-    let entrepreneur = database.users.find(user=>{
+
+    let entrepreneur = database.users.find(user => {
         return user.id === 3
     });
     let activeCont = database.containers.filter(cont => {
@@ -16,7 +16,24 @@ router.get('/3', (req, res) => {
         content: activeCont
     };
     console.log(ent);
-        res.json(ent);
+    res.json(ent);
 });
+
+router.post('/type2submit', (req, res) => {
+    console.log(req.body);
+    res.json('received answers');
+})
+
+router.post('/completeTask', (req, res) => {
+    console.log(req.body);
+    database.containers.forEach(cont => {
+        if (cont.contid === Number(req.body.id)) {
+            cont.status = 'complete';
+            console.log(cont);
+        }
+    });
+    res.json('completed task');
+})
+
 
 module.exports = router;
