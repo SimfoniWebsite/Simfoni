@@ -31,9 +31,9 @@ function addColorChoice() {
     }
 }
 
-function addCheckbox(){
-    if(document.querySelector('input[name=needRadio]').value === 'yes'){
-        let checkbox = '<div class="completed"><Label>Complete</label><br><input type="checkbox" name="completeTask" value="completed"></div>';
+function addCheckbox() {
+    if (document.querySelector('input[name=needRadio]:checked').value === 'yes') {
+        let checkbox = '<div class="completed"><Label>Complete</label><br><input type="checkbox" name="completeTask"></div>';
         let container = document.querySelector('.preview div h6');
         container.insertAdjacentHTML('afterend', checkbox);
     }
@@ -51,6 +51,7 @@ function addStepType() {
     let step = document.querySelector('input[name=step]:checked').value;
     let h6 = document.createElement('h6');
     h6.setAttribute('class', 'stepH6');
+    h6.setAttribute('title', step);
     h6.appendChild(document.createTextNode(jsUcfirst(step)));
     document.querySelector('.preview div').appendChild(h6);
 }
@@ -95,6 +96,7 @@ function container2type() {
     let question = document.createTextNode(document.getElementById('question').value);
     let div = document.createElement('div');
     div.setAttribute('class', 'newCont');
+    div.setAttribute('title', type);
     let label = document.createElement('label');
     label.appendChild(question);
     label.appendChild(document.createElement('br'));
@@ -190,7 +192,7 @@ function container2type() {
             let text2 = document.createTextNode(text);
             let label = document.createElement('label');
             label.appendChild(text2);
-            input.setAttribute('value', text);
+            label.setAttribute('value', text);
             div.appendChild(label);
             let select = document.createElement('select')
             for (let j = 0; j < numOfChoices; j++) {
@@ -203,7 +205,7 @@ function container2type() {
             element.appendChild(div);
         }
     }
-    let button = '</br><button class="type2Submit">Submit</button>';
+    let button = `</br><button class="type2Submit">Submit</button>`;
     div.appendChild(element);
     div.insertAdjacentHTML('beforeend', button);
     addCheckbox();
@@ -245,7 +247,7 @@ function container3type() {
 document.querySelector('#type4 .previewContainer').addEventListener('click', container4type);
 
 /*build container 4 type*/
-function container4type(){
+function container4type() {
     let name = document.querySelector('#type4name').value;
     let position = document.querySelector('#type4position').value;
     let employer = document.querySelector('#type4employer').value;
@@ -254,15 +256,20 @@ function container4type(){
     let div = document.createElement('div');
     div.setAttribute('class', 'newCont');
     /*create main content*/
-    let element = `<div class="type4"><div class="type4photo"><img><a href=# >Zoom Link</a></div><div class="type4details"><h4>${name}, <b>${position} - ${employer}</b></h4><p><b>${attributes}</b></p><p>${summary}</p><textarea class="type4text" rows="4" cols="50"></textarea></div>`;
-    div.insertAdjacentHTML('beforeend', element);    
+    let element = `<div class="type4cont"><div class="type4photo"><img><a href=# >Zoom Link</a></div><div class="type4details"><h4>${name}, <b>${position} - ${employer}</b></h4><p><b>${attributes}</b></p><p>${summary}</p><textarea class="type4text"></textarea></div>`;
+    div.insertAdjacentHTML('beforeend', element);
     addCheckbox();
     document.querySelector('.preview div').classList.add('move');
     document.querySelector('.preview div').appendChild(div);
     let image = document.querySelector('.preview .type4photo img');
     console.log(image);
-    let file = document.querySelector('#type4photo').files[0];
-	image.src = URL.createObjectURL(file);
+    /*img needs to be saved?*/
+    if (document.document.querySelector('#type4photo').value != "") {
+        let file = document.querySelector('#type4photo').files[0];
+        image.src = URL.createObjectURL(file);
+    }else{
+        image.src = "../img/Black _ White Avatars Illustrations-01.png";
+    }
 }
 
 /*add container to entrepreneur*/
@@ -275,6 +282,7 @@ function addContainertoQueue() {
     let type = document.querySelector('.containertype').value;
     let queue = document.querySelector(`#entrepreneur .${type}`);
     let queueid;
+    let step = document.querySelector(`.move .stepH6`).title;
     /*need to add id for queue container items to track*/
     fetch(url + '/internal/queueid')
         .then(response => response.json())
@@ -286,6 +294,10 @@ function addContainertoQueue() {
             let p = `<input type="checkbox" name="status" class="queueFlex-check" value="${queueid}"><label>queue</label>`;
             div.insertAdjacentHTML('beforeend', p);
             queue.insertAdjacentElement('beforeEnd', div);
+            let complete = queue.querySelector('.completed input[name=completeTask]');
+            if(complete != null){
+                complete.setAttribute('value', queueid);
+            }
             queue.querySelector('.move').classList.add(`container${type}`);
             queue.querySelector('.move').classList.add(`cont${queueid}`);
             queue.querySelector('.move').classList.remove('move');
@@ -295,6 +307,7 @@ function addContainertoQueue() {
             let cont = {
                 contid: queueid,
                 type: type,
+                step: step,
                 status: 'queue',
                 content: contstring
             };
@@ -317,8 +330,10 @@ function addContainertoQueue() {
 
                         document.querySelector('input[name=step]:checked').checked = false;
                     });
+                    document.querySelector('input[name=needRadio]:checked').checked = false;
                     /*reset form values*/
                     if (type === 'type2') {
+                        document.querySelector('.type2Submit').setAttribute('value', queueid);
                         document.getElementById('question').value = '';
                         document.getElementById('link').value = '';
                         document.querySelector('.questiontype').value = '';
@@ -338,7 +353,7 @@ function addContainertoQueue() {
 
 
 /*Add containers to current page*/
-document.querySelector('.addCurrent').addEventListener('click', addtoCurrentPage);
+document.querySelector('.addCurrent button').addEventListener('click', addtoCurrentPage);
 
 function addtoCurrentPage() {
     let checked = document.querySelectorAll('input[name=status]:checked');
@@ -369,8 +384,8 @@ function addtoCurrentPage() {
             queueCont.forEach(cont => {
                 /*reset queue*/
                 for (let i = 0; i < 7; i++) {
-                    let queue = document.querySelector(`#entrepreneur .type${i+1}`);
-                    queue.innerHTML ='';  
+                    let queue = document.querySelector(`#entrepreneur .type${i + 1}`);
+                    queue.innerHTML = '';
                 }
                 let queue = document.querySelector(`#entrepreneur .${cont.type}`);
                 let div = document.createElement('div');
