@@ -80,7 +80,6 @@ function completeTask(checkbox){
         body: JSON.stringify(id)
     }).then(response => response.json())
         .then(() => location.reload())
-
 }
 
 if (document.addEventListener) {
