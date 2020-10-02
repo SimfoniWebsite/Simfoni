@@ -32,7 +32,7 @@ function addColorChoice() {
 }
 
 function addCheckbox() {
-    if (document.querySelector('input[name=needRadio]').value === 'yes') {
+    if (document.querySelector('input[name=needRadio]:checked').value === 'yes') {
         let checkbox = '<div class="completed"><Label>Complete</label><br><input type="checkbox" name="completeTask" value="completed"></div>';
         let container = document.querySelector('.preview div h6');
         container.insertAdjacentHTML('afterend', checkbox);
@@ -51,6 +51,7 @@ function addStepType() {
     let step = document.querySelector('input[name=step]:checked').value;
     let h6 = document.createElement('h6');
     h6.setAttribute('class', 'stepH6');
+    h6.setAttribute('title', step);
     h6.appendChild(document.createTextNode(jsUcfirst(step)));
     document.querySelector('.preview div').appendChild(h6);
 }
@@ -95,6 +96,7 @@ function container2type() {
     let question = document.createTextNode(document.getElementById('question').value);
     let div = document.createElement('div');
     div.setAttribute('class', 'newCont');
+    div.setAttribute('title', type);
     let label = document.createElement('label');
     label.appendChild(question);
     label.appendChild(document.createElement('br'));
@@ -190,7 +192,7 @@ function container2type() {
             let text2 = document.createTextNode(text);
             let label = document.createElement('label');
             label.appendChild(text2);
-            input.setAttribute('value', text);
+            label.setAttribute('value', text);
             div.appendChild(label);
             let select = document.createElement('select')
             for (let j = 0; j < numOfChoices; j++) {
@@ -203,7 +205,7 @@ function container2type() {
             element.appendChild(div);
         }
     }
-    let button = '</br><button class="type2Submit">Submit</button>';
+    let button = `</br><button class="type2Submit">Submit</button>`;
     div.appendChild(element);
     div.insertAdjacentHTML('beforeend', button);
     addCheckbox();
@@ -280,6 +282,7 @@ function addContainertoQueue() {
     let type = document.querySelector('.containertype').value;
     let queue = document.querySelector(`#entrepreneur .${type}`);
     let queueid;
+    let step = document.querySelector(`.move .stepH6`).title;
     /*need to add id for queue container items to track*/
     fetch(url + '/internal/queueid')
         .then(response => response.json())
@@ -300,6 +303,7 @@ function addContainertoQueue() {
             let cont = {
                 contid: queueid,
                 type: type,
+                step: step,
                 status: 'queue',
                 content: contstring
             };
@@ -322,8 +326,10 @@ function addContainertoQueue() {
 
                         document.querySelector('input[name=step]:checked').checked = false;
                     });
+                    document.querySelector('input[name=needRadio]:checked').checked = false;
                     /*reset form values*/
                     if (type === 'type2') {
+                        document.querySelector('.type2Submit').setAttribute('value', queueid);
                         document.getElementById('question').value = '';
                         document.getElementById('link').value = '';
                         document.querySelector('.questiontype').value = '';
