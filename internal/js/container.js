@@ -181,6 +181,7 @@ function container2type() {
     } else if (type === 'fileUpload') {
         element = document.createElement('input');
         element.setAttribute('type', 'file');
+        element.setAttribute('name', question);
     } else if (type === 'rankOrder') {
         element = document.createElement('div');
         element.setAttribute('class', 'multiAnswer');
@@ -256,7 +257,7 @@ function container4type() {
     let div = document.createElement('div');
     div.setAttribute('class', 'newCont');
     /*create main content*/
-    let element = `<div class="type4cont"><div class="type4photo"><img><a href=# >Zoom Link</a></div><div class="type4details"><h4>${name}, <b>${position} - ${employer}</b></h4><p><b>${attributes}</b></p><p>${summary}</p><textarea class="type4text"></textarea></div>`;
+    let element = `<div class="type4cont"><div class="type4photo"><img><a href="https://zoom.us/signin">Schedule Zoom Meeting</a></div><div class="type4details"><h4>${name}, <b>${position} - ${employer}</b></h4><p><b>${attributes}</b></p><p>${summary}</p><textarea class="type4text"></textarea></div>`;
     div.insertAdjacentHTML('beforeend', element);
     addCheckbox();
     document.querySelector('.preview div').classList.add('move');
@@ -264,14 +265,75 @@ function container4type() {
     let image = document.querySelector('.preview .type4photo img');
     console.log(image);
     /*img needs to be saved?*/
-    if (document.document.querySelector('#type4photo').value != "") {
+    if (document.querySelector('#type4photo').value != '') {
         let file = document.querySelector('#type4photo').files[0];
         image.src = URL.createObjectURL(file);
-    }else{
+    } else {
         image.src = "../img/Black _ White Avatars Illustrations-01.png";
     }
 }
 
+/*container 5 listener*/
+document.querySelector('#type5 .previewContainer').addEventListener('click', container5type);
+
+/*build container 5 type*/
+function container5type() {
+    let link = document.querySelector('#type5link').value;
+    let title = document.querySelector('#type5title').value;
+    let details = document.querySelector('#type5details').value;
+    let survey = document.querySelector('#type5survey').value;
+    let div = document.createElement('div');
+    div.setAttribute('class', 'newCont');
+    let element = `<div class='type5cont'><div class='type5link'><a href='${link}'>${link}</a><div class='type5det'><h4>${title}</h4><p>${details}</p></div></div><textarea></textarea><a href='${survey}'>Please complete the survey</a></div>`
+    div.insertAdjacentHTML('beforeend', element);
+    addCheckbox();
+    document.querySelector('.preview div').classList.add('move');
+    document.querySelector('.preview div').appendChild(div);
+}
+
+/*container 6 listener*/
+document.querySelector('#type6 .previewContainer').addEventListener('click', container6type);
+
+document.querySelector('#type6 .addcheck').addEventListener('click', addchecklistitem);
+
+function addchecklistitem() {
+    let item = document.querySelector('#type6check').value;
+    let ul = document.querySelector('#type6checklist');
+    let li = document.createElement('li');
+    li.appendChild(document.createTextNode(item));
+    ul.insertAdjacentElement('beforeend', li);
+    document.querySelector('#type6check').value = '';
+}
+/*build container 6 type*/
+function container6type() {
+    let title = document.querySelector('#type6title').value;
+    let goal = document.querySelector('#type6goal').value;
+    let link = document.querySelector('#type6link').value;
+    let notes = document.querySelector('#type6notes').value;
+    let li = document.querySelectorAll('#type6checklist li');
+    let div = document.createElement('div');
+    div.setAttribute('class', 'newCont');
+    let checkbox = '';
+    for (let i = 0; i < li.length; i++) {
+        if (i === 0 || i % 4 === 0) {
+            checkbox += '<div>'
+        }
+        checkbox += `<div><input type='checkbox' value='${li[i].textContent}'><label>${li[i].textContent}</label></div>`
+        if (i % 3 === 0 && i != 0) {
+            checkbox += '</div>'
+        }
+    }
+
+    let linktext = '';
+    if (link != '') {
+        linktext = `<a href='${link}'>${link}</a>`;
+    }
+    let element = `<div class='type6cont'><h4>${title} - <b>${goal}</b></h4>${linktext}<div class='type6main'><p>Notes: ${notes}</p><div class='type6checklist'>${checkbox}</div></div></div>`;
+    div.insertAdjacentHTML('beforeend', element);
+    addCheckbox();
+    document.querySelector('.preview div').classList.add('move');
+    document.querySelector('.preview div').appendChild(div);
+}
 /*add container to entrepreneur*/
 document.querySelectorAll('.add').forEach(item => {
     item.addEventListener('click', addContainertoQueue);
@@ -295,7 +357,7 @@ function addContainertoQueue() {
             div.insertAdjacentHTML('beforeend', p);
             queue.insertAdjacentElement('beforeEnd', div);
             let complete = queue.querySelector('.completed input[name=completeTask]');
-            if(complete != null){
+            if (complete != null) {
                 complete.setAttribute('value', queueid);
             }
             queue.querySelector('.move').classList.add(`container${type}`);

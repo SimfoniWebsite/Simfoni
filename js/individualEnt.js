@@ -23,6 +23,7 @@ function submitType2Answer(button) {
         answer: '',
     };
     let label = document.querySelector(`.cont${answer.contid} .newCont label`);
+    console.log(label);
     answer.question = label.textContent;
 
     let type = document.querySelector(`.cont${answer.contid} .newCont`).title;
@@ -44,7 +45,25 @@ function submitType2Answer(button) {
     } else if (type === 'linearScale') {
         answer.answer = document.querySelector(`.cont${answer.contid} .newCont input[type=radio]:checked`).value;
     } else if (type === 'fileUpload') {
+        let file = document.querySelector(`.cont${answer.contid} .newCont input[type=file]`);
+        let formData = new FormData();
+        formData.append(file.name, file.files[0]);
+        console.log(formData);
+        answer.answer = `file: ${file.name}`;
+        fetch(url + '/entrepreneur/type2submitFile', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        }).then(response => response.json())
+            .then(msg => {
+                console.log(msg)
+                debugger;
 
+            })
+
+        console.log(answer);
     } else if (type === 'rankOrder') {
         let answers = document.querySelectorAll(`.cont${answer.contid} .newCont .rank`);
         answers.forEach(item => {
@@ -65,10 +84,13 @@ function submitType2Answer(button) {
         body: JSON.stringify(answer)
     }).then(response => response.json())
         .then(msg => console.log(msg))
+        .then(() => location.reload())
 
 }
 
-function completeTask(checkbox){
+
+
+function completeTask(checkbox) {
     let id = {
         id: checkbox.value
     };
