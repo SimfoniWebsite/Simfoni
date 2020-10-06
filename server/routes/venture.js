@@ -17,46 +17,6 @@ const dbConfig = {
 /*connect to test1 database*/
 //const dir = path.join(__dirname, '');
 //app.use(express.static(dir));
-router.get("/career", (req, res) => {
-  //res.sendFile(dir + '/future-glasses.jpg');
-  //db connection
-  //"test";
-  sql.connect(dbConfig, function (err) {
-    if (err) console.log(err);
-    // create Request object
-    var request = new sql.Request();
-    // query to the database and get the records
-    request.query("select * from dbo.Career where CareerID=1", function (
-      err,
-      recordset
-    ) {
-      if (err) console.log(err);
-      // send records as a response
-      console.log(recordset);
-      res.json(recordset);
-    });
-  });
-});
-router.get("/trade", (req, res) => {
-  //res.sendFile(dir + '/future-glasses.jpg');
-  //db connection
-  //"test";
-  sql.connect(dbConfig, function (err) {
-    if (err) console.log(err);
-    // create Request object
-    var request = new sql.Request();
-    // query to the database and get the records
-    request.query(
-      "select * from dbo.Venture where   xxxxxxxxxxxxxCareerID=1",
-      function (err, recordset) {
-        if (err) console.log(err);
-        // send records as a response
-        console.log(recordset);
-        res.json(recordset);
-      }
-    );
-  });
-});
 router.get("/", (req, res) => {
   //res.sendFile(dir + '/future-glasses.jpg');
   //db connection
@@ -66,15 +26,47 @@ router.get("/", (req, res) => {
     // create Request object
     var request = new sql.Request();
     // query to the database and get the records
-    request.query(
-      "select * from dbo.Venture where   xxxxxxxxxxxxxCareerID=1",
-      function (err, recordset) {
-        if (err) console.log(err);
-        // send records as a response
-        console.log(recordset);
-        res.json(recordset);
-      }
-    );
+    request.query("select * from dbo.Career", function (err, recordset) {
+      if (err) console.log(err);
+      // send records as a response
+      console.log(recordset);
+      res.json(recordset);
+    });
   });
 });
+router.get("/skill", (req, res) => {
+  //res.sendFile(dir + '/future-glasses.jpg');
+  //db connection
+  //"test";
+  sql.connect(dbConfig, function (err) {
+    if (err) console.log(err);
+    // create Request object
+    var request = new sql.Request();
+    // query to the database and get the records
+    request.query("select * from dbo.Skill", function (err, recordset) {
+      if (err) console.log(err);
+      // send records as a response
+      console.log(recordset);
+      res.json(recordset);
+    });
+  });
+});
+router.get("/venture", (req, res) => {
+  //res.sendFile(dir + '/future-glasses.jpg');
+  //db connection
+  //"test";
+  sql.connect(dbConfig, function (err) {
+    if (err) console.log(err);
+    // create Request object
+    var request = new sql.Request();
+    // query to the database and get the records
+    request.query("select * from dbo.Venture", function (err, recordset) {
+      if (err) console.log(err);
+      // send records as a response
+      console.log(recordset);
+      res.json(recordset);
+    });
+  });
+});
+
 module.exports = router;
