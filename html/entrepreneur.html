@@ -44,7 +44,7 @@
         <li class="item"><a class="active-page" href="index.html">Home</a></li>
         <li class="item has-submenu">
           <a tabindex="0"
-            >Entrepreneur<i class="fa fa-angle-down" aria-hidden="true"></i
+            >Member<i class="fa fa-angle-down" aria-hidden="true"></i
           ></a>
           <ul class="submenu">
             <li class="subitem">
@@ -84,7 +84,7 @@
 
         <li class="item button"><a href="login.html">Log In</a></li>
         <li class="item button secondary">
-          <a href="entrepreneur registration">Register</a>
+          <a href="entrepregistration.html">Register</a>
         </li>
         <li class="toggle">
           <a href="#"><i class="fas fa-bars"></i></a>
@@ -99,111 +99,52 @@
     </header>
     <!--Page Sections-->
     <!--Entrepreneur Section-->
-    <section>
-      <div>
-        <h2 class="button">
-          <a href="entrepreneur registration.html">Register Here</a>
-        </h2>
-        <!--<div class="section-flex">-->
-        <hr class="hrentrepreneur" />
-        <!--<div class="section-flex">-->
-        <p>For a list tailored to your goals, values, skills and abilities.</p>
-      </div>
-    </section>
+    
+      <section>        
+      <div class="wrapper">
+	    <input type="text" class="input" placeholder="What are you looking for?">
+	    <div class="searchbtn"><i class="fas fa-search"></i></div>
+        <p>For a list tailored to your goals and abilities.</p>
+      </section>
+ 
 
     <!--Grid Picture Section-->
     <section>
+      <div class="section-flex" id="imgcatalog1">
+        <!--<div class="half-section">-->
+        <button
+          class="button"
+          type="button"
+          onclick="clearContent('imgcatalog1'); selectCareers()"
+        >
+          Careers
+        </button>
+      </div>
+      <section class="grid-container imgcatalog1">
+        <!--<button onclick="href="www.yoursite.com"; id="myButton"></button>-->
+      </section>
+    </section>
+
+    <section>
       <div class="section-flex">
         <!--<div class="half-section">-->
-        <h2 class="button"><a href="careers.html">Careers</a></h2>
-        <h2 class="button"><a href="trades.html">Trades</a></h2>
-        <h2 class="button"><a href="ventures.html">Ventures</a></h2>
+        <button class="button" type="button" onclick="selectSkills()">
+          Skills
+        </button>
       </div>
-      <div>
-        <hr class="hrentrepreneur" />
-        <!--<div class="section-flex">-->
-        <p>For lists filled with opportunities.</p>
-        <!--</div>-->
-      </div>
-      <!--
-      <div class="grid-container">
-        <div class="grid-item">
-          <img src="../img/building2.jpg" class="img1" />
-          <button>
-            <a class="cliktb" href="realstate.html" alternate="snow"
-              ><h3>Marketing/Advertising</h3></a
-            >
-          </button>
-        </div>
-        <div class="grid-item">
-          <img src="../img/building2.jpg" class="img1" />
-          <button>
-            <a class="cliktb" href="realstate.html" alternate="snow"
-              ><h3>Real Estate Investment</h3></a
-            >
-          </button>
-        </div>
-        <div class="grid-item">
-          <img src="../img/building2.jpg" class="img1" />
-          <button>
-            <a class="cliktb" href="realstate.html" alternate="snow"
-              ><h3>Hotel Management</h3></a
-            >
-          </button>
-        </div>
-        <div class="grid-item">
-          <img src="../img/building2.jpg" class="img1" />
-          <button>
-            <a class="cliktb" href="realstate.html" alternate="snow"
-              ><h3>Landscaping</h3></a
-            >
-          </button>
-        </div>
-      </div>-->
-      <!--</div>-->
-      <!--</section>
-    <section class="grid-container img-catalog"></section>-->
-      <!--Survey with Selectors-->
-      <!--<section>-->
-      <!--<h2>Explore More...</h2>
-        <div class="section-flex">
-            <div>-->
-      <!--<h3>Why are you pursuing entrepreneurship (top 3 reasons)?</h3>-->
-      <!--<div class="half-section">
-                    <div>
-                        <ul>
-                            <br>
-                            <li>Real State Investment</li>
-                            <li>Hotel Management</li>
-                            <li>Landscaping</li>
-                            <li>Lawn Care Business</li>
-                            <li>Pest Control Business</li>
-                            <li>Consultant</li>
-                            <li>Business Brokerage</li>
-                            <li>Marketing/Advertising</li>
-                            <li>Public Notary Service</li>
-                            <li>Retailer</li>
-                            <li>Telemarketing</li>
-                            <li>Photography</li>
-                            <li>Video Production</li>
-                        </ul>
-                    </div>
-                </div>
-                
-            </div>
-        </div>-->
-      <!--
-    <section>
-      <div>
-        <h2>Form</h2>
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSeqRCZgkDF_xp-sgwl48tvTWKTjpdf9fO_RfqQRYLy9XteQ_g/viewform?usp=pp_url"
-          style="width: 600px; height: 900px"
-          >Loading...</iframe
-        >
-      </div>
+      <section class="grid-container img-catalog2"></section>
     </section>
-    --></section>
+
+    <section>
+      <div class="section-flex">
+        <!--<div class="half-section">-->
+        <button class="button" type="button" onclick="selectVentures()">
+          Ventures
+        </button>
+      </div>
+      <section class="grid-container img-catalog3"></section>
+    </section>
+
     <footer>
       <div class="disclaimer">
         <p>Disclaimers and Disclosures</p>
@@ -222,5 +163,13 @@
 
     <script src="../js/index.js"></script>
     <script src="../js/entrepreneur.js"></script>
+    <!--<script src="../js/career.js"></script>
+    <script src="../js/trade.js"></script>
+    <script src="../js/venture.js"></script>-->
+    <script type="text/javascript">
+      document.getElementById("button").onclick = function () {
+        location.href = "www.google.com";
+      };
+    </script>
   </body>
 </html>
