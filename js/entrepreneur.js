@@ -152,3 +152,44 @@ function _arrayBufferToBase64(buffer) {
     }
     return window.btoa(binary);
 }*/
+
+
+
+/*draggable events*/
+/*on drag start save id using datatransfer object and change background color*/
+function onDragStart(event) {
+  event
+    .dataTransfer
+    .setData('text/plain', event.target.id);
+
+  event
+    .currentTarget
+    .style
+    .backgroundColor = 'rgb(187, 187, 187,0.8)';
+}
+/*prevent default browser action on drag over*/
+function onDragOver(event) {
+  event.preventDefault();
+}
+
+/*on drop of element to dropzone*/
+function onDrop(event) {
+  /*obtain id from datatransfer object*/
+  const id = event
+    .dataTransfer
+    .getData('text');
+
+  /*select draggable element with id*/
+  const draggableElement = document.getElementById(id);
+  /*reset background color on drop*/
+  draggableElement.style.backgroundColor = '';
+  /*select dropzone element*/
+  const dropzone = event.target;
+  /*append element to dropzone*/
+  dropzone.appendChild(draggableElement);
+  /*reset datatransfer object*/
+  event
+    .dataTransfer
+    .clearData();
+
+}

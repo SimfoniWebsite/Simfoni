@@ -165,6 +165,51 @@ iframe {
 }
   
   
+/* draggable elements */
+.parent {
+  color: black;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.searchresult {
+  border-radius:5px;
+  border:1px solid #bbb;
+  flex-basis: 100%;
+  flex-grow: 1;
+  padding: 10px;
+  margin: 1vw;
+  box-shadow: 5px 5px 6px 0px rgba(140,140,140,0.39);
+}
+
+.draggable {
+  font-weight: normal;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.dropzone {
+  margin: 1vw;
+  border-radius:5px;
+  border:1px solid rgb(187, 187, 187);
+  flex-basis: 100%;
+  flex-grow: 1;
+  padding: 10px;
+  box-shadow: 5px 5px 6px 0px rgba(140,140,140,0.39);
+}
+
+.filters{
+  margin: 1vw;
+  border-radius:5px;
+  border:1px solid #bbb;
+  flex-basis: 50%;
+  flex-grow: 1;
+  padding: 10px;
+  box-shadow: 5px 5px 6px 0px rgba(140,140,140,0.39);
+}
+
+
   
   
   
