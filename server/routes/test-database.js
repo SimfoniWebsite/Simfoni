@@ -305,7 +305,30 @@ name="question" value="5" /><label>5</label><input type="radio" name="question" 
             type: 'type2',
             step: 'Goal',
             status: 'active',
-            content: '<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype2 cont10"><h6 class="stepH6">Goal</h6><div class="newCont" title="rankOrder"><label>fdafaf<br /></label><div class="multiAnswer"><div class="rank"><label value="fdaf">fdaf</label><select><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div><div class="rank"><label value="sadf">sadf</label><select><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div><div class="rank"><label value="asdfaf">asdfaf</label><select><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div></div><br /><button class="type2Submit" value="10">Submit</button></div></div>' 
+            content: '<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype2 cont10"><h6 class="stepH6">Goal</h6><div class="newCont" title="rankOrder"><label>fdafaf<br /></label><div class="multiAnswer"><div class="rank"><label value="fdaf">fdaf</label><select><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div><div class="rank"><label value="sadf">sadf</label><select><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div><div class="rank"><label value="asdfaf">asdfaf</label><select><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div></div><br /><button class="type2Submit" value="10">Submit</button></div></div>'
+        },
+        {
+            contid: 11,
+            type: 'type2',
+            step: 'goal',
+            status: 'active',
+            content: '<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype2 cont11"><h6 class="stepH6" title="goal">Goal</h6><div class="newCont" title="fileUpload"><label>dagffdf<br /></label><input type="file" /><br /><button class="type2Submit" value="11">Submit</button></div></div>'
+        },
+        {
+            contid: 12,
+            type: 'type5',
+            step: 'goal',
+            status: 'active',
+            content: `<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype5 cont15"><h6 class="stepH6" title="goal">Goal</h6><div class="completed"><label>Complete</label><br 
+        /><input type="checkbox" name="completeTask" /></div><div class="newCont"><div class="type5cont"><div class="type5link"><a href="afdfasdf">afdfasdf</a><div class="type5det"><h4>dsafdsfdfd</h4><p>dafdfdasfsdaf</p></div></div><textarea></textarea><a href="survey">Please complete the 
+        survey</a></div></div></div>`
+        },
+          {
+            contid: 13,
+            type: 'type6',
+            step: 'goal',
+            status: 'active',
+            content: '<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype6 cont14"><h6 class="stepH6" title="goal">Goal</h6><div class="completed"><label>Complete</label><br /><input type="checkbox" name="completeTask" value="14" /></div><div class="newCont"><div class="type6cont"><h4>adfdsaf - <b>dfafdfa</b></h4><a href="fdasfdasf">fdasfdasf</a><div class="type6main"><p>Notes: dsafdfa</p><div class="type6checklist"><div><div><input type="checkbox" value="dafdasf" /><label>dafdasf</label></div><div><input type="checkbox" value="fdafdaf" /><label>fdafdaf</label></div><div><input type="checkbox" value="dafdfafdf" /><label>dafdfafdf</label></div><div><input type="checkbox" value="dafdfadf" /><label>dafdfadf</label></div></div><div><div><input type="checkbox" value="dfadfasdf" /><label>dfadfasdf</label></div><div><input type="checkbox" value="dafdafa" /><label>dafdafa</label></div></div></div></div></div></div></div>'  
           }
     ]
 }
