@@ -100,49 +100,53 @@
     <!--Page Sections-->
     <!--Entrepreneur Section-->
     
-      <section>        
+      <section class="grid-container">        
       <div class="wrapper">
-	    <input type="text" class="input" placeholder="What are you looking for?">
+	    <input type="text" class="input" placeholder="Search for your goals here">
 	    <div class="searchbtn"><i class="fas fa-search"></i></div>
-        <p>For a list tailored to your goals and abilities.</p>
+        <!--<p>For a list tailored to your goals and abilities.</p>-->
       </section>
- 
 
     <!--Grid Picture Section-->
-    <section>
-      <div class="section-flex" id="imgcatalog1">
-        <!--<div class="half-section">-->
+    <!--<section class="grid-container">
+      <div class="section-flex1" id="imgcatalog1">
+        <div class="half-section">
         <button
           class="button"
           type="button"
-          onclick="clearContent('imgcatalog1'); selectCareers()"
-        >
-          Careers
-        </button>
-      </div>
-      <section class="grid-container imgcatalog1">
-        <!--<button onclick="href="www.yoursite.com"; id="myButton"></button>-->
-      </section>
-    </section>
-
-    <section>
-      <div class="section-flex">
-        <!--<div class="half-section">-->
-        <button class="button" type="button" onclick="selectSkills()">
-          Skills
-        </button>
-      </div>
-      <section class="grid-container img-catalog2"></section>
-    </section>
-
-    <section>
-      <div class="section-flex">
-        <!--<div class="half-section">-->
+          onclick="selectCareers()">Goals</button>
+          <section class="grid-container imgcatalog1"></section>
+  
+        <button 
+        class="button" 
+        type="button" 
+        onclick="selectSkills()">Matched Goals</button>
+        <section class="grid-container img-catalog2"></section>
+        
         <button class="button" type="button" onclick="selectVentures()">
-          Ventures
+          Filters
         </button>
+        <section class="grid-container img-catalog3"></section>
       </div>
-      <section class="grid-container img-catalog3"></section>
+    </section>-->
+
+    <section class="main-flex">
+      <div>
+        <div class="section-flex">
+          <div class="flex-col">
+            <h2>Goals</h2>
+            <section class="grid-container"></section>
+          </div>
+          <div class="flex-col">
+            <h2>Search Results</h2>
+            <section class="grid-container imgcatalog1"></section>
+          </div>
+          <div class="flex-col">
+            <h2>Filters</h2>
+            <section class="grid-container"></section>
+          </div>
+        </div>
+      </div>
     </section>
 
     <footer>
@@ -165,10 +169,10 @@
     <script src="../js/entrepreneur.js"></script>
     <!--<script src="../js/career.js"></script>
     <script src="../js/trade.js"></script>
-    <script src="../js/venture.js"></script>-->
+    <script src="../js/venture.js"></script>
     <script type="text/javascript">
       document.getElementById("button").onclick = function () {
-        location.href = "www.google.com";
+        location.href = "www.google.com";-->
       };
     </script>
   </body>
