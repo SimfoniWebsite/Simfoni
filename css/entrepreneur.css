@@ -4,7 +4,8 @@ Logo Colors: #678b99 (darker blue), #46697d (lighter blue)
 Text colors: #0a090c(black), white
 */
 .grid-container{
-    padding:8px;
+    padding:0px;
+    margin: 0px;
     display: grid;
     /*gap: 6px;*/
     justify-content: center;
@@ -39,7 +40,7 @@ section{
     box-shadow: 5px 5px 6px 0px rgba(140,140,140,0.39);
 }
 div{
-    padding: 0 2%;
+    padding: 2% 2%;
 }
 section h2{
     font-size: 2em;
@@ -61,20 +62,23 @@ img{
 }*/
 .main-flex{
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
+    align-items: stretch;
+    flex-wrap: wrap;
 }
 .main-flex img{
-    width: 350px;
+    width: 300px;
     height: 250px;
   }
 .section-flex{
     display:flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: stretch;
     flex-wrap: wrap;
 }
 .section-flex img{
-  width: 350px;
+  width: 300px;
   height: 250px;
   
 }
@@ -101,27 +105,30 @@ section ul{
 }
 /*for tablet*/
 @media all and (max-width: 960px) {
-    .main-flex{
-        flex-direction: column;
-        align-items: center;
+  .main-flex{
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
     }
   .section-flex{
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+    flex-wrap: wrap;
   }
 }
 /*for mobile device*/
 @media all and (max-width: 600px) {
   .development-flex{
     flex-direction: column;
+    flex-wrap: wrap;
   }
 }
-.hrentrepreneur{
-  height: 1px;
-  background-color: #678b99;
-  width: 30vh;
-  margin-top: -10px;
-  border: none;
+  .hrentrepreneur{
+    height: 1px;
+    background-color: #678b99;
+    width: 30vh;
+    margin-top: -10px;
+    border: none;
 }   
  
 
@@ -140,7 +147,7 @@ iframe {
 }
 .wrapper{
     background: rgba(0, 0, 0,0.4);
-    max-width: 350px;
+    max-width: 300px;
     width: 125%;
     padding: 15px 10px;
     display: flex;
@@ -179,13 +186,14 @@ iframe {
 .section-flex{
     display:flex;
     justify-content: space-evenly;
-    align-items: flex-start;
+    align-items: stretch;
     flex-direction: row;
     flex-wrap: wrap;
 }
 .flex-col{
   flex: 1;
   font-size: 0.4em;
+  width: 275px;
 }
   
   
