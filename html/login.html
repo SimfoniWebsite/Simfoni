@@ -1,21 +1,24 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<title>Login Form </title>
 						<!-- layout mainA start here -->
-        <!-- <title>Investment Opportunities Page</title> -->
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
-        <link rel="stylesheet" type="text/css" href="../css/login.css">
-        <!-- <script type="text/javascript" src="../investor.js"></script>
-        <script type="text/javascript" src="gmapapp.js"></script> -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--Google Fonts Link-->
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway:wght@400;700&display=swap"
-            rel="stylesheet">
-        <!--Font Awesome Icon Link-->
-        <script src="https://use.fontawesome.com/8fd9ed3f89.js"></script>
-        <!--Favicon-->
+
+
+<!-- <title>Investment Opportunities Page</title> -->
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <link rel="stylesheet" type="text/css" href="../css/login.css">
+ <!-- <script type="text/javascript" src="../investor.js"></script>
+ <script type="text/javascript" src="gmapapp.js"></script> -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--Google Fonts Link-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!--Font Awesome Icon Link-->
+    <script src="https://use.fontawesome.com/8fd9ed3f89.js"></script>
+ <!--Favicon-->
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -34,13 +37,17 @@
           href="../favicon_io/favicon-16x16.png"
         />
         <link rel="manifest" href="../favicon_io/site.webmanifest" />
+
 <!--      layout mainA ends here -->
+
+		
 	</head>
 	<body>
+
 									<!--  -->
 	<!--Navigation Bar -->
     <!--sticky keeps navabar at top of page on scroll-->
-      <nav class="sticky">
+    <nav class="sticky">
       <ul class="menu">
         <li><img width="40px" ; src="../img/FINAL_SLOGO.png" /></li>
         <!--active-page is used to indicate current location-->
@@ -97,25 +104,20 @@
     <!--Page Header-->
     <header>
         <h1>Log in Page</h1>
+        
+
     </header>
+
+
+
 									<!--  -->
 		<div class="login-form">
             <!-- <h1>Login Form</h1> -->
         </br>  </br> </br> </br> </br>
-			<form action="http://localhost:3000/login/vlogin" method="POST">
-                <!-- <input type="text" name="username" placeholder="Username" required> -->
-                <input type="text" name="email" placeholder="E-mail" required style="width: 296px;height:47px">
-                <input type="password" name="password" placeholder="Password" required>
-                
-                <input type="submit"  value = "Submit">  
-                
-                <div>
-                         </br> </br> </br>
-                   
-                    <span>Forgot <a href="forgetpassword.html">password?</a></span>
-                   
-                </div>
-              
+			<form action="auth" method="POST">
+				<input type="text" name="username" placeholder="Username" required>
+				<input type="password" name="password" placeholder="Password" required>
+				<input type="submit">
 			</form>
 		</div>
     </br>  </br> </br> </br> </br>
@@ -127,8 +129,8 @@
 			<div class="footer">
 				<ul class="footer-nav">
 					<li><a href="#">Contact Info</a></li>
-			<!--<li><a href="#">About Us</a></li>
-                <li><a href="#">Privacy Policy</a></li>-->
+<!-- 					<li><a href="#">About Us</a></li>
+					<li><a href="#">Privacy Policy</a></li> -->
 				</ul>
 				<ul class="footer-logo">
 					<!-- <li><img width="30px" ; src="../img/FINAL_SLOGO.png"></li> -->
@@ -137,8 +139,7 @@
 			</div>
 		</footer>
 		<!-- <script src="../js/index.js"></script> -->
-	        <script src="../js/index.js"></script>
-            <script src="../js/entrepreneur.js"></script>
+	
 
 		<!-- footer ends here -->
 	</body>

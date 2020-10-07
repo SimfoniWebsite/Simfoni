@@ -1,4 +1,5 @@
 
+
 /*  log in page style start here   */
 
 .login-form {
@@ -13,9 +14,7 @@
     padding: 20px 0 20px 0;
   }
   .login-form input[type="password"],
-  .login-form input[type="text"] 
-  .login-form input[type="email"] 
-  {
+  .login-form input[type="text"] {
     width: 100%;
     padding: 15px;
     border: 1px solid #dddddd;
@@ -24,7 +23,7 @@
   }
   .login-form input[type="submit"] {
     width: 100%;
-    padding: 16px 15px;
+    padding: 15px;
     background-color: #535b63;
     border: 0;
     box-sizing: border-box;
@@ -34,4 +33,3 @@
   }
   
   /* log in page ends here*/ 
-  
