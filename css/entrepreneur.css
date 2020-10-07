@@ -16,6 +16,15 @@ Text colors: #0a090c(black), white
     padding: 3px 16px;
     /*background-color: #46697d;*/
 }
+.grid-container2{
+    padding:0px;
+    margin: 0px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    /*gap: 6px;*/
+    justify-content: center;
+    height: 100px;
+}
 .img1{
     width: 100%;
     /*padding: 0.4em;*/
@@ -194,6 +203,16 @@ iframe {
   flex: 1;
   font-size: 0.4em;
   width: 275px;
+}
+.button2 {
+    background: lightblue /*#ffec00*/;
+    width: 100%;
+    height: 2em;
+    border-radius: 5px;
+    /*position: relative;*/
+    cursor: pointer;
+    padding: 5px;
+    margin: 2px;
 }
   
   
