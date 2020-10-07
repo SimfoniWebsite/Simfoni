@@ -6,6 +6,7 @@ const PORT = 3000;
 
 
 app.use(cors());
+app.use(express.static(__dirname))
 app.use('/', require('./routes'));
 
 /*landingpage route*/
@@ -28,28 +29,6 @@ app.listen(PORT, () => {
 
 
 
-/*placeholder database*/
-const title = {
-    title: "future-glasses"
-}
-const database = {
-    users: [
-        {
-            id: '1',
-            name: 'John',
-            email: 'john@gmail.com',
-            password: 'password',
-            joined: new Date()
-        },
-        {
-            id: '2',
-            name: 'Sally',
-            email: 'sally@gmail.com',
-            password: 'password',
-            joined: new Date()
-        }
-    ]
-}
 /* Possible routing for entrepreneur
 '/' initial GET landingpage
 '/Signin' --> POST res=sucess/fail

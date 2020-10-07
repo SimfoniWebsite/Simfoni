@@ -28,7 +28,7 @@
                 <div class="ent_page">
                     <h2>Entrepreneur</h2>
                     <div class="ent_dev">
-                        <div class="drop-zone" id='curPage'>
+                        <div id='curPage'>
                             <h3>Current Page</h3>
                             <div class="type1"></div>
                             <div class="type2"></div>
@@ -38,8 +38,14 @@
                             <div class="type6"></div>
                             <div class="type7"></div>
                         </div>
-                        <div class="drop-zone" id="entrepreneur">
-                            <h3>Queue</h3>
+                        <div id='entrepreneur'>
+                            <!--Queue Item Column Titles-->
+                            <div class="queueFlex">
+                                <h3>Queue</h3>
+                                <h5 class="queueFlex-check"></h4>
+                                    <h5 class="queueFlex-check">Current Status</h4>
+                            </div>
+                            <!--Queue Item Containers by Type-->
                             <div class="type1"></div>
                             <div class="type2"></div>
                             <div class="type3"></div>
@@ -47,29 +53,35 @@
                             <div class="type5"></div>
                             <div class="type6"></div>
                             <div class="type7"></div>
+                            <!--Queue Item Add Button-->
+                            <div class="addCurrent">
+                                <button class="queueFlex-check">Add To Page</button>
+                            </div>
                         </div>
+
                     </div>
-                    <button>Submit</button>
                 </div>
+
+
                 <div class="containers">
                     <h2>Containers</h2>
                     <p>Select type of color code, type of step and type of container</p>
                     <div class="colorChoice">
-                        <label for="colorChoice">Color Choice: (check all that apply)</label><br>
+                        <label for="colorChoice">Color Choice:</label><br>
                         <div>
-                            <input type="checkbox" id="governance" name='colorChoice'><label style="color:#bf9000"
+                            <input type="radio" id="governance" name='colorChoice'><label style="color:#bf9000"
                                 for="colorChoice">Governance</label><br>
                         </div>
                         <div>
-                            <input type="checkbox" id="intelligence" name='colorChoice'><label style="color:#000000"
+                            <input type="radio" id="intelligence" name='colorChoice'><label style="color:#000000"
                                 for="colorChoice">Intelligence</label><br>
                         </div>
                         <div>
-                            <input type="checkbox" id="coordination" name='colorChoice'><label style="color: #1155cc"
+                            <input type="radio" id="coordination" name='colorChoice'><label style="color: #1155cc"
                                 for="colorChoice">Coordination</label><br>
                         </div>
                         <div>
-                            <input type="checkbox" id="capital" name='colorChoice'><label style="color:#678b99"
+                            <input type="radio" id="capital" name='colorChoice'><label style="color:#678b99"
                                 for="colorChoice">Capital</label><br>
                         </div>
                     </div>
@@ -85,6 +97,13 @@
                         <label for="design">Design</label>
                         <input type="radio" id="doing" name="step" value="doing">
                         <label for="doing">Doing</label>
+                    </div>
+                    <div class="needRadio">
+                        <label for="needRadio">Do you need a complete checkbox?:</label><br>
+                        <input type="radio" id="yes" name="needRadio" value="yes">
+                        <label for="yes">Yes</label>
+                        <input type="radio" id="no" name="needRadio" value="no">
+                        <label for="no">No</label>
                     </div>
                     <label for="containertype">Container Type</label>
                     <select class="containertype" name="containertype">
@@ -139,23 +158,105 @@
                                     <option value="fileUpload">File Upload</option>
                                     <option value="rankOrder">Rank Order</option>
                                 </select>
+                                <div id="additionalInfo">
+
+                                </div>
                             </div>
+                            <button class="previewContainer">Preview Container</button>
                             <button class="add">Add Container</button>
                         </div>
                         <div class="todo-item hidden" id="type3" draggable="true">
+                            <div>
+                                <label for="type3message">Add your message:</label><br>
+                                <textarea id="type3message" name="type3message" rows="4" cols="50"></textarea>
+                            </div>
+                            <div>
+                                <label for="type3link">Add link: (if applicable)</label>
+                                <input type="text" id="type3link" name="type3link">
+                            </div>
+                            <button class="previewContainer">Preview Container</button>
+                            <button class="add">Add Container</button>
                         </div>
                         <div class="todo-item hidden" id="type4" draggable="true">
+                            <div>
+                                <label for="type4name">Name of Contact:</label><br>
+                                <input type="text" id="type4name"></input>
+                            </div>
+                            <div>
+                                <label for="type4position">Position:</label><br>
+                                <input type="text" id="type4position"></input>
+                            </div>
+                            <div>
+                                <label for="type4employer">Employer/Role:</label><br>
+                                <input type="text" id="type4employer"></input>
+                            </div>
+                            <div>
+                                <label for="type4attributes">Attributes:</label><br>
+                                <input type="text" id="type4attributes"></input>
+                            </div>
+                            <div>
+                                <label for="type4summary">Summary:</label><br>
+                                <textarea id="type4summary" name="type4summary" rows="4" cols="50"></textarea>
+                            </div>
+                            <div>
+                                <label for="type4photo">Upload Photo:</label><br>
+                                <input type="file" accept="image/*" name="image" id="type4photo"></input>
+                            </div>
+                            <button class="previewContainer">Preview Container</button>
+                            <button class="add">Add Container</button>
                         </div>
                         <div class="todo-item hidden" id="type5" draggable="true">
+                            <div>
+                                <label for="type5link">Link to Video/Audio:</label><br>
+                                <input type="text" id="type5link"></input>
+                            </div>
+                            <div>
+                                <label for="type5title">Video Title:</label><br>
+                                <input type="text" id="type5title"></input>
+                            </div>
+                            <div>
+                                <label for="type5details">Video Details:</label><br>
+                                <textarea id="type5details" name="type5details" rows="4" cols="50"></textarea>
+                            </div>
+                            <div>
+                                <label for="type5survey">Survey Link:</label><br>
+                                <textarea id="type5survey" name="type5survey" rows="4" cols="50"></textarea>
+                            </div>
+                            <button class="previewContainer">Preview Container</button>
+                            <button class="add">Add Container</button>
                         </div>
                         <div class="todo-item hidden" id="type6" draggable="true">
+                            <div>
+                                <label for="type6title">Meeting Title:</label><br>
+                                <input type="text" id="type6title"></input>
+                            </div>
+                            <div>
+                                <label for="type6goal">Primary Goal:</label><br>
+                                <input type="text" id="type6goal"></input>
+                            </div>
+                            <div>
+                                <label for="type6link">Link (if applicable):</label><br>
+                                <input type="text" id="type6link"></input>
+                            </div>
+                            <div>
+                                <label for="type6notes">Notes:</label><br>
+                                <textarea id="type6notes" name="type6notes" rows="4" cols="50"></textarea>
+                            </div>
+                            <div>
+                                <label for="type6check">Checklist Item:</label><br>
+                                <input type="text" id="type6check"></input>
+                                <button class='addcheck'>Add Checklist Item</button>
+                                <ul id="type6checklist">
+
+                                </ul>
+                            </div>
+                            <button class="previewContainer">Preview Container</button>
+                            <button class="add">Add Container</button>
                         </div>
                         <div class="todo-item hidden" id="type7" draggable="true">
                         </div>
                         <h3>Preview Container</h3>
-                        <div class="preview">
-
-                        </div>
+                        <div class="preview"></div>
                     </div>
                 </div>
             </div>
@@ -165,7 +266,7 @@
     </div>
     <footer>
         <div class="footer">
-         
+
         </div>
     </footer>
     <script src="../js/internal.js"></script>

@@ -1,7 +1,7 @@
 const url = 'http://localhost:3000';
 
 /*populate entrepreneur list*/
-fetch('https://jsonplaceholder.typicode.com/users')
+fetch(url + '/internal/ent')
   .then(response => response.json())
   .then(users => {
     for (u of users) {
