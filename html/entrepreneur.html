@@ -53,6 +53,7 @@
     </ul>
   </nav>
   <!--Page Header-->
+
   <header>
     <h1>Goals Catalog</h1>
     <hr />
@@ -61,69 +62,87 @@
   <!--Page Sections-->
   <!--Entrepreneur Section-->
 
-  <section>
+  <section class="main-flex">
     <div class="wrapper">
-      <input type="text" class="input" placeholder="What are you looking for?">
+      <input type="text" class="input" placeholder="Search for your goals here">
       <div class="searchbtn"><i class="fas fa-search"></i></div>
-      <p>For a list tailored to your goals and abilities.</p>
+      <!--<p>For a list tailored to your goals and abilities.</p>-->
   </section>
-
 
   <!--Grid Picture Section-->
-  <section>
-    <div class="section-flex" id="imgcatalog1">
-      <!--<div class="half-section">-->
-      <button class="button" type="button" onclick="clearContent('imgcatalog1'); selectCareers()">
-        Careers
-      </button>
-    </div>
-    <section class="grid-container imgcatalog1">
-      <!--<button onclick="href="www.yoursite.com"; id="myButton"></button>-->
-    </section>
-  </section>
-
-  <section>
-    <div class="section-flex">
-      <!--<div class="half-section">-->
-      <button class="button" type="button" onclick="selectSkills()">
-        Skills
-      </button>
-    </div>
-    <section class="grid-container img-catalog2"></section>
-  </section>
-
-  <section>
-    <div class="section-flex">
-      <!--<div class="half-section">-->
-      <button class="button" type="button" onclick="selectVentures()">
-        Ventures
-      </button>
-    </div>
-    <section class="grid-container img-catalog3"></section>
-  </section>
-
-
-  <!--Draggable searchresults-->
-  <p>Drag your selected goals to goals section</p>
-  <div class="parent">
-    <!--dropzone for draggable search items-->
-    <div class="goals dropzone" ondragover="onDragOver(event);" ondrop="onDrop(event);">
-      Goals
-    </div>
-    <div class="searchresult">
-      <!--draggable search items-->
-      <div class="draggable" id="draggable-1" draggable='true' ondragstart="onDragStart(event);">
-        search item
+  <!--<section class="grid-container">
+      <div class="section-flex1" id="imgcatalog1">
+        <div class="half-section">
+        <button
+          class="button"
+          type="button"
+          onclick="selectCareers()">Goals</button>
+          <section class="grid-container imgcatalog1"></section>
+  
+        <button 
+        class="button" 
+        type="button" 
+        onclick="selectSkills()">Matched Goals</button>
+        <section class="grid-container img-catalog2"></section>
+        
+        <button class="button" type="button" onclick="selectVentures()">
+          Filters
+        </button>
+        <section class="grid-container img-catalog3"></section>
       </div>
-      <div class="draggable" id="draggable-2" draggable='true' ondragstart="onDragStart(event);">
-        search item
+    </section>-->
+
+  <section>
+    <p>Drag your selected goal to goals section</p>
+    <div class="main-flex">
+      <div class="flex-col">
+        <h2>Goals</h2>
+        <section class="goals dropzone" ondragover="onDragOver(event);" ondrop="onDrop(event);">
+
+        </section>
+      </div>
+
+
+      <div class="flex-col">
+        <h2>Search Results</h2>
+        <section class="searchresult">
+          <!--draggable search items-->
+          <div class="draggable" id="draggable-1" draggable='true' ondragstart="onDragStart(event);">
+            search item
+          </div>
+          <div class="draggable" id="draggable-2" draggable='true' ondragstart="onDragStart(event);">
+            search item
+          </div>
+        </section>
+
+      </div>
+
+      <div class="flex-col">
+        <h2>Filters</h2>
+        <section class="grid-container2">
+          <button class="button2" type="button" onclick="selectCareers()">Skills
+          </button>
+          <button class="button2" type="button" onclick="selectCareers()">Service
+          </button>
+          <button class="button2" type="button" onclick="selectCareers()">Start
+          </button>
+          <button class="button2" type="button" onclick="selectCareers()">Acquire
+            <button class="button2" type="button" onclick="selectCareers()">Skills
+            </button>
+            <button class="button2" type="button" onclick="selectCareers()">Service
+            </button>
+            <button class="button2" type="button" onclick="selectCareers()">Start
+            </button>
+            <button class="button2" type="button" onclick="selectCareers()">Acquire
+            </button>
+        </section>
       </div>
     </div>
-    <div class="filters">
-      filters
-    </div>
 
-  </div>
+  </section>
+
+
+
   <footer>
     <div class="disclaimer">
       <p>Disclaimers and Disclosures</p>
@@ -131,8 +150,8 @@
     <div class="footer">
       <ul class="footer-nav">
         <li><a href="#">Contact Info</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Privacy Policy</a></li>
+        <!--<li><a href="#">About Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>-->
       </ul>
       <ul class="footer-logo">
         <li><img width="30px" ; src="../img/FINAL_SLOGO.png" /></li>
@@ -144,11 +163,11 @@
   <script src="../js/entrepreneur.js"></script>
   <!--<script src="../js/career.js"></script>
     <script src="../js/trade.js"></script>
-    <script src="../js/venture.js"></script>-->
-  <script type="text/javascript">
-    document.getElementById("button").onclick = function () {
-      location.href = "www.google.com";
-    };
+    <script src="../js/venture.js"></script>
+    <script type="text/javascript">
+      document.getElementById("button").onclick = function () {
+        location.href = "www.google.com";-->
+  };
   </script>
 </body>
 

@@ -49,17 +49,17 @@ function selectCareers() {
 }
 /*fetching venture catalog info from database*/
 /*if clicking in venture:*/
-function selectVentures() {
+/*function selectVentures() {
   fetch(url + "/venture/venture")
     .then((response) => response.json())
     .then((detail) => {
       console.log(detail);
       /*create div elements*/
-      for (var i = 0; i <= 3; i++) {
+      /*for (var i = 0; i <= 3; i++) {
         let div = document.createElement("div");
         div.setAttribute("class", "grid-item");
         /*create image element*/
-        let img = document.createElement("img");
+        /*let img = document.createElement("img");
         img.setAttribute(
           "src",
           `data:image/jpeg;base64, ${_arrayBufferToBase64(
@@ -68,30 +68,30 @@ function selectVentures() {
         );
         img.setAttribute("class", "img1");
         /*create button element*/
-        let button = document.createElement("button");
+        /*let button = document.createElement("button");
         let text = document.createTextNode(detail.recordset[i].VentureName);
         button.appendChild(text);
         button.setAttribute("class", "cliktb"); //clas,cliktb
         div.appendChild(img);
         div.appendChild(button);
         /*add item to html container*/
-        document.querySelector(".img-catalog3").appendChild(div);
+        /*document.querySelector(".img-catalog3").appendChild(div);
       }
     });
 }
 /*fetching trade catalog info from database*/
 /*if clicking in trades:*/
-function selectSkills() {
+/*function selectSkills() {
   fetch(url + "/venture/skill")
     .then((response) => response.json())
     .then((detail) => {
       console.log(detail);
       /*create div elements*/
-      for (var i = 0; i <= 3; i++) {
+      /*for (var i = 0; i <= 3; i++) {
         let div = document.createElement("div");
         div.setAttribute("class", "grid-item");
         /*create image element*/
-        let img = document.createElement("img");
+        /*let img = document.createElement("img");
         img.setAttribute(
           "src",
           `data:image/jpeg;base64, ${_arrayBufferToBase64(
@@ -100,14 +100,14 @@ function selectSkills() {
         );
         img.setAttribute("class", "img1");
         /*create button element*/
-        let button = document.createElement("button");
+        /*let button = document.createElement("button");
         let text = document.createTextNode(detail.recordset[i].SkillName);
         button.appendChild(text);
         button.setAttribute("class", "cliktb");
         div.appendChild(img);
         div.appendChild(button);
         /*add item to html container*/
-        document.querySelector(".img-catalog2").appendChild(div);
+        /*document.querySelector(".img-catalog2").appendChild(div);
       }
     });
 }

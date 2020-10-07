@@ -34,7 +34,7 @@ router.get("/", (req, res) => {
     });
   });
 });
-router.get("/skill", (req, res) => {
+/*router.get("/skill", (req, res) => {
   //res.sendFile(dir + '/future-glasses.jpg');
   //db connection
   //"test";
@@ -67,6 +67,6 @@ router.get("/venture", (req, res) => {
       res.json(recordset);
     });
   });
-});
+});*/
 
 module.exports = router;
