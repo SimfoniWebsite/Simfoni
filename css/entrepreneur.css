@@ -169,7 +169,7 @@ iframe {
 }
 
 .searchbtn {
-    background: #ffec00;
+    background: lightblue /*#ffec00*/;
     width: 10%;
     border-radius: 5px;
     position: relative;
