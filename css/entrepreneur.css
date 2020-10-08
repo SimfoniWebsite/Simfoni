@@ -140,16 +140,16 @@ section ul{
     border: none;
 }   
  
-
+/*
 @media all and (min-width: 700px) {
     .button:not(.secondary) a:hover {
       background: none;
       border-color:  none;
-    }
-    .button a {
+    }*/
+    /*.button a {
       background: none;
       border: none;
-    }
+    }*/
 }
 iframe {
   padding: 3em;
@@ -212,8 +212,8 @@ iframe {
     border-radius: 5px;
     /*position: relative;*/
     cursor: pointer;
-    padding: 5px;
-    margin: 2px;
+    padding: 2px;
+    margin: 10px 2px 0px 2px;
 }
   
 
