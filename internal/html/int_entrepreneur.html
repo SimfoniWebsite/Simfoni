@@ -42,7 +42,7 @@
                             <!--Queue Item Column Titles-->
                             <div class="queueFlex">
                                 <h3>Queue</h3>
-                                <h5 class="queueFlex-check">Add to Current Page</h4>
+                                <h5 class="queueFlex-check"></h4>
                                     <h5 class="queueFlex-check">Current Status</h4>
                             </div>
                             <!--Queue Item Containers by Type-->
@@ -54,10 +54,8 @@
                             <div class="type6"></div>
                             <div class="type7"></div>
                             <!--Queue Item Add Button-->
-                            <div class="queueFlex">
-                                <h3></h3>
-                                <button class="queueFlex-check addCurrent">Add</button>
-                                <p class="queueFlex-check"></p>
+                            <div class="addCurrent">
+                                <button class="queueFlex-check">Add To Page</button>
                             </div>
                         </div>
 
@@ -208,8 +206,52 @@
                             <button class="add">Add Container</button>
                         </div>
                         <div class="todo-item hidden" id="type5" draggable="true">
+                            <div>
+                                <label for="type5link">Link to Video/Audio:</label><br>
+                                <input type="text" id="type5link"></input>
+                            </div>
+                            <div>
+                                <label for="type5title">Video Title:</label><br>
+                                <input type="text" id="type5title"></input>
+                            </div>
+                            <div>
+                                <label for="type5details">Video Details:</label><br>
+                                <textarea id="type5details" name="type5details" rows="4" cols="50"></textarea>
+                            </div>
+                            <div>
+                                <label for="type5survey">Survey Link:</label><br>
+                                <textarea id="type5survey" name="type5survey" rows="4" cols="50"></textarea>
+                            </div>
+                            <button class="previewContainer">Preview Container</button>
+                            <button class="add">Add Container</button>
                         </div>
                         <div class="todo-item hidden" id="type6" draggable="true">
+                            <div>
+                                <label for="type6title">Meeting Title:</label><br>
+                                <input type="text" id="type6title"></input>
+                            </div>
+                            <div>
+                                <label for="type6goal">Primary Goal:</label><br>
+                                <input type="text" id="type6goal"></input>
+                            </div>
+                            <div>
+                                <label for="type6link">Link (if applicable):</label><br>
+                                <input type="text" id="type6link"></input>
+                            </div>
+                            <div>
+                                <label for="type6notes">Notes:</label><br>
+                                <textarea id="type6notes" name="type6notes" rows="4" cols="50"></textarea>
+                            </div>
+                            <div>
+                                <label for="type6check">Checklist Item:</label><br>
+                                <input type="text" id="type6check"></input>
+                                <button class='addcheck'>Add Checklist Item</button>
+                                <ul id="type6checklist">
+
+                                </ul>
+                            </div>
+                            <button class="previewContainer">Preview Container</button>
+                            <button class="add">Add Container</button>
                         </div>
                         <div class="todo-item hidden" id="type7" draggable="true">
                         </div>

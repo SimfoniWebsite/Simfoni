@@ -238,10 +238,98 @@ const database = {
         {
             contid: 1,
             type: 'type2',
+            step: 'Problem',
             status: 'active',
-            content:'<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype2 cont2"><h6 class="stepH6">Problem</h6><div class="newCont"><label>afddafdfa<br /></label><textarea></textarea></div></div>'
+            content: '<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype2 cont1"><h6 class="stepH6">Problem</h6><div class="newCont" title="textarea"><label>afddafdfa<br /></label><textarea></textarea><button class="type2Submit" value="1">Submit</button></div></div>'
         },
-       
+        {
+            contid: 2,
+            type: 'type2',
+            step: 'Problem',
+            status: 'active',
+            content: `<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype2 cont2"><h6 class="stepH6">Problem</h6><div class="completed"><label>Complete</label><br /><input 
+type="checkbox" name="completeTask" value="2" /></div> <div class="newCont" title="checkbox"><label>sgfgsgf<br /></label><div class="multiAnswer"><div><input type="checkbox" value="fdasf" /><label>fdasf</label></div><div><input type="checkbox" value="daf" /><label>daf</label></div><div><input type="checkbox" value="fasdfa" /><label>fasdfa</label></div><div><input type="checkbox"
+            value="fdsafdaf" /><label>fdsafdaf</label></div></div><br /><button class="type2Submit" value="2">Submit</button></div></div > `
+        },
+        {
+            contid: 3,
+            type: 'type2',
+            step: 'Problem',
+            status: 'active',
+            content: `<div xmlns="http://www.w3.org/1999/xhtml" class="coordination containertype2 cont3"><h6 class="stepH6">Problem</h6><div class="completed"><label>Complete</label><br /><input type="checkbox" name="completeTask" value="3" /></div><div class="newCont" title="input_text"><label>dafdfadsf<br /></label><input type="text" /><br /><button class="type2Submit" value="3">Submit</button></div></div>`
+        },
+        {
+            contid: 4,
+            type: 'type3',
+            step: 'Goal',
+            status: 'active',
+            content: `<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype3 cont4"><h6 class="stepH6">Goal</h6><div class="completed"><label>Complete</label><br /><input type="checkbox" name="completeTask" value="4" /></div><div class="newCont"><h4>fdafdfadfdafdafdfadf<br /><a href="dasfdfdsfafdf">dasfdfdsfafdf<br /></a></h4><textarea></textarea></div></div>`
+        },
+        {
+            contid: 5,
+            type: 'type4',
+            step: 'Problem',
+            status: 'active',
+            content: `<div xmlns="http://www.w3.org/1999/xhtml" class="capital containertype4 cont5"><h6 class="stepH6">Problem</h6><div class="completed"><label>Complete</label><br /><input type="checkbox" name="completeTask" value="5" /></div><div class="newCont"><div class="type4cont"><div class="type4photo"><img /><a href="#">Zoom Link</a></div><div class="type4details"><h4>fdsafdasf, <b>fdasfdaf - fdsafsdf</b></h4><p><b>dsafdaf</b></p><p>dafdfadfdafsdfdaf</p><textarea class="type4text"></textarea></div></div></div></div>`
+        }, {
+            contid: 6,
+            type: 'type2',
+            step: 'Goal',
+            status: 'active',
+            content: '<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype2 cont6"><h6 class="stepH6">Goal</h6><div class="newCont" title="radio"><label>gfagfgag<br /></label><div class="multiAnswer"><div><input type="radio" name="question" value="dafda" /><label>dafda</label></div><div><input type="radio" name="question" value="fdafadf" /><label>fdafadf</label></div></div><br /><button class="type2Submit" value="6">Submit</button></div></div>'
+        },
+        {
+            contid: 7,
+            type: 'type2',
+            step: 'Doing',
+            status: 'active',
+            content: '<div xmlns="http://www.w3.org/1999/xhtml" class="capital containertype2 cont7"><h6 class="stepH6">Doing</h6><div class="newCont" title="dropdown"><label>fgfgfgsfsg<br /></label><select><option value="dafdaf">dafdaf</option><option value="fasdfa">fasdfa</option><option value="gagfga">gagfga</option><option value="gfagfga">gfagfga</option></select><br /><button class="type2Submit" value="7">Submit</button></div></div>'
+        },
+        {
+            contid: 8,
+            type: 'type2',
+            step: 'Diagnose',
+            status: 'active',
+            content: `<div xmlns="http://www.w3.org/1999/xhtml" class="capital containertype2 cont8"><h6 class="stepH6">Diagnose</h6><div class="newCont" title="linearScale"><label>fdadfaf<br /></label><div><input type="radio" name="question" value="1" /><label>1</label><input type="radio" name="question" value="2" /><label>2</label><input type="radio" name="question" value="3" /><label>3</label><input type="radio" name="question" value="4" /><label>4</label><input type="radio" 
+name="question" value="5" /><label>5</label><input type="radio" name="question" value="6" /><label>6</label><input type="radio" name="question" value="7" /><label>7</label><input type="radio" name="question" value="8" /><label>8</label><input type="radio" name="question" value="9" /><label>9</label><input type="radio" name="question" value="10" /><label>10</label></div><br /><button class="type2Submit" value="8">Submit</button></div></div>`
+        },
+        {
+            contid: 9,
+            type: 'type2',
+            step: 'Problem',
+            status: 'active',
+            content: '<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype2 cont9"><h6 class="stepH6">Problem</h6><div class="completed"><label>Complete</label><br /><input type="checkbox" name="completeTask" value="9" /></div><div class="newCont" title="textarea"><label>dffdfda<br /></label><textarea></textarea><br /><button class="type2Submit" value="9">Submit</button></div></div>'
+        },
+        {
+            contid: 10,
+            type: 'type2',
+            step: 'Goal',
+            status: 'active',
+            content: '<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype2 cont10"><h6 class="stepH6">Goal</h6><div class="newCont" title="rankOrder"><label>fdafaf<br /></label><div class="multiAnswer"><div class="rank"><label value="fdaf">fdaf</label><select><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div><div class="rank"><label value="sadf">sadf</label><select><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div><div class="rank"><label value="asdfaf">asdfaf</label><select><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div></div><br /><button class="type2Submit" value="10">Submit</button></div></div>'
+        },
+        {
+            contid: 11,
+            type: 'type2',
+            step: 'goal',
+            status: 'active',
+            content: '<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype2 cont11"><h6 class="stepH6" title="goal">Goal</h6><div class="newCont" title="fileUpload"><label>dagffdf<br /></label><input type="file" /><br /><button class="type2Submit" value="11">Submit</button></div></div>'
+        },
+        {
+            contid: 12,
+            type: 'type5',
+            step: 'goal',
+            status: 'active',
+            content: `<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype5 cont15"><h6 class="stepH6" title="goal">Goal</h6><div class="completed"><label>Complete</label><br 
+        /><input type="checkbox" name="completeTask" /></div><div class="newCont"><div class="type5cont"><div class="type5link"><a href="afdfasdf">afdfasdf</a><div class="type5det"><h4>dsafdsfdfd</h4><p>dafdfdasfsdaf</p></div></div><textarea></textarea><a href="survey">Please complete the 
+        survey</a></div></div></div>`
+        },
+          {
+            contid: 13,
+            type: 'type6',
+            step: 'goal',
+            status: 'active',
+            content: '<div xmlns="http://www.w3.org/1999/xhtml" class="governance containertype6 cont14"><h6 class="stepH6" title="goal">Goal</h6><div class="completed"><label>Complete</label><br /><input type="checkbox" name="completeTask" value="14" /></div><div class="newCont"><div class="type6cont"><h4>adfdsaf - <b>dfafdfa</b></h4><a href="fdasfdasf">fdasfdasf</a><div class="type6main"><p>Notes: dsafdfa</p><div class="type6checklist"><div><div><input type="checkbox" value="dafdasf" /><label>dafdasf</label></div><div><input type="checkbox" value="fdafdaf" /><label>fdafdaf</label></div><div><input type="checkbox" value="dafdfafdf" /><label>dafdfafdf</label></div><div><input type="checkbox" value="dafdfadf" /><label>dafdfadf</label></div></div><div><div><input type="checkbox" value="dfadfasdf" /><label>dfadfasdf</label></div><div><input type="checkbox" value="dafdafa" /><label>dafdafa</label></div></div></div></div></div></div></div>'  
+          }
     ]
 }
 

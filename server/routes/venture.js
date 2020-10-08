@@ -1,22 +1,11 @@
 const router = require("express").Router();
-const express = require("express");
-const path = require("path");
-const app = express();
+//const express = require("express");
+//const path = require("path");
+//const app = express();
+const dbConfig = require('./dbConfig');
 const sql = require("mssql");
-/*database configuration*/
-const dbConfig = {
-  server: "localhost\\SQLEXPRESS",
-  database: "test1",
-  user: "Andres",
-  password: "test",
-  options: {
-    encrypt: true,
-    enableArithAbort: true,
-  },
-};
-/*connect to test1 database*/
-//const dir = path.join(__dirname, '');
-//app.use(express.static(dir));
+
+
 router.get("/", (req, res) => {
   //res.sendFile(dir + '/future-glasses.jpg');
   //db connection
@@ -34,6 +23,32 @@ router.get("/", (req, res) => {
     });
   });
 });
+
+/*search route to search for data query*/
+router.post('/search', (req, res) => {
+  console.log(req.body);
+  let values = req.body.search.split(" ");
+  console.log(values);
+  /*connect to database*/
+  sql.connect(dbConfig, function (err) {
+    if (err) console.log(err);
+    // create Request object
+    const request = new sql.Request();
+    request.query("SELECT GoalName FROM    WHERE  fname = '" +
+      req.body.fname +
+      "'   WHERE id =  '" +
+      req.params.id +
+      "' ", function (err, result) {
+        if (err) console.log(err);
+        // send records as a response
+        console.log(result);
+        res.json(result);
+      });
+  });
+});
+
+
+
 /*router.get("/skill", (req, res) => {
   //res.sendFile(dir + '/future-glasses.jpg');
   //db connection
