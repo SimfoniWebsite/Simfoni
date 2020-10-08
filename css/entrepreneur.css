@@ -211,8 +211,8 @@ iframe {
     border-radius: 5px;
     /*position: relative;*/
     cursor: pointer;
-    padding: 5px;
-    margin: 2px;
+    padding: 2px;
+    margin: 10px 2px 0px 2px;
 }
   
   
