@@ -1,0 +1,91 @@
+/*url address*/
+const url = "http://localhost:3000";
+
+/*store selected buttons*/
+let goals = [];
+
+fetch(url + '/goals')
+    .then(response => response.json())
+    .then(filters => {
+        console.log(filters);
+        let filterDOM = document.querySelector('.filters');
+        filters.forEach(tag => {
+            let button = createButton(tag);
+            filterDOM.insertAdjacentElement('beforeEnd', button);
+        })
+    })
+
+/*create button filter*/
+function createButton(tag) {
+    let button = document.createElement('button');
+    button.appendChild(document.createTextNode(tag));
+    button.setAttribute('value', tag);
+    button.setAttribute('class', 'filter');
+    return button;
+}
+
+
+/*event listeners for filter buttons*/
+if (document.addEventListener) {
+    document.addEventListener("click", handleClick, false);
+}
+else if (document.attachEvent) {
+    document.attachEvent("onclick", handleClick);
+}
+
+function handleClick(event) {
+    event = event || window.event;
+    event.target = event.target || event.srcElement;
+
+    var element = event.target;
+
+    // Climb up the document tree from the target of the event
+    while (element) {
+        if (element.nodeName === "BUTTON" && /filter/.test(element.className)) {
+            // The user clicked on a <button> or clicked on an element inside a <button>
+            // with a class name called "type2Submit"
+            addToGoal(element);
+            break;
+        }
+
+
+        element = element.parentNode;
+    }
+}
+
+function addToGoal(button) {
+    //add css to indicate selected buttons
+    document.querySelector(`button[value='${button.value}']`).classList.add('selected');
+    let goal = button.value;
+    goals.push(goal);
+    let currentGoal = document.querySelector('.goal').value;
+    document.querySelector('.goal').value = `${currentGoal} ${goal}`;
+}
+
+/*event listener for backspace button*/
+document.querySelector('.backspace').addEventListener('click', backspace);
+
+/*delete last element added to goals*/
+function backspace() {
+    let lastElement = goals[goals.length - 1];
+    let n = lastElement.length;
+    //remove css for selected button
+    document.querySelector(`button[value='${lastElement}']`).classList.remove('selected');
+    let currentGoal = document.querySelector('.goal').value;
+    let goal = currentGoal.substring(0, currentGoal.length - (n + 1));
+    document.querySelector('.goal').value = goal;
+    goals.pop();
+}
+
+/*event listener for clear button*/
+document.querySelector('.clear').addEventListener('click', clear);
+
+/*clear selected buttons and goals*/
+function clear() {
+    document.querySelector('.goal').value = '';
+    //remove selected css 
+    for (item of goals) {
+        document.querySelector(`button[value='${item}']`).classList.remove('selected');
+    }
+    goals = [];
+}

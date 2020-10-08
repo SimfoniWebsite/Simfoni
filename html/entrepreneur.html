@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -60,88 +61,68 @@
   </header>
   <!--Page Sections-->
   <!--Entrepreneur Section-->
-
+  <!--
   <section class="main-flex">
     <div class="wrapper">
       <input type="text" class="input" placeholder="Search for your goals here">
       <div class="searchbtn"><i class="fas fa-search"></i></div>
-      <!--<p>For a list tailored to your goals and abilities.</p>-->
+      <p>For a list tailored to your goals and abilities.</p>
   </section>
+-->
+  <main>
 
-  <section>
-    <p>Drag your selected goal to goals section</p>
     <div class="main-flex">
-      <div class="flex-col">
+      <section class="flex-col-goals">
         <h2>Goals</h2>
-        <section class="goals dropzone" ondragover="onDragOver(event);" ondrop="onDrop(event);">
+        <div class="goals">
 
-        </section>
-      </div>
-
-
-      <div class="flex-col">
-        <h2>Search Results</h2>
-        <section class="searchresult">
-          <!--draggable search items-->
-          <div class="draggable" id="draggable-1" draggable='true' ondragstart="onDragStart(event);">
-            search item
-          </div>
-          <div class="draggable" id="draggable-2" draggable='true' ondragstart="onDragStart(event);">
-            search item
-          </div>
-        </section>
-
-      </div>
-
-      <div class="flex-col">
-        <h2>Filters</h2>
-        <section class="grid-container2">
-          <button class="button2" type="button">Skills
-          </button>
-          <button class="button2" type="button">Service
-          </button>
-          <button class="button2" type="button">Start
-          </button>
-          <button class="button2" type="button">Acquire
-            <button class="button2" type="button">Skills
-            </button>
-            <button class="button2" type="button">Service
-            </button>
-            <button class="button2" type="button">Start
-            </button>
-            <button class="button2" type="button">Acquire
-            </button>
-            </section>
-          </div>
         </div>
-      
-    </section>
+      </section>
 
-    <footer>
-      <div class="disclaimer">
-        <p>Disclaimers and Disclosures</p>
-      </div>
-      <div class="footer">
-        <ul class="footer-nav">
-          <li><a href="#">Contact Info</a></li>
-          <!--<li><a href="#">About Us</a></li>
-                <li><a href="#">Privacy Policy</a></li>-->
-          <address>
-          <a href="mailto:helpdesk@simfoni.com">simfoni.com</a><br>
-          <a href="tel:+13335557777">(333) 555-7777</a>
-          </address>
-        </ul>
-        <ul class="footer-logo">
-          <li><img width="30px" ; src="../img/FINAL_SLOGO.png" /></li>
-        </ul>
+      <div class="flex-col">
+        <section class="filter-flex">
+          <h2>Filters</h2>
+          <div class="grid-container2 filters">
+            
+          </div>
+
+          <div class="goal-input">
+            <input type="text" class="goal">
+            <button class='select'>Select</button>
+            <button type="button" class="backspace">&#8656;</button>
+            <button type="button" class="clear">C</button>
+          </div>
+        </section>
       </div>
     </div>
+  </main>
 
-  </section>
+  <footer>
+    <div class="disclaimer">
+      <p>Disclaimers and Disclosures</p>
+    </div>
+    <div class="footer">
+      <ul class="footer-nav">
+        <li><a href="#">Contact Info</a></li>
+        <!--<li><a href="#">About Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>-->
+        <address>
+          <a href="mailto:helpdesk@simfoni.com">simfoni.com</a><br>
+          <a href="tel:+13335557777">(333) 555-7777</a>
+        </address>
+      </ul>
+      <ul class="footer-logo">
+        <li><img width="30px" ; src="../img/FINAL_SLOGO.png" /></li>
+      </ul>
+    </div>
+    </div>
 
-  <script src="../js/index.js"></script>
-  <script src="../js/entrepreneur.js"></script>
-  <!--<script src="../js/career.js"></script>
+    </section>
+
+    <script src="../js/index.js"></script>
+    <script src="../js/goals.js"></script>
+    <!--<script src="../js/entrepreneur.js"></script>-->
+    <!--<script src="../js/career.js"></script>
     <script src="../js/trade.js"></script>
     <script src="../js/venture.js"></script>
     <script type="text/javascript">
@@ -149,6 +130,6 @@
         location.href = "www.google.com";
       };-->
     </script>
-  </body>
-</html>
+</body>
 
+</html>
