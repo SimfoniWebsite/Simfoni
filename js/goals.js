@@ -9,8 +9,8 @@ fetch(url + '/goals')
     .then(filters => {
         console.log(filters);
         let filterDOM = document.querySelector('.filters');
-        filters.forEach(tag => {
-            let button = createButton(tag);
+        filters.recordset.forEach(tag => {
+            let button = createButton(tag.ObjectName);
             filterDOM.insertAdjacentElement('beforeEnd', button);
         })
     })
@@ -88,4 +88,26 @@ function clear() {
         document.querySelector(`button[value='${item}']`).classList.remove('selected');
     }
     goals = [];
+}
+
+/*for select event listener*/
+document.querySelector('.select').addEventListener('click', addGoal);
+
+function addGoal() {
+    let goal = {
+        goal: document.querySelector('.goal').value,
+        objects: goals
+    };
+
+    fetch(url + '/goals/addGoal', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(goal)
+    })
+        .then(response => response.json())
+        .then(msg => {
+            console.log(msg);
+        })
 }

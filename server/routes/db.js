@@ -1,12 +1,13 @@
 var sql = require('mssql');
 //config for your database
 var config = {
-    user:'tariq',
-    password:'abc',
-    server:  'localhost\\SQLEXPRESS',
-    database: 'simfysabel',
+    server: "localhost\\SQLEXPRESS",
+    database: "Test8",
+    user: "simfoni",
+    password: "simfoni",
     options: {
-        database: 'simfysabel'
+      encrypt: true,
+      enableArithAbort: true,
     },
 };
 //connect to your database, node module export format

@@ -1,9 +1,9 @@
 //config for your database
 const dbConfig = {
     server: "localhost\\SQLEXPRESS",
-    database: "test1",
-    user: "Andres",
-    password: "test",
+    database: "Test8",
+    user: "simfoni",
+    password: "simfoni",
     options: {
       encrypt: true,
       enableArithAbort: true,
