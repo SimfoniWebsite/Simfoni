@@ -3,14 +3,22 @@ const url = "http://localhost:3000";
 
 /*store selected buttons*/
 let goals = [];
+/*is user signed in*/
+let isSignedIn = false;
+/*if signed in user*/
+let user = {
+    id: '',
+}
+let rankCount = 0;
 
 fetch(url + '/goals')
     .then(response => response.json())
     .then(filters => {
         console.log(filters);
+        rankCount = filters.recordset[filters.recordset.length-1].ObjectRank;
         let filterDOM = document.querySelector('.filters');
         filters.recordset.forEach(tag => {
-            let button = createButton(tag.ObjectName);
+            let button = createButton(tag);
             filterDOM.insertAdjacentElement('beforeEnd', button);
         })
     })
@@ -18,8 +26,9 @@ fetch(url + '/goals')
 /*create button filter*/
 function createButton(tag) {
     let button = document.createElement('button');
-    button.appendChild(document.createTextNode(tag));
-    button.setAttribute('value', tag);
+    button.appendChild(document.createTextNode(tag.ObjectName));
+    button.setAttribute('value', tag.ObjectName);
+    button.setAttribute('name', tag.TagName);
     button.setAttribute('class', 'filter');
     return button;
 }
@@ -60,6 +69,7 @@ function addToGoal(button) {
     goals.push(goal);
     let currentGoal = document.querySelector('.goal').value;
     document.querySelector('.goal').value = `${currentGoal} ${goal}`;
+    updateFilters(button.name);
 }
 
 /*event listener for backspace button*/
@@ -94,20 +104,70 @@ function clear() {
 document.querySelector('.select').addEventListener('click', addGoal);
 
 function addGoal() {
-    let goal = {
-        goal: document.querySelector('.goal').value,
-        objects: goals
-    };
+    if (isSignedIn === true) {
+        let goal = {
+            id: user.id,
+            goal: document.querySelector('.goal').value,
+            objects: goals
+        };
 
-    fetch(url + '/goals/addGoal', {
+        fetch(url + '/goals/addGoal', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(goal)
+        })
+            .then(response => response.json())
+            .then(msg => {
+                console.log(msg);
+            })
+    } else {
+        document.querySelector('.error').innerHTML = 'Please Log In/Register to save goals';
+    }
+}
+
+function updateFilters(tagName) {
+    let buttons = document.querySelectorAll(`button[name='${tagName}']`);
+    let length = buttons.length - 1;
+    let nextValues = '';
+
+    if (tagName === 'duration') {
+        buttons = '';
+    } else if (tagName === 'verb') {
+        nextValues = 'subject';
+    } else if (tagName === 'subject') {
+        nextValues = 'conjunction';
+    } else if (tagName === 'dollars') {
+        nextValues = 'conjunction';
+    } else if (tagName === 'conjunction') {
+        nextValues = 'duration';
+    }
+    if (!buttons === '') {
+        buttons.forEach(button => {
+            if (button.selected === false) {
+                button.parentNode.removeChild(button);
+            }
+        })
+    }
+    let newButtons = {
+        nextValues: nextValues,
+        length: length,
+        rank: rankCount
+    }
+    fetch(url + '/goals/filterbuttons', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(goal)
+        body: JSON.stringify(newButtons)
     })
         .then(response => response.json())
-        .then(msg => {
-            console.log(msg);
+        .then(filters => {
+            let filterDOM = document.querySelector('.filters');
+            filters.recordset.forEach(tag => {
+                let button = createButton(tag);
+                filterDOM.insertAdjacentElement('beforeEnd', button);
+            })
         })
 }
