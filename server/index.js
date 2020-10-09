@@ -5,7 +5,6 @@ const PORT = 3000;
 
 
 app.use(cors());
-app.use(express.static(__dirname))
 app.use('/', require('./routes'));
 
 /*landingpage route*/
@@ -17,6 +16,7 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
     console.log(`app is running on port ${PORT}`);
 });
+
 
 
 
