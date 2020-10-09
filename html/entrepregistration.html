@@ -48,7 +48,7 @@
         <li class="item"><a class="active-page" href="index.html">Home</a></li>
         <li class="item has-submenu">
           <a tabindex="0"
-            >Member<i class="fa fa-angle-down" aria-hidden="true"></i
+            >Entrepreneur<i class="fa fa-angle-down" aria-hidden="true"></i
           ></a>
           <ul class="submenu">
             <li class="subitem">
@@ -115,7 +115,17 @@
         <p>Thank you, we have received your submission.</p>
         <!--<button class="anotherSub">Yes</button>-->
       </div>
-      <form id="devForm">
+      <form action = "http://localhost:3000/entrepregistration/newcust" method = "post">
+      <!-- <form id="devForm"> -->
+        <div class="input-box">
+          <label for="Password">Enter Your Password:</label>
+          <input
+            type="Password"
+            id="Password"
+            name="Password"
+            required
+          />
+        </div>
         <div class="input-box">
           <label for="fname">First Name:</label>
           <input
@@ -142,7 +152,7 @@
             type="tel"
             id="phone"
             name="phone"
-            placeholder="xxx-xxx-xxxx"
+            placeholder="XXX-XXX-XXXX"
             required
           />
         </div>
@@ -153,16 +163,6 @@
             id="email"
             name="email"
             placeholder="john.doe@gmail.com"
-            required
-          />
-        </div>
-        <div class="input-box">
-          <label for="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="xxxxxxx"
             required
           />
         </div>
@@ -261,17 +261,17 @@
           ></textarea>
         </div>
         <div class="input-box">
-          <label for="subDescription">Work History:</label><br />
+          <label for="subWorkhist">Work History:</label><br />
           <textarea
-            id="subDescription"
-            name="subDescription"
+            id="subWorkhist"
+            name="subWorkhist"
             rows="4"
             cols="33"
           ></textarea>
         </div>
         <div class="input-box">
           <label for="levOfInv">Employment Status:</label>
-          <select name="levofInv">
+          <select name="levOfInv">
             <option value="employed">Employed</option>
             <option value="independentstatus">Independent</option>
             <option value="unemployeed">Unemployed</option>
@@ -290,8 +290,8 @@
                 <textarea id="subDescription" name='subDescription' rows="4" cols="33"></textarea>
             </div>-->
         <div class="input-box">
-          <label for="levOfInv">Managed Profile Services:</label>
-          <select name="levofInv">
+          <label for="ManProfser">Managed Profile Services:</label>
+          <select name="ManProfser">
             <option value="payasyougo">Pay As You Go</option>
             <option value="subscription">Subscription</option>
             <option value="credit">Credit</option>
@@ -339,8 +339,8 @@
       <div class="footer">
         <ul class="footer-nav">
           <li><a href="#">Contact Info</a></li>
-              <!--<li><a href="#">About Us</a></li>
-                <li><a href="#">Privacy Policy</a></li>-->
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
         </ul>
         <ul class="footer-logo">
           <li><img width="30px" ; src="../img/FINAL_SLOGO.png" /></li>
@@ -348,7 +348,7 @@
       </div>
     </footer>
 
-    <script src="../js/index.js"></script>
+    <!-- <script src="../js/index.js"></script> -->
 
     <!--<script src="../js/development.js"></script>-->
   </body>
