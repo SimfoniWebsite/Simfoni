@@ -40,8 +40,27 @@ Text colors: #0a090c(black), white
     margin-right: auto;
 }
 
+.btn{
+   background-color: #678b99;
+   border: solid 0.4vh black;
+   margin-top: 1vh; 
+   border-radius: 15px;
+   box-shadow: 0 9px #999;
+   cursor: pointer;
+   text-align: center;
+   width: 315px;
+   font-size: 2em;
+   position: center;
+   outline: none;
 
+}
+.btn:hover {background-color: #678b99}
 
+.btn:active {
+  background-color: #678b99;
+  /*box-shadow: 0 5px #666;*/
+  transform: translateY(4px);
+}
 
 
 p {margin: 0 1%;
