@@ -151,10 +151,11 @@ function updateFilters(tagName) {
     } else if (tagName === 'conjunction') {
         nextValues = 'duration';
     }
-    if (!buttons === '') {
+    if (!(buttons === '')) {
         buttons.forEach(button => {
-            if (button.selected === false) {
-                button.parentNode.removeChild(button);
+            if (!(button.classList.contains('selected'))) {
+                let selected = document.querySelector(`button[value='${button.value}'`)
+                selected.parentNode.removeChild(selected);
             }
         })
     }
