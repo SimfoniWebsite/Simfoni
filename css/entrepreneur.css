@@ -281,6 +281,10 @@ iframe {
   border: 1px #46697d solid;
 }
   
+.error{
+  padding: 2vw;
+  color: rgb(207, 3, 3);
+}
   
   
   
