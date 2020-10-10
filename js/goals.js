@@ -4,10 +4,10 @@ const url = "http://localhost:3000";
 /*store selected buttons*/
 let goals = [];
 /*is user signed in*/
-let isSignedIn = false;
+let isSignedIn = true;
 /*if signed in user*/
 let user = {
-    id: '',
+    id: 1,
 }
 let rankCount = 0;
 
@@ -104,6 +104,7 @@ function clear() {
 /*for select event listener*/
 document.querySelector('.select').addEventListener('click', addGoal);
 
+/*add goal to database*/
 function addGoal() {
     if (isSignedIn === true) {
         let goal = {
@@ -113,7 +114,7 @@ function addGoal() {
         };
 
         fetch(url + '/goals/addGoal', {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -128,6 +129,7 @@ function addGoal() {
     }
 }
 
+/*change goal buttons as user selects*/
 function updateFilters(tagName) {
     let buttons = document.querySelectorAll(`button[name='${tagName}']`);
     let length = buttons.length - 1;
