@@ -121,8 +121,13 @@ function addGoal() {
             body: JSON.stringify(goal)
         })
             .then(response => response.json())
-            .then(msg => {
-                console.log(msg);
+            .then(goals => {
+                document.querySelector('.goals').innerHTML = '';
+                goals.forEach(goal=>{
+                    let listitem = document.createElement('li');
+                    listitem.appendChild(document.createTextNode(goal.Goals));
+                    document.querySelector('.goals').insertAdjacentElement('beforeend', listitem);
+                })
             })
     } else {
         document.querySelector('.error').innerHTML = 'Please Log In/Register to save goals';
