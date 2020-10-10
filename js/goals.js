@@ -98,6 +98,7 @@ function clear() {
         document.querySelector(`button[value='${item}']`).classList.remove('selected');
     }
     goals = [];
+    document.querySelector('.error').innerHTML = '';
 }
 
 /*for select event listener*/

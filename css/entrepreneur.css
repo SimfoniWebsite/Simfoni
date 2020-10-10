@@ -282,6 +282,7 @@ iframe {
 }
   
 .error{
+  padding: 2vw;
   color: rgb(207, 3, 3);
 }
   
