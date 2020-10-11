@@ -14,7 +14,6 @@ let rankCount = 0;
 
 if (window.location.href.indexOf("goal") > -1) {
     let pathArray = window.location.pathname.split('/');
-
     let lastvalue = pathArray[pathArray.length - 1];
     user.id = lastvalue;
     isSignedIn = true;
@@ -118,6 +117,18 @@ function clear() {
     }
     goals = [];
     document.querySelector('.error').innerHTML = '';
+    document.querySelector('.filters').innerHTML='';
+    fetch(url + '/goals')
+    .then(response => response.json())
+    .then(filters => {
+        console.log(filters);
+        rankCount = filters.recordset[filters.recordset.length - 1].ObjectRank;
+        let filterDOM = document.querySelector('.filters');
+        filters.recordset.forEach(tag => {
+            let button = createButton(tag);
+            filterDOM.insertAdjacentElement('beforeEnd', button);
+        })
+    })
 }
 
 /*for select event listener*/
@@ -141,21 +152,8 @@ function addGoal() {
         })
             .then(response => response.json())
             .then(goals => {
-
                 renderGoals(goals);
                 clear();
-                fetch(url + '/goals')
-                    .then(response => response.json())
-                    .then(filters => {
-                        console.log(filters);
-                        rankCount = filters.recordset[filters.recordset.length - 1].ObjectRank;
-                        let filterDOM = document.querySelector('.filters');
-                        filters.recordset.forEach(tag => {
-                            let button = createButton(tag);
-                            filterDOM.insertAdjacentElement('beforeEnd', button);
-                        })
-                    })
-
             })
 
     } else {

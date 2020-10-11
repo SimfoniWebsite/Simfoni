@@ -278,8 +278,8 @@ iframe {
 }
   
 .selected{
-  background: #46697d;
-  border: 1px #46697d solid;
+  background: #678b99;
+  border: 1px #678b99 solid;
 }
   
 .error{
@@ -307,5 +307,10 @@ iframe {
 .goals li{
   padding: .5vw;
 }
- 
-  
+
+.filters button{
+  box-shadow: 5px 5px 6px 0px rgba(140,140,140,0.39);
+}
+.filters button:hover{
+  color: rgba(0, 0, 0, 0.63);
+}
