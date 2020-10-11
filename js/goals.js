@@ -14,6 +14,7 @@ let rankCount = 0;
 
 if (window.location.href.indexOf("goal") > -1) {
     let pathArray = window.location.pathname.split('/');
+
     let lastvalue = pathArray[pathArray.length - 1];
     user.id = lastvalue;
     isSignedIn = true;
@@ -140,6 +141,7 @@ function addGoal() {
         })
             .then(response => response.json())
             .then(goals => {
+
                 renderGoals(goals);
                 clear();
                 fetch(url + '/goals')
@@ -153,6 +155,7 @@ function addGoal() {
                             filterDOM.insertAdjacentElement('beforeEnd', button);
                         })
                     })
+
             })
 
     } else {
