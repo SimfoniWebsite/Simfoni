@@ -14,6 +14,10 @@ let rankCount = 0;
 
 if (window.location.href.indexOf("goal") > -1) {
     let pathArray = window.location.pathname.split('/');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1a5ba3be7235e847f1ae7c1533a9a6462de02ff5
     let lastvalue = pathArray[pathArray.length - 1];
     user.id = lastvalue;
     isSignedIn = true;
@@ -140,6 +144,10 @@ function addGoal() {
         })
             .then(response => response.json())
             .then(goals => {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1a5ba3be7235e847f1ae7c1533a9a6462de02ff5
                 renderGoals(goals);
                 clear();
                 fetch(url + '/goals')
@@ -153,6 +161,10 @@ function addGoal() {
                             filterDOM.insertAdjacentElement('beforeEnd', button);
                         })
                     })
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1a5ba3be7235e847f1ae7c1533a9a6462de02ff5
             })
 
     } else {
