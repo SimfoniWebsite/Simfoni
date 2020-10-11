@@ -4,18 +4,26 @@ const url = "http://localhost:3000";
 /*store selected buttons*/
 let goals = [];
 /*is user signed in*/
-let isSignedIn = true;
+let isSignedIn = false;
 /*if signed in user*/
 let user = {
-    id: 1,
+    id: 0,
 }
 let rankCount = 0;
+
+
+if (window.location.href.indexOf("goal") > -1) {
+    let pathArray = window.location.pathname.split('/');
+    let lastvalue = pathArray[pathArray.length-1];
+    user.id = lastvalue;
+    isSignedIn = true;
+}
 
 fetch(url + '/goals')
     .then(response => response.json())
     .then(filters => {
         console.log(filters);
-        rankCount = filters.recordset[filters.recordset.length-1].ObjectRank;
+        rankCount = filters.recordset[filters.recordset.length - 1].ObjectRank;
         let filterDOM = document.querySelector('.filters');
         filters.recordset.forEach(tag => {
             let button = createButton(tag);
@@ -123,7 +131,7 @@ function addGoal() {
             .then(response => response.json())
             .then(goals => {
                 document.querySelector('.goals').innerHTML = '';
-                goals.forEach(goal=>{
+                goals.forEach(goal => {
                     let listitem = document.createElement('li');
                     listitem.appendChild(document.createTextNode(goal.Goals));
                     document.querySelector('.goals').insertAdjacentElement('beforeend', listitem);
@@ -151,10 +159,11 @@ function updateFilters(tagName) {
     } else if (tagName === 'conjunction') {
         nextValues = 'duration';
     }
-    if (!buttons === '') {
+    if (!(buttons === '')) {
         buttons.forEach(button => {
-            if (button.selected === false) {
-                button.parentNode.removeChild(button);
+            if (!(button.classList.contains('selected'))) {
+                let selected = document.querySelector(`button[value='${button.value}'`)
+                selected.parentNode.removeChild(selected);
             }
         })
     }

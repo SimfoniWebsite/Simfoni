@@ -11,6 +11,7 @@ Text colors: #0a090c(black), white
     justify-content: center;
     height: 100px;
 }
+
 .grid-item{
     margin:8px 0px 8px 0px;
     padding: 3px 16px;
