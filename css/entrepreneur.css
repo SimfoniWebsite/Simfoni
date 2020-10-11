@@ -288,7 +288,24 @@ iframe {
 }
   
   
+.goals{
+  padding: 1vw;
+  list-style: none;
+}
+.goals div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.delete{
+  font-size: .7rem;
+  padding: 0.25vw;
+  background-color: white;
+  border: none;
+}
   
-  
+.goals li{
+  padding: .5vw;
+}
  
   

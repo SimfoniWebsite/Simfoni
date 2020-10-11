@@ -69,8 +69,12 @@ module.exports = router ;
       ManProfser:req.body.ManProfser,      
     };
       var sql = "INSERT INTO  Registration(Password,FName,LName,PhoneNumber,Email, MailingAddress,City,State,ZipCode,DateOfBirth,Education,WorkHistory,EmploymentStatus, ManagedProfileServices) VALUES('" + response.Password + "','" + response.firstName +"','" + response.lastName +"','"+ response.phone + "','"+ response.email + "','"+ response.subAddress + "','"+ response.subCity + "','"+ response.subState + "','" + response.subZipCode + "','"+ response.birthdate + "','"+ response.subDescription + "',' "+ response.subWorkhist + "','"+ response.levOfInv + "','"+ response.ManProfser + "')";
-      sendQueryResults(res, sql);
-      res.send(JSON.stringify(response)); // this helps to view user input as a response
+      executeQuery(sql);
+      executeQuery(`SELECT MemberID FROM Registration WHERE Email = '${response.email}'`)
+      .then(results=>{
+        res.redirect('http://localhost:3000/goals/'+results[0].MemberID);
+      })
+       // this helps to view user input as a response
       //res.send("Your data has been inserted to a database")
   });
   // 
