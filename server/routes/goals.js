@@ -4,9 +4,17 @@ const db = require('./db');
 const sql = require("mssql");
 
 var executeQuery = async function (query) {
-  var connectionPool = await db;
-  var result = await connectionPool.request().query(query);
-  return result.recordset;
+  try {
+    var connectionPool = await db;
+    var result = await connectionPool.request().query(query);
+    return result.recordset;
+  }
+  catch (err) {
+    console.log({
+      success: false,
+      error: err
+    });
+  }
 }
 
 router.get("/", (req, res) => {
@@ -29,33 +37,27 @@ router.get("/", (req, res) => {
 
 router.put('/addGoal', (req, res) => {
   console.log(req.body);
+  let id = Number(req.body.id);
+  //insert memberID and goalID 
+  for (let i = 0; i < req.body.objects.length; i++) {
+    console.log(`${req.body.objects[i]}`);
+    executeQuery(`SELECT ObjectID from Object WHERE ObjectName = '${req.body.objects[i]}'`).then(results => {
+      console.log(results);
+      executeQuery(`INSERT INTO SelectedObject (ObjectID, MemberID) VALUES (${results[0].ObjectID}, ${id})`).then(result => console.log(result))
+    });
+  };
 
-  sql.connect(dbConfig, function (err) {
-    if (err) return console.log(err);
-    // create Request object
-    //var request = new sql.Request();
-    //insert memberID and goalID 
-    req.body.objects.forEach(object => {
-      executeQuery(`SELECT ObjectID from Object WHERE ObjectName = '${object}'`).then(results => {
-        if (err) return console.log(err);
-        //request.query(`INSERT INTO SelectedObject (ObjectID, SelectedID) VALUES (${results.recordset//[0].ObjectID}, ${req.body.id})`, function (err) {
-        //  if (err) console.log(err);
-        //});
+  // insert goals into table and retrieve SelectedID
+  executeQuery(`INSERT INTO SelectedGoal (Goals) VALUES ('${req.body.goal.trim()}'); SELECT * FROM SelectedGoal WHERE SelectedID = SCOPE_IDENTITY()`).then(result => {
+    //insert into MemberGoal table
+    executeQuery(`INSERT INTO MemberGoal (SelectedID, MemberID) VALUES (${result[0].SelectedID}, ${id}); SELECT Goals FROM SelectedGoal JOIN MemberGoal ON SelectedGoal.SelectedID = MemberGoal.SelectedID WHERE MemberID = ${id} `)
+      .then(results => {
+        console.log(results);
+        res.json(results);
       });
-    });
-    // insert goals into table and retrieve SelectedID
-    executeQuery(`INSERT INTO SelectedGoal (Goals) VALUES ('${req.body.goal}'); SELECT * FROM SelectedGoal WHERE SelectedID = SCOPE_IDENTITY()`).then(result => {
-      console.log(result);
-
-
-      //insert into MemberGoal table
-      executeQuery(`INSERT INTO MemberGoal (SelectedID, MemberID) VALUES (${result[0].SelectedID}, ${req.body.id}); SELECT Goals FROM SelectedGoal JOIN MemberGoal ON SelectedGoal.SelectedID = MemberGoal.SelectedID WHERE MemberID = ${req.body.id} `)
-        .then(results => {
-          res.json(results);
-        });
-    });
   });
 });
+
 
 
 router.post('/filterbuttons', (req, res) => {
@@ -80,6 +82,30 @@ router.post('/filterbuttons', (req, res) => {
   });
 });
 
+router.delete('/deleteGoal', (req, res) => {
+  console.log(req.body);
+  let id = Number(req.body.id);
+  executeQuery(`SELECT SelectedGoal.SelectedID FROM SelectedGoal JOIN MemberGoal ON SelectedGoal.SelectedID = MemberGoal.SelectedID
+  WHERE MemberID = ${id} AND Goals = '${req.body.goal}'`)
+    .then(results => {
+      console.log(results);
+      executeQuery(`DELETE FROM MemberGoal WHERE SelectedID = ${results[0].SelectedID} AND MemberID = ${id}; DELETE FROM SelectedGoal WHERE SelectedID = ${results[0].SelectedID}; SELECT Goals FROM SelectedGoal JOIN MemberGoal ON SelectedGoal.SelectedID = MemberGoal.SelectedID WHERE MemberID = ${id} `)
+      .then(results=>{
+      console.log(results);
+      res.json(results);
+      })
+    });
+});
+
+router.get('/profile/:id', (req, res) => {
+  console.log(req.params);
+  let id = Number(req.params.id);
+  executeQuery(`SELECT Goals FROM SelectedGoal JOIN MemberGoal ON SelectedGoal.SelectedID = MemberGoal.SelectedID WHERE MemberID = ${id} `)
+    .then(results => {
+      console.log(results);
+      res.json(results);
+    });
+});
 
 module.exports = router;
 

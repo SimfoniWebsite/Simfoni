@@ -16,7 +16,9 @@ app.use('/entrepregistration', require('./entrepregistration'));
 
 //sending html on login
 app.get('/goals/:id', (req, res) => {
-    console.log(req.params);
+
+    console.log('goals/id', req.params);
+
     res.sendFile(path.resolve('../html/entrepreneur.html'));  
   });
 module.exports = app;

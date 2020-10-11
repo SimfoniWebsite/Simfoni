@@ -14,9 +14,15 @@ let rankCount = 0;
 
 if (window.location.href.indexOf("goal") > -1) {
     let pathArray = window.location.pathname.split('/');
-    let lastvalue = pathArray[pathArray.length-1];
+
+    let lastvalue = pathArray[pathArray.length - 1];
     user.id = lastvalue;
     isSignedIn = true;
+    fetch(url + `/goals/profile/${user.id}`)
+        .then(response => response.json())
+        .then(results => {
+            renderGoals(results);
+        })
 }
 
 fetch(url + '/goals')
@@ -64,7 +70,12 @@ function handleClick(event) {
             addToGoal(element);
             break;
         }
-
+        if (element.nodeName === "BUTTON" && /delete/.test(element.className)) {
+            // The user clicked on a <button> or clicked on an element inside a <button>
+            // with a class name called "type2Submit"
+            deleteGoal(element.parentNode);
+            break;
+        }
 
         element = element.parentNode;
     }
@@ -130,16 +141,39 @@ function addGoal() {
         })
             .then(response => response.json())
             .then(goals => {
-                document.querySelector('.goals').innerHTML = '';
-                goals.forEach(goal => {
-                    let listitem = document.createElement('li');
-                    listitem.appendChild(document.createTextNode(goal.Goals));
-                    document.querySelector('.goals').insertAdjacentElement('beforeend', listitem);
-                })
+
+                renderGoals(goals);
+                clear();
+                fetch(url + '/goals')
+                    .then(response => response.json())
+                    .then(filters => {
+                        console.log(filters);
+                        rankCount = filters.recordset[filters.recordset.length - 1].ObjectRank;
+                        let filterDOM = document.querySelector('.filters');
+                        filters.recordset.forEach(tag => {
+                            let button = createButton(tag);
+                            filterDOM.insertAdjacentElement('beforeEnd', button);
+                        })
+                    })
+
             })
+
     } else {
         document.querySelector('.error').innerHTML = 'Please Log In/Register to save goals';
     }
+}
+
+function renderGoals(goals) {
+    document.querySelector('.goals').innerHTML = '';
+    goals.forEach(goal => {
+        let div = document.createElement('div');
+        let listitem = document.createElement('li');
+        listitem.appendChild(document.createTextNode(goal.Goals));
+        let button = '<button class="delete">x</button>';
+        div.appendChild(listitem);
+        div.insertAdjacentHTML('beforeend', button);
+        document.querySelector('.goals').insertAdjacentElement('beforeend', div);
+    })
 }
 
 /*change goal buttons as user selects*/
@@ -187,4 +221,24 @@ function updateFilters(tagName) {
                 filterDOM.insertAdjacentElement('beforeEnd', button);
             })
         })
+}
+
+
+/*function to delete goal*/
+function deleteGoal(goal) {
+    let deletedGoal = {
+        id: user.id,
+        goal: goal.textContent.substring(0, goal.textContent.length - 1)
+    };
+    fetch(url + '/goals/deleteGoal', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(deletedGoal)
+    }).then(response => response.json())
+        .then(goals => {
+            renderGoals(goals);
+        })
+
 }
