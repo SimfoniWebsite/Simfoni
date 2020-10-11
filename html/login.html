@@ -62,7 +62,7 @@
             </li>
           </ul>
         </li>
-        <li class="item has-submenu">
+        <!--<li class="item has-submenu">
           <a tabindex="0"
             >Development<i class="fa fa-angle-down" aria-hidden="true"></i
           ></a>
@@ -88,7 +88,7 @@
           <ul class="submenu">
             <li class="subitem"><a href="resources.html">Overview</a></li>
           </ul>
-        </li>
+        </li>-->
         <!--<li class="item"><a href="#">Blog</a></li>-->
         <!--<li class="item"><a href="#">Contact</a>-->
 
@@ -103,7 +103,7 @@
     </nav>
     <!--Page Header-->
     <header>
-        <h1>Log in Page</h1>
+        <h1>Log in</h1>
         
 
     </header>
@@ -114,33 +114,41 @@
 		<div class="login-form">
             <!-- <h1>Login Form</h1> -->
         </br>  </br> </br> </br> </br>
-			<form action="auth" method="POST">
-				<input type="text" name="username" placeholder="Username" required>
-				<input type="password" name="password" placeholder="Password" required>
-				<input type="submit">
-			</form>
-		</div>
+      <form action="http://localhost:3000/login/vlogin" method="POST">
+                <!-- <input type="text" name="username" placeholder="Username" required> -->
+                <input type="text" name="email" placeholder="E-mail" required>
+                <input type="password" name="password" placeholder="Password" required>
+                
+                <input type="submit"  value = "Submit">  
+                
+                <div>
+                </br> </br> </br>
+                <span>Forgot <a href="forgetpassword.html">password?</a></span>  
+                </div>
+      </form>
+    </div>
     </br>  </br> </br> </br> </br>
-		<!-- Footer  start here  -->
-		<footer>
-			<div class="disclaimer">
-				<p>Disclaimers and Disclosures</p>
-			</div>
-			<div class="footer">
-				<ul class="footer-nav">
-					<li><a href="#">Contact Info</a></li>
-<!-- 					<li><a href="#">About Us</a></li>
-					<li><a href="#">Privacy Policy</a></li> -->
-				</ul>
-				<ul class="footer-logo">
-					<!-- <li><img width="30px" ; src="../img/FINAL_SLOGO.png"></li> -->
-					<li><img width="30px" ; src="../img/FINAL_SLOGO.png"></li>
-				</ul>
-			</div>
+    <!-- Footer  start here  -->
+    <footer>
+            <div class="disclaimer">
+              <p>Disclaimers and Disclosures</p>
+            </div>
+            <div class="footer">
+              <ul class="footer-nav">
+                <li><a href="#">Contact Us:</a></li>
+                <!--<li><a href="#">About Us</a></li>
+                      <li><a href="#">Privacy Policy</a></li>-->
+                <address>
+                <a href="mailto:helpdesk@simfoni.com">simfoni.com</a><br>
+                <a href="tel:+13335557777">(333) 555-7777</a>
+                </address>
+              </ul>
+              <ul class="footer-logo">
+                <li><img width="30px" ; src="../img/FINAL_SLOGO.png" /></li>
+              </ul>
+            </div>
 		</footer>
 		<!-- <script src="../js/index.js"></script> -->
-	
-
 		<!-- footer ends here -->
 	</body>
 </html>
