@@ -310,7 +310,8 @@ iframe {
 
 .filters button{
   box-shadow: 5px 5px 6px 0px rgba(140,140,140,0.39);
+  transition: all .2s ease-in-out; 
 }
 .filters button:hover{
-  color: rgba(0, 0, 0, 0.63);
+  transform: scale(1.1);
 }
