@@ -21,6 +21,7 @@ if (window.location.href.indexOf("goal") > -1) {
         .then(response => response.json())
         .then(results => {
             renderGoals(results);
+            document.querySelector('.signout').classList.remove('hidden');
         })
 }
 
@@ -117,18 +118,18 @@ function clear() {
     }
     goals = [];
     document.querySelector('.error').innerHTML = '';
-    document.querySelector('.filters').innerHTML='';
+    document.querySelector('.filters').innerHTML = '';
     fetch(url + '/goals')
-    .then(response => response.json())
-    .then(filters => {
-        console.log(filters);
-        rankCount = filters.recordset[filters.recordset.length - 1].ObjectRank;
-        let filterDOM = document.querySelector('.filters');
-        filters.recordset.forEach(tag => {
-            let button = createButton(tag);
-            filterDOM.insertAdjacentElement('beforeEnd', button);
+        .then(response => response.json())
+        .then(filters => {
+            console.log(filters);
+            rankCount = filters.recordset[filters.recordset.length - 1].ObjectRank;
+            let filterDOM = document.querySelector('.filters');
+            filters.recordset.forEach(tag => {
+                let button = createButton(tag);
+                filterDOM.insertAdjacentElement('beforeEnd', button);
+            })
         })
-    })
 }
 
 /*for select event listener*/
@@ -239,4 +240,16 @@ function deleteGoal(goal) {
             renderGoals(goals);
         })
 
+}
+
+
+/*eventlistener for signout*/
+document.querySelector('.signout').addEventListener('click', signoutUser);
+
+function signoutUser() {
+    user.id = 0;
+    isSignedIn = false;
+    document.querySelector('.signout').classList.add('hidden');
+    document.querySelector('.goals').innerHTML = '';
+    location.href = "../html/index.html";
 }

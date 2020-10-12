@@ -382,3 +382,29 @@ iframe {
   background: rgba(255,255,255,0.5);
   margin: 0 0 10px 0;
 }
+
+.signout{
+  margin: 1vw;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.signoutbtn{
+  background-color: white;
+  border: none;
+  font-family: inherit; 
+  font-size: 100%; 
+  line-height: 1.15; 
+  margin: 0; 
+  padding: 1vw;
+  overflow: visible;
+  text-transform: none;
+}
+
+.signoutbtn:hover{
+  color: rgba(0, 0, 0, 0.733);
+}
+
+.hidden{
+  display: none;
+}
