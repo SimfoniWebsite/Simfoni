@@ -272,21 +272,72 @@ iframe {
 
 .goal-input{
   padding: 1vw;
+  transition: all .2s ease-in-out; 
+}
+@media all and (max-width: 600px){
+  .goal-input{
+    display: flex;
+    flex-direction: column;
+  }
+  .select{
+    margin: 1vw;
+  }
+  .clear{
+    margin: 1vw;
+  }
+  .backspace{
+    margin: 1vw;
+  }
 }
 .goal-input input{
-  width: 40vw;
+  width: 35vw;
 }
-  
+/*button on selection*/ 
 .selected{
   background: #678b99;
   border: 1px #678b99 solid;
 }
-  
+/*error message*/
 .error{
   padding: 2vw;
   color: rgb(207, 3, 3);
 }
-  
+
+/*select clear and backspace buttons*/
+.select{
+  margin: 0.5vw;
+  padding: 0.5vw;
+  background-color: white;
+  border: 1px solid #46697d;
+  color: #46697d;
+}
+.select:hover{
+  color: rgb(70, 105, 125, 0.8);
+  transform: scale(1.1);
+}
+ .backspace{
+  margin: 0.5vw;
+  padding: 0.5vw;
+  background-color: white;
+  border: 1px solid #46697d;
+  color: #46697d;
+ } 
+ .backspace:hover{
+  color: rgb(70, 105, 125, 0.8);
+  transform: scale(1.1);
+}
+ .clear{
+  margin: 0.5vw;
+  padding: 0.5vw;
+  background-color: white;
+  border: 1px solid #46697d;
+  color: #46697d;
+ }
+ .clear:hover{
+  color: rgb(70, 105, 125, 0.8);
+  transform: scale(1.1);
+}
+
   
 .goals{
   padding: 1vw;
@@ -314,4 +365,20 @@ iframe {
 }
 .filters button:hover{
   transform: scale(1.1);
+}
+
+.goal-input input {
+  border: 5px solid white; 
+  -webkit-box-shadow: 
+    inset 0 0 8px  rgba(0,0,0,0.1),
+          0 0 16px rgba(0,0,0,0.1); 
+  -moz-box-shadow: 
+    inset 0 0 8px  rgba(0,0,0,0.1),
+          0 0 16px rgba(0,0,0,0.1); 
+  box-shadow: 
+    inset 0 0 8px  rgba(0,0,0,0.1),
+          0 0 16px rgba(0,0,0,0.1); 
+  padding: 10px;
+  background: rgba(255,255,255,0.5);
+  margin: 0 0 10px 0;
 }
