@@ -148,7 +148,8 @@ input:required:hover {
 
 
 input[type="submit"] {
-    width: 20%;
+    width: 300px;
+    /*min-width: 30%;*/
     padding: 15px;
     background-color: #535b63;
     border: 0;
