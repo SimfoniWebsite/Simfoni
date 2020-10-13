@@ -272,21 +272,72 @@ iframe {
 
 .goal-input{
   padding: 1vw;
+  transition: all .2s ease-in-out; 
+}
+@media all and (max-width: 600px){
+  .goal-input{
+    display: flex;
+    flex-direction: column;
+  }
+  .select{
+    margin: 1vw;
+  }
+  .clear{
+    margin: 1vw;
+  }
+  .backspace{
+    margin: 1vw;
+  }
 }
 .goal-input input{
-  width: 40vw;
+  width: 35vw;
 }
-  
+/*button on selection*/ 
 .selected{
   background: #678b99;
   border: 1px #678b99 solid;
 }
-  
+/*error message*/
 .error{
   padding: 2vw;
   color: rgb(207, 3, 3);
 }
-  
+
+/*select clear and backspace buttons*/
+.select{
+  margin: 0.5vw;
+  padding: 0.5vw;
+  background-color: white;
+  border: 1px solid #46697d;
+  color: #46697d;
+}
+.select:hover{
+  color: rgb(70, 105, 125, 0.8);
+  transform: scale(1.1);
+}
+ .backspace{
+  margin: 0.5vw;
+  padding: 0.5vw;
+  background-color: white;
+  border: 1px solid #46697d;
+  color: #46697d;
+ } 
+ .backspace:hover{
+  color: rgb(70, 105, 125, 0.8);
+  transform: scale(1.1);
+}
+ .clear{
+  margin: 0.5vw;
+  padding: 0.5vw;
+  background-color: white;
+  border: 1px solid #46697d;
+  color: #46697d;
+ }
+ .clear:hover{
+  color: rgb(70, 105, 125, 0.8);
+  transform: scale(1.1);
+}
+
   
 .goals{
   padding: 1vw;
@@ -310,7 +361,50 @@ iframe {
 
 .filters button{
   box-shadow: 5px 5px 6px 0px rgba(140,140,140,0.39);
+  transition: all .2s ease-in-out; 
 }
 .filters button:hover{
-  color: rgba(0, 0, 0, 0.63);
+  transform: scale(1.1);
+}
+
+.goal-input input {
+  border: 5px solid white; 
+  -webkit-box-shadow: 
+    inset 0 0 8px  rgba(0,0,0,0.1),
+          0 0 16px rgba(0,0,0,0.1); 
+  -moz-box-shadow: 
+    inset 0 0 8px  rgba(0,0,0,0.1),
+          0 0 16px rgba(0,0,0,0.1); 
+  box-shadow: 
+    inset 0 0 8px  rgba(0,0,0,0.1),
+          0 0 16px rgba(0,0,0,0.1); 
+  padding: 10px;
+  background: rgba(255,255,255,0.5);
+  margin: 0 0 10px 0;
+}
+
+.signout{
+  margin: 1vw;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.signoutbtn{
+  background-color: white;
+  border: none;
+  font-family: inherit; 
+  font-size: 100%; 
+  line-height: 1.15; 
+  margin: 0; 
+  padding: 1vw;
+  overflow: visible;
+  text-transform: none;
+}
+
+.signoutbtn:hover{
+  color: rgba(0, 0, 0, 0.733);
+}
+
+.hidden{
+  display: none;
 }
