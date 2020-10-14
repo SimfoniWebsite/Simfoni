@@ -247,9 +247,25 @@ function deleteGoal(goal) {
 document.querySelector('.signout').addEventListener('click', signoutUser);
 
 function signoutUser() {
-    user.id = 0;
+    let signOutuser={
+        id: user.id
+    }
+    console.log(user);
+    user.id = 0;    
     isSignedIn = false;
     document.querySelector('.signout').classList.add('hidden');
     document.querySelector('.goals').innerHTML = '';
-    location.href = "../html/index.html";
+    // location.href = "../html/index.html";
+    fetch(url + '/profile/logout', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(signOutuser)
+    }).then(function(response) {
+        if (response.redirected) {
+          return window.location.replace(response.url);
+        }
+    });
 }

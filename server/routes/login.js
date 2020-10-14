@@ -4,6 +4,7 @@ const router = require('express').Router();
 var express = require('express');
 var _ = require('underscore');
 var db = require('./db');
+const redirectGoal = require('./redirectGoal');
 
 //var session = require('express-session');
 const { result } = require('underscore');
@@ -37,7 +38,7 @@ router.get('/', function (req, res) {
 
 //-----------------------For testing you can use POSTMAN-------------------------------
 
-router.get('/form', function (req, res) {
+router.get('/form', redirectGoal, function (req, res) {
   res.sendFile(path.resolve('../html/login.html'));
   //res.sendFile('../../html/login.html', { root: __dirname });
   //res.sendFile( __dirname + "/" + "index.html" );    //load the index.html form 
@@ -45,14 +46,14 @@ router.get('/form', function (req, res) {
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 //=======================verify password == accounts===============
-router.get('/form2', function (req, res)
+router.get('/form2', redirectGoal,  function (req, res)
 //router.get('/form',function (req, res)
 {
   res.sendFile(__dirname + "/" + "login.html");    //load the login.html form 
 });
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 //==
-router.post('/vlogin', urlencodedParser, function (req, res) {
+router.post('/vlogin', redirectGoal, function (req, res) {
   var response = {//modify the html form and the following
     // username:req.body.username,
     email: req.body.email,
@@ -65,7 +66,9 @@ router.post('/vlogin', urlencodedParser, function (req, res) {
   executeQuery(sql).then(result => {
     if (result.length > 0) {
       console.log(result);
-      res.redirect('/login/profile/'+result[0].MemberID);
+      req.session.userID = result[0].MemberID;
+      console.log(req.session);
+      res.redirect('/login/profile/'+req.session.userID);
       //res.status(404).send('correct password');
     }
     else {
