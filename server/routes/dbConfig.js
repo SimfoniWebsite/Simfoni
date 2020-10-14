@@ -1,7 +1,7 @@
 //config for your database
 const dbConfig = {
     server: "localhost\\SQLEXPRESS",
-    database: "Test8",
+    database: "SimfoniDatabase",
     user: "simfoni",
     password: "simfoni",
     options: {
