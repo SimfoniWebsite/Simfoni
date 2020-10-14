@@ -73,6 +73,7 @@ router.post('/newcust', redirectGoal, function (req, res) {
   };
   bcrypt.hash(req.body.Password, saltRounds).then(function (hash) {
     console.log(response.Password);
+    response.Password = hash;
     var sql = "INSERT INTO  Registration(Password,FName,LName,PhoneNumber,Email, MailingAddress,City,State,ZipCode,DateOfBirth,Education,WorkHistory,EmploymentStatus, ManagedProfileServices) VALUES('" + response.Password + "','" + response.firstName + "','" + response.lastName + "','" + response.phone + "','" + response.email + "','" + response.subAddress + "','" + response.subCity + "','" + response.subState + "','" + response.subZipCode + "','" + response.birthdate + "','" + response.subDescription + "',' " + response.subWorkhist + "','" + response.levOfInv + "','" + response.ManProfser + "')";
     executeQuery(sql).then(
       executeQuery(`SELECT MemberID FROM Registration WHERE Email = '${response.email}'`)
