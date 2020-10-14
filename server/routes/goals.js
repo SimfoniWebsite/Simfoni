@@ -24,7 +24,7 @@ router.get("/", (req, res) => {
     // create Request object
     var request = new sql.Request();
     // query to the database and get the records
-    request.query(`SELECT TOP 15 ObjectName, TagName, ObjectRank FrOM Object
+    request.query(`SELECT TOP 20 ObjectName, TagName, ObjectRank FrOM Object
       JOIN ObjectPrimary ON Object.ObjectID = ObjectPrimary.ObjectID
       JOIN PrimaryTag ON ObjectPrimary.PrimaryID = PrimaryTag.PrimaryID
       ORDER BY ObjectRank DESC`, function (err, results) {

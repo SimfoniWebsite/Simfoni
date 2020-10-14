@@ -2,7 +2,7 @@ var sql = require('mssql');
 //config for your database
 var config = {
     server: "localhost\\SQLEXPRESS",
-    database: "Test8",
+    database: "SimfoniDatabase",
     user: "simfoni",
     password: "simfoni",
     options: {
