@@ -2,6 +2,7 @@ const router = require("express").Router();
 const dbConfig = require('./dbConfig');
 const db = require('./db');
 const sql = require("mssql");
+const redirectLogin = require('./redirectLogin');
 
 var executeQuery = async function (query) {
   try {
@@ -17,6 +18,8 @@ var executeQuery = async function (query) {
   }
 }
 
+
+
 router.get("/", (req, res) => {
   //connect to database
   sql.connect(dbConfig, function (err) {
@@ -24,7 +27,7 @@ router.get("/", (req, res) => {
     // create Request object
     var request = new sql.Request();
     // query to the database and get the records
-    request.query(`SELECT TOP 20 ObjectName, TagName, ObjectRank FrOM Object
+    request.query(`SELECT TOP 30 ObjectName, TagName, ObjectRank FrOM Object
       JOIN ObjectPrimary ON Object.ObjectID = ObjectPrimary.ObjectID
       JOIN PrimaryTag ON ObjectPrimary.PrimaryID = PrimaryTag.PrimaryID
       ORDER BY ObjectRank DESC`, function (err, results) {
@@ -90,12 +93,13 @@ router.delete('/deleteGoal', (req, res) => {
     .then(results => {
       console.log(results);
       executeQuery(`DELETE FROM MemberGoal WHERE SelectedID = ${results[0].SelectedID} AND MemberID = ${id}; DELETE FROM SelectedGoal WHERE SelectedID = ${results[0].SelectedID}; SELECT Goals FROM SelectedGoal JOIN MemberGoal ON SelectedGoal.SelectedID = MemberGoal.SelectedID WHERE MemberID = ${id} `)
-      .then(results=>{
-      console.log(results);
-      res.json(results);
-      })
+        .then(results => {
+          console.log(results);
+          res.json(results);
+        })
     });
 });
+
 
 router.get('/profile/:id', (req, res) => {
   console.log(req.params);
