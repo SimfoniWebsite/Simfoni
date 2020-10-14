@@ -7,6 +7,8 @@ var db = require('./db');
 const redirectGoal = require('./redirectGoal');
 //var session = require('express-session');
 const { result } = require('underscore');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 //const app = express();
 var executeQuery = async function (query) {
   var connectionPool = await db;
@@ -69,13 +71,16 @@ router.post('/newcust', redirectGoal, function (req, res) {
     levOfInv: req.body.levOfInv,
     ManProfser: req.body.ManProfser,
   };
-  var sql = "INSERT INTO  Registration(Password,FName,LName,PhoneNumber,Email, MailingAddress,City,State,ZipCode,DateOfBirth,Education,WorkHistory,EmploymentStatus, ManagedProfileServices) VALUES('" + response.Password + "','" + response.firstName + "','" + response.lastName + "','" + response.phone + "','" + response.email + "','" + response.subAddress + "','" + response.subCity + "','" + response.subState + "','" + response.subZipCode + "','" + response.birthdate + "','" + response.subDescription + "',' " + response.subWorkhist + "','" + response.levOfInv + "','" + response.ManProfser + "')";
-  executeQuery(sql);
-  executeQuery(`SELECT MemberID FROM Registration WHERE Email = '${response.email}'`)
-    .then(results => {
-      req.session.userID = results[0].MemberID;
-      res.redirect('http://localhost:3000/goals/' + req.session.userID);
-    })
+  bcrypt.hash(req.body.Password, saltRounds).then(function (hash) {
+    console.log(response.Password);
+    var sql = "INSERT INTO  Registration(Password,FName,LName,PhoneNumber,Email, MailingAddress,City,State,ZipCode,DateOfBirth,Education,WorkHistory,EmploymentStatus, ManagedProfileServices) VALUES('" + response.Password + "','" + response.firstName + "','" + response.lastName + "','" + response.phone + "','" + response.email + "','" + response.subAddress + "','" + response.subCity + "','" + response.subState + "','" + response.subZipCode + "','" + response.birthdate + "','" + response.subDescription + "',' " + response.subWorkhist + "','" + response.levOfInv + "','" + response.ManProfser + "')";
+    executeQuery(sql).then(
+      executeQuery(`SELECT MemberID FROM Registration WHERE Email = '${response.email}'`)
+        .then(results => {
+          req.session.userID = results[0].MemberID;
+          res.redirect('http://localhost:3000/goals/' + req.session.userID);
+        }))
+  });
   // this helps to view user input as a response
   //res.send("Your data has been inserted to a database")
 });
